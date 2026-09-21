@@ -17,7 +17,8 @@ FROM nginx:alpine AS final
 RUN apk add --no-cache libcap \
   && setcap 'cap_net_bind_service=+ep' /usr/sbin/nginx \
   && addgroup -S webapp && adduser -S webapp -G webapp \
-  && chown -R webapp:webapp /var/cache/nginx /var/run /var/log/nginx /usr/share/nginx/html
+  && chown -R webapp:webapp /var/cache/nginx /var/run /var/log/nginx /usr/share/nginx/html \
+  && touch /run/nginx.pid && chown webapp:webapp /run/nginx.pid
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist /usr/share/nginx/html
 USER webapp

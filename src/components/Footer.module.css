@@ -109,6 +109,17 @@
   color: rgba(255, 255, 255, .55);
 }
 
+.crediti {
+  flex-basis: 100%;
+  font-size: .75rem;
+  line-height: 1.6;
+}
+
+.crediti a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 @media (min-width: 600px) {
   .griglia {
     grid-template-columns: 1fr 1fr;

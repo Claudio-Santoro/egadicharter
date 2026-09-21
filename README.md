@@ -19,7 +19,7 @@ browser, non serve riavviare nulla.
 **Produzione, versione ottimizzata:**
 
 ```bash
-docker compose --profile prod up -d --build
+docker compose up -d --build
 ```
 
 Il sito è visibile su http://localhost:8080. Da rilanciare (con `--build`) ogni volta che
@@ -89,7 +89,7 @@ in `.env` e incolla l'indirizzo fornito dal servizio scelto).
 
 Attenzione: questa variabile viene "cotta" dentro il sito quando viene fatta la build, non
 può essere cambiata su un sito già pubblicato senza ricostruirlo. In produzione va quindi
-impostata **prima** di lanciare `docker compose --profile prod up -d --build`.
+impostata **prima** di lanciare `docker compose up -d --build`.
 
 ## Pubblicare il sito su un server (VPS)
 

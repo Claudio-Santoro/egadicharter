@@ -2,6 +2,15 @@ import { Link } from 'react-router-dom'
 import { site } from '../data/site'
 import styles from './Footer.module.css'
 
+const crediti = [
+  { autore: 'Ugeorge', licenza: 'CC BY-SA 3.0', url: 'https://creativecommons.org/licenses/by-sa/3.0/', file: 'https://commons.wikimedia.org/wiki/File:Favignana_(1).jpg' },
+  { autore: 'A. Farricelli', licenza: 'CC BY-SA 4.0', url: 'https://creativecommons.org/licenses/by-sa/4.0/', file: 'https://commons.wikimedia.org/wiki/File:Sea_and_rocks_of_Favignana_Island.jpg' },
+  { autore: 'Verbavolan', licenza: 'CC BY-SA 3.0', url: 'https://creativecommons.org/licenses/by-sa/3.0/', file: 'https://commons.wikimedia.org/wiki/File:Levanzo,_Egadi.jpg' },
+  { autore: 'Dantadd', licenza: 'CC BY-SA 2.5', url: 'https://creativecommons.org/licenses/by-sa/2.5/', file: 'https://commons.wikimedia.org/wiki/File:Levanzo_e_Favignana.jpg' },
+  { autore: 'Norbert Nagel', licenza: 'CC BY-SA 3.0', url: 'https://creativecommons.org/licenses/by-sa/3.0/', file: 'https://commons.wikimedia.org/wiki/File:Levanzo_Italy_04.jpg' },
+  { autore: 'Tommie Hansen', licenza: 'CC BY 3.0', url: 'https://creativecommons.org/licenses/by/3.0/', file: 'https://commons.wikimedia.org/wiki/File:Sunrise_at_Favignana_Island,_Sicily_(Italy)_-_panoramio.jpg' },
+]
+
 export default function Footer() {
   return (
     <footer className={styles.footer}>
@@ -54,6 +63,16 @@ export default function Footer() {
 
       <div className={`wrap ${styles.nota}`}>
         <span>Bellavia Egadi Charter — {site.partitaIva}</span>
+        <span className={styles.crediti}>
+          Foto (ridimensionate e ritagliate) da Wikimedia Commons:{' '}
+          {crediti.map((c, i) => (
+            <span key={c.file}>
+              <a href={c.file} target="_blank" rel="noopener noreferrer">{c.autore}</a>{' '}
+              (<a href={c.url} target="_blank" rel="noopener noreferrer">{c.licenza}</a>)
+              {i < crediti.length - 1 ? ', ' : '.'}
+            </span>
+          ))}
+        </span>
       </div>
     </footer>
   )
