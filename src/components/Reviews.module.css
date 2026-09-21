@@ -1,0 +1,55 @@
+.recensioni {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.recensione {
+  background: var(--card);
+  border: 1px solid var(--bordo);
+  border-radius: var(--r);
+  padding: 24px 22px;
+  margin: 0;
+}
+
+.stelle {
+  color: var(--ambra);
+  font-size: .95rem;
+  letter-spacing: 2px;
+}
+
+.recensione p {
+  margin-top: 14px;
+  font-size: .98rem;
+}
+
+.recensione footer {
+  margin-top: 18px;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: .9rem;
+}
+
+.recensione footer small {
+  display: block;
+  font-weight: 400;
+  color: var(--testo-soft);
+  font-size: .82rem;
+}
+
+@media (min-width: 600px) {
+  .recensioni {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .recensioni {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .recensione {
+    padding: 28px 26px;
+  }
+}

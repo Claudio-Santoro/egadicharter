@@ -1,0 +1,52 @@
+.sezione {
+  padding: 62px 0;
+}
+
+.sabbia {
+  background: var(--superficie);
+}
+
+.wrap {
+  width: 100%;
+}
+
+.intro {
+  max-width: 620px;
+  margin-bottom: 36px;
+}
+
+.introSplit {
+  max-width: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.introSplit > div {
+  max-width: 620px;
+}
+
+.titolo {
+  font-size: clamp(1.7rem, 5vw, 2.85rem);
+  font-weight: 700;
+}
+
+.testo {
+  margin-top: 15px;
+  color: var(--testo-soft);
+  font-size: 1.05rem;
+}
+
+@media (min-width: 600px) {
+  .sezione {
+    padding: 88px 0;
+  }
+
+  .intro,
+  .introSplit {
+    margin-bottom: 46px;
+  }
+}

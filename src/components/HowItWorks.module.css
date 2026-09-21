@@ -1,0 +1,52 @@
+.passi {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid var(--bordo);
+  border-radius: var(--r);
+  overflow: hidden;
+  background: var(--card);
+}
+
+.passo {
+  padding: 28px 24px;
+  border-bottom: 1px solid var(--bordo);
+}
+
+.passo:last-child {
+  border-bottom: 0;
+}
+
+.numero {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: .85rem;
+  color: var(--turchese);
+  letter-spacing: .06em;
+}
+
+.passo h3 {
+  margin-top: 12px;
+  font-size: 1.14rem;
+}
+
+.passo p {
+  margin-top: 9px;
+  color: var(--testo-soft);
+  font-size: .94rem;
+}
+
+@media (min-width: 900px) {
+  .passi {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .passo {
+    padding: 34px 30px;
+    border-bottom: 0;
+    border-right: 1px solid var(--bordo);
+  }
+
+  .passo:last-child {
+    border-right: 0;
+  }
+}

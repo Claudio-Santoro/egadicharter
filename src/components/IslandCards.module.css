@@ -1,0 +1,84 @@
+.destinazioni {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+
+.isola {
+  position: relative;
+  border-radius: var(--r);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  min-height: 320px;
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+  background: var(--blu);
+}
+
+.isola img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.velo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5, 38, 53, 0) 35%, rgba(5, 38, 53, .85) 100%);
+}
+
+.testo {
+  position: relative;
+  padding: 28px 24px;
+}
+
+.testo h3 {
+  font-size: 1.6rem;
+}
+
+.testo p {
+  margin-top: 10px;
+  color: rgba(255, 255, 255, .85);
+  font-size: .95rem;
+  max-width: 40ch;
+}
+
+.cale {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cale i {
+  font-style: normal;
+  font-size: .76rem;
+  border: 1px solid rgba(255, 255, 255, .45);
+  border-radius: 99px;
+  padding: 6px 11px;
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (min-width: 600px) {
+  .destinazioni {
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+  }
+
+  .isola {
+    min-height: 420px;
+  }
+
+  .testo {
+    padding: 34px 30px;
+  }
+
+  .testo h3 {
+    font-size: 1.8rem;
+  }
+}

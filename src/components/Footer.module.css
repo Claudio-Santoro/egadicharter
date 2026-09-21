@@ -1,0 +1,124 @@
+.footer {
+  background: var(--blu);
+  color: rgba(255, 255, 255, .76);
+  font-size: .93rem;
+}
+
+.griglia {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 34px;
+  padding: 52px 0 46px;
+}
+
+.griglia h4 {
+  color: #fff;
+  font-size: .95rem;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.griglia a {
+  color: rgba(255, 255, 255, .76);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 4px 0;
+}
+
+.griglia a:hover {
+  color: #fff;
+}
+
+.marchio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.segno {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+}
+
+.testo {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.05;
+  color: #fff;
+}
+
+.testo span {
+  display: block;
+  font-weight: 500;
+  font-size: .62rem;
+  letter-spacing: .14em;
+  color: rgba(255, 255, 255, .72);
+}
+
+.descrizione {
+  margin-top: 18px;
+  max-width: 34ch;
+}
+
+.orari {
+  margin-top: 14px;
+}
+
+.telefono {
+  margin-top: 10px;
+  color: #fff !important;
+}
+
+.social {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.social a {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, .28);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  min-height: 0;
+}
+
+.social svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+}
+
+.nota {
+  padding: 18px 0;
+  border-top: 1px solid rgba(255, 255, 255, .16);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: .82rem;
+  color: rgba(255, 255, 255, .55);
+}
+
+@media (min-width: 600px) {
+  .griglia {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 900px) {
+  .griglia {
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 44px;
+    padding: 70px 0 46px;
+  }
+}

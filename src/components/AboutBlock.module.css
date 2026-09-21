@@ -1,0 +1,52 @@
+.misto {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.media {
+  border-radius: var(--r);
+  overflow: hidden;
+  aspect-ratio: 5 / 4;
+  background: var(--blu);
+}
+
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.misto h2 {
+  font-size: clamp(1.7rem, 5.5vw, 2.6rem);
+}
+
+.misto p {
+  margin-top: 16px;
+  color: var(--testo-soft);
+}
+
+.firma {
+  margin-top: 20px;
+  font-family: var(--display);
+  font-weight: 600;
+  color: var(--blu);
+}
+
+@media (prefers-color-scheme: dark) {
+  .firma {
+    color: var(--turchese-chiaro);
+  }
+}
+
+.azione {
+  margin-top: 26px;
+}
+
+@media (min-width: 900px) {
+  .misto {
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+}

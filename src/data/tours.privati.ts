@@ -1,0 +1,50 @@
+import type { Tour } from './tour-types'
+import { inclusoStandard, nonInclusoStandard } from './tour-types'
+
+export const toursPrivati: Tour[] = [
+  {
+    id: 't5',
+    slug: 'charter-privato-egadi',
+    titolo: 'Charter privato alle Egadi',
+    descrizioneBreve: "Barca solo per voi, itinerario deciso insieme la sera prima guardando il meteo.",
+    descrizioneLunga: "L'intera barca ed equipaggio a vostra disposizione per una giornata. L'itinerario si decide insieme la sera prima, guardando meteo e condizioni del mare, per andare esattamente dove volete voi.",
+    prezzoDa: 600,
+    unitaPrezzo: 'a barca',
+    durata: '8 ore',
+    maxPersone: 10,
+    tipo: 'privato',
+    immagine: '/images/tour-charter-privato.jpg',
+    galleria: ['/images/tour-charter-privato.jpg', '/images/barca-motobarca.jpg'],
+    incluso: inclusoStandard,
+    nonIncluso: nonInclusoStandard,
+    itinerario: [
+      'Orario di partenza a scelta',
+      'Itinerario personalizzato tra Favignana e Levanzo',
+      'Soste bagno dove e quando preferite',
+      'Rientro in serata',
+    ],
+    orarioPartenza: 'a scelta',
+  },
+  {
+    id: 't6',
+    slug: 'mezza-giornata-privata',
+    titolo: 'Mezza giornata privata',
+    descrizioneBreve: 'Quattro ore di mare per famiglie e piccoli gruppi, con orario di uscita a scelta.',
+    descrizioneLunga: 'La versione più breve del charter privato: quattro ore di mare, ideali per famiglie con bambini piccoli o per chi ha solo mezza giornata a disposizione, con orario di uscita concordato insieme.',
+    prezzoDa: 450,
+    unitaPrezzo: 'a barca',
+    durata: '4 ore',
+    maxPersone: 10,
+    tipo: 'privato',
+    immagine: '/images/tour-mezza-giornata-privata.jpg',
+    galleria: ['/images/tour-mezza-giornata-privata.jpg', '/images/barca-gommone.jpg'],
+    incluso: inclusoStandard,
+    nonIncluso: nonInclusoStandard,
+    itinerario: [
+      'Orario di partenza a scelta',
+      'Una o due soste bagno a seconda della meta',
+      'Rientro dopo circa quattro ore',
+    ],
+    orarioPartenza: 'a scelta',
+  },
+]

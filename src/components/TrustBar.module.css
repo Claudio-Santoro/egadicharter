@@ -1,0 +1,58 @@
+.fiducia {
+  background: var(--blu);
+  color: #fff;
+}
+
+.griglia {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: rgba(255, 255, 255, .14);
+}
+
+.voce {
+  background: var(--blu);
+  padding: 22px;
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+}
+
+.voce svg {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  stroke: var(--turchese-chiaro);
+  fill: none;
+  stroke-width: 1.6;
+}
+
+.voce b {
+  display: block;
+  font-family: var(--display);
+  font-size: .98rem;
+  font-weight: 600;
+}
+
+.voce small {
+  color: rgba(255, 255, 255, .66);
+  font-size: .84rem;
+  line-height: 1.45;
+  display: block;
+}
+
+@media (min-width: 600px) {
+  .griglia {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 900px) {
+  .griglia {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .voce {
+    padding: 26px 24px;
+  }
+}

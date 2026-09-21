@@ -1,0 +1,145 @@
+.tour {
+  background: var(--card);
+  border: 1px solid var(--bordo);
+  border-radius: var(--r);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+
+.tour:hover {
+  box-shadow: 0 18px 40px rgba(6, 44, 64, .16);
+  transform: translateY(-3px);
+}
+
+.foto {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--blu);
+}
+
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tag {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  background: rgba(255, 255, 255, .94);
+  color: var(--blu);
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: .74rem;
+  padding: 5px 11px;
+  border-radius: 99px;
+  letter-spacing: .01em;
+}
+
+.tagPrivato {
+  background: var(--ambra);
+  color: #3A2205;
+}
+
+.prezzo {
+  position: absolute;
+  right: 13px;
+  bottom: -24px;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: var(--bianco);
+  border: 1px solid var(--bordo);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--display);
+  box-shadow: 0 8px 22px rgba(6, 44, 64, .2);
+}
+
+.prezzo small {
+  font-size: .58rem;
+  color: var(--grigio);
+  line-height: 1;
+}
+
+.prezzo b {
+  font-size: 1.24rem;
+  color: var(--blu);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.corpo {
+  padding: 26px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.corpo h3 {
+  font-size: 1.18rem;
+  padding-right: 60px;
+}
+
+.corpo p {
+  margin-top: 10px;
+  color: var(--testo-soft);
+  font-size: .95rem;
+}
+
+.meta {
+  display: flex;
+  gap: 18px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--bordo);
+  color: var(--testo-soft);
+  font-size: .85rem;
+}
+
+.meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.meta svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--turchese);
+  fill: none;
+  stroke-width: 1.7;
+}
+
+.azione {
+  margin-top: 20px;
+}
+
+.btn {
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .prezzo {
+    width: 78px;
+    height: 78px;
+  }
+
+  .prezzo b {
+    font-size: 1.32rem;
+  }
+
+  .corpo {
+    padding: 26px 22px 24px;
+  }
+
+  .corpo h3 {
+    padding-right: 64px;
+  }
+}

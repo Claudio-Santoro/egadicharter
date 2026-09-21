@@ -1,0 +1,49 @@
+.wa {
+  position: fixed;
+  right: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  z-index: 70;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .28);
+  text-decoration: none;
+  transition: transform .2s ease;
+}
+
+.wa:hover {
+  transform: scale(1.07);
+}
+
+.elevato {
+  bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+}
+
+.wa svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+}
+
+@media (min-width: 600px) {
+  .wa {
+    right: 18px;
+    bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+    width: 58px;
+    height: 58px;
+  }
+
+  .wa svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .elevato {
+    bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  }
+}
