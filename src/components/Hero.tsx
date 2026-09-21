@@ -10,11 +10,11 @@ export default function Hero() {
       <div className={styles.scena}>
         <img
           src="/images/hero.jpg"
-          alt="Gommone in mare aperto davanti alla costa di Favignana al tramonto"
+          alt="Veduta aerea di Favignana e del suo porto"
           loading="eager"
           fetchPriority="high"
-          width="1440"
-          height="820"
+          width="1600"
+          height="1067"
         />
       </div>
       <div className={styles.velo} />

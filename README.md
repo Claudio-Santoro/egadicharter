@@ -40,10 +40,9 @@ nome file):
 | `tour-aperitivo-tramonto.jpg` | 800×600 | Card escursione "Aperitivo al tramonto" |
 | `tour-charter-privato.jpg` | 800×600 | Card escursione "Charter privato alle Egadi" |
 | `tour-mezza-giornata-privata.jpg` | 800×600 | Card escursione "Mezza giornata privata" |
+| `flotta-1.jpg` … `flotta-9.jpg` | 1000×1250 / 1000×1500 | Foto dello slideshow della flotta (Breva 800) |
 | `isola-favignana.jpg` | 1400×1040 | Card isola Favignana |
 | `isola-levanzo.jpg` | 1400×1040 | Card isola Levanzo |
-| `barca-gommone.jpg` | 800×500 | Scheda gommone |
-| `barca-motobarca.jpg` | 800×500 | Scheda motobarca |
 | `finale-tramonto.jpg` | 1440×520 | Sfondo della sezione finale "Il mare domani è previsto calmo" |
 
 Se manca un file o il nome non corrisponde, il sito non si rompe: al suo posto resta
@@ -61,7 +60,7 @@ Ogni escursione genera automaticamente la propria pagina di dettaglio all'indiri
 componente grafico.
 
 Allo stesso modo:
-- le barche della flotta sono in [`src/data/boats.ts`](src/data/boats.ts)
+- la flotta (modello, specifiche, foto dello slideshow) è in [`src/data/boats.ts`](src/data/boats.ts)
 - le isole sono in [`src/data/islands.ts`](src/data/islands.ts)
 - le recensioni sono in [`src/data/reviews.ts`](src/data/reviews.ts)
 - le domande frequenti sono in [`src/data/faq.ts`](src/data/faq.ts)

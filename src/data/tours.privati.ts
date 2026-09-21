@@ -14,7 +14,7 @@ export const toursPrivati: Tour[] = [
     maxPersone: 10,
     tipo: 'privato',
     immagine: '/images/tour-charter-privato.jpg',
-    galleria: ['/images/tour-charter-privato.jpg', '/images/barca-motobarca.jpg'],
+    galleria: ['/images/tour-charter-privato.jpg', '/images/flotta-2.jpg'],
     incluso: inclusoStandard,
     nonIncluso: nonInclusoStandard,
     itinerario: [
@@ -37,7 +37,7 @@ export const toursPrivati: Tour[] = [
     maxPersone: 10,
     tipo: 'privato',
     immagine: '/images/tour-mezza-giornata-privata.jpg',
-    galleria: ['/images/tour-mezza-giornata-privata.jpg', '/images/barca-gommone.jpg'],
+    galleria: ['/images/tour-mezza-giornata-privata.jpg', '/images/flotta-4.jpg'],
     incluso: inclusoStandard,
     nonIncluso: nonInclusoStandard,
     itinerario: [
