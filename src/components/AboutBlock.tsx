@@ -12,7 +12,7 @@ export default function AboutBlock() {
         <div className={styles.media}>
           <img
             src={chiSiamo.immagine}
-            alt="Salvatore Bellavia, comandante, al timone della barca nella Marina di Trapani"
+            alt="Marco Bellavia, comandante, al timone del gommone"
             loading="lazy"
             width="500"
             height="400"

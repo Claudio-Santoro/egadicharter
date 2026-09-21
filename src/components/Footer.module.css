@@ -39,8 +39,8 @@
 }
 
 .segno {
-  width: 36px;
-  height: 36px;
+  width: auto;
+  height: 38px;
   flex: 0 0 auto;
 }
 

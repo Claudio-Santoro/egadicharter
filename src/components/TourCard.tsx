@@ -14,7 +14,7 @@ export default function TourCard({ tour }: Props) {
       <div className={styles.foto}>
         <img
           src={tour.immagine}
-          alt={`${tour.titolo} — escursione in barca alle Egadi`}
+          alt={`${tour.titolo} — escursione in gommone alle Egadi`}
           loading="lazy"
           width="400"
           height="300"

@@ -121,11 +121,12 @@ export default function Contact() {
             <div className={styles.mappa}>
               <iframe
                 src={site.mappaSrc}
-                title="Mappa del pontile di imbarco alla Marina di Trapani"
+                title="Mappa del punto d'imbarco a Salinagrande"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
+            <a className={styles.link} href={site.mappaLink} target="_blank" rel="noopener noreferrer">Apri in Google Maps</a>
           </div>
         </div>
       </Section>

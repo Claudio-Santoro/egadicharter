@@ -1,18 +1,24 @@
 export const site = {
   nome: 'Bellavia',
   claim: 'Egadi Charter',
-  telefono: '+39 0923 000 000',
-  telefonoHref: 'tel:+390923000000',
-  email: 'info@bellaviaegadicharter.it',
-  whatsappNumero: '39XXXXXXXXXX',
+  telefono: '+39 342 364 1941',
+  telefonoHref: 'tel:+393423641941',
+  email: 'bellavia.egadicharter@gmail.com',
+  whatsappNumero: '393423641941',
+  social: {
+    instagram: 'https://www.instagram.com/bellaviaegadicharter',
+    tiktok: 'https://vm.tiktok.com/ZN8MF5s9y/',
+  },
   indirizzo: {
-    riga1: 'Marina di Trapani, pontile C',
-    riga2: 'Via Ammiraglio Staiti',
-    riga3: '91100 Trapani (TP)',
+    riga1: 'Nautica Cordaro',
+    riga2: 'Porticciolo',
+    riga3: '91031 Salinagrande (TP)',
   },
   orari: "Tutti i giorni 8:00–20:00, da aprile a ottobre",
-  partitaIva: 'P. IVA 00000000000',
-  mappaSrc: 'https://www.google.com/maps?q=Marina+di+Trapani&output=embed',
+  ragioneSociale: 'Marco Bellavia Charter Egadi',
+  partitaIva: 'P. IVA 02976580817',
+  mappaSrc: 'https://www.google.com/maps?q=Nautica+Cordaro+Porticciolo+Salinagrande+TP&output=embed',
+  mappaLink: 'https://maps.app.goo.gl/imVeZpXmcvMM6P3Q6',
 
   nav: [
     { href: '/#escursioni', label: 'Escursioni' },
@@ -23,8 +29,8 @@ export const site = {
   ],
 
   hero: {
-    titolo: 'Favignana e Levanzo, in barca da Trapani',
-    testo: "Giornate in mare tra le cale delle Egadi, con uno skipper che è nato qui. Gruppi piccoli, partenza dal porto di Trapani alle 9:30.",
+    titolo: 'Favignana e Levanzo, in gommone da Trapani',
+    testo: "Giornate in mare tra le cale delle Egadi, con uno skipper che è nato qui. Gruppi piccoli, partenza da Salinagrande alle 10:00.",
   },
 
   fiducia: [
@@ -33,24 +39,24 @@ export const site = {
       testo: 'Conosciamo le cale che non trovi sulle mappe',
     },
     {
-      titolo: 'Massimo 12 persone',
-      testo: 'Mai barche affollate, mai fila per la scaletta',
+      titolo: 'Massimo 10 persone',
+      testo: 'Mai gommoni affollati, mai fila per la scaletta',
     },
     {
       titolo: 'Pranzo e bevande a bordo',
       testo: 'Pane cunzato, frutta di stagione, acqua sempre fresca',
     },
     {
-      titolo: 'Imbarco in centro',
-      testo: 'Marina di Trapani, a due passi dal parcheggio',
+      titolo: 'Imbarco a Salinagrande',
+      testo: 'Porticciolo di Nautica Cordaro, con posizione su Maps',
     },
   ],
 
   chiSiamo: {
     titolo: 'Tre generazioni, lo stesso tratto di mare',
-    paragrafo1: "Mio nonno pescava tonno davanti a Favignana, mio padre ha comprato il primo gozzo nel 1987. Oggi portiamo in giro chi arriva a Trapani, con la stessa idea di allora: uscire presto, stare dove il mare è bello e tornare quando il sole scende.",
-    paragrafo2: 'Non facciamo partenze a raffica. Una barca, un equipaggio, una giornata: se il tempo non promette bene ve lo diciamo il giorno prima e si sposta, senza penali.',
-    firma: 'Salvatore Bellavia, comandante',
+    paragrafo1: "Siamo di qui e il mare delle Egadi lo conosciamo da sempre. Portiamo in giro chi arriva a Trapani con una idea semplice: uscire presto, stare dove il mare è bello e tornare quando il sole scende.",
+    paragrafo2: 'Non facciamo partenze a raffica. Un gommone, un equipaggio, una giornata: se il tempo non promette bene ve lo diciamo il giorno prima e si sposta, senza penali.',
+    firma: 'Marco Bellavia, comandante',
     immagine: '/images/chi-siamo.jpg',
   },
 
@@ -67,8 +73,8 @@ export const site = {
     },
     {
       numero: 'Passo 3',
-      titolo: 'Ci vediamo al pontile',
-      testo: 'Marina di Trapani, pontile C. Arriva quindici minuti prima: si parte puntuali perché il mare la mattina è più calmo.',
+      titolo: "Ci vediamo all'imbarco",
+      testo: 'Porticciolo di Salinagrande (Nautica Cordaro). Arriva quindici minuti prima: si parte puntuali perché il mare la mattina è più calmo.',
     },
   ],
 
@@ -78,11 +84,10 @@ export const site = {
   },
 
   footer: {
-    descrizione: 'Escursioni in barca e noleggio con skipper alle Isole Egadi, da Trapani.',
+    descrizione: 'Escursioni in gommone e noleggio con skipper alle Isole Egadi, da Trapani.',
     colonnaEscursioni: [
       { label: 'Favignana e Levanzo', href: '/escursioni/favignana-levanzo-giornata-intera' },
       { label: 'Mezza giornata', href: '/escursioni/favignana-mezza-giornata' },
-      { label: 'Giro in gozzo', href: '/escursioni/giro-isola-gozzo' },
       { label: 'Aperitivo al tramonto', href: '/escursioni/aperitivo-al-tramonto' },
       { label: 'Charter privato', href: '/escursioni/charter-privato-egadi' },
     ],

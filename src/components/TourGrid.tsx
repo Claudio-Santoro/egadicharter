@@ -12,7 +12,7 @@ export default function TourGrid({ tours }: Props) {
     <Section id="escursioni">
       <SectionIntro
         titolo="Le nostre giornate in mare"
-        testo="Cinque modi di vedere le Egadi. Tutte le escursioni partono dalla Marina di Trapani e rientrano prima del tramonto, tranne l'aperitivo."
+        testo="Quattro modi di vedere le Egadi. Tutte le escursioni partono da Salinagrande (TP) e rientrano prima del tramonto, tranne l'aperitivo."
       />
       <div className={styles.griglia}>
         {tours.map((tour) => (

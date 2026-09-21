@@ -14,19 +14,8 @@ export const boats: Boat[] = [
     immagine: '/images/barca-gommone.jpg',
     specifiche: [
       { label: 'lunghezza', valore: '7,5 m' },
-      { label: 'posti', valore: '12' },
+      { label: 'posti', valore: '10' },
       { label: '', valore: '250 cv' },
-    ],
-  },
-  {
-    id: 'b2',
-    nome: 'Gozzo siciliano in legno',
-    descrizione: 'Lento, silenzioso, fatto a Trapani negli anni Settanta. Per chi vuole la giornata alla antica.',
-    immagine: '/images/barca-gozzo.jpg',
-    specifiche: [
-      { label: 'lunghezza', valore: '8 m' },
-      { label: 'posti', valore: '8' },
-      { label: '', valore: "gommone d'appoggio" },
     ],
   },
   {

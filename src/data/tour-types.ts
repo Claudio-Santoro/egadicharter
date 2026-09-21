@@ -1,4 +1,4 @@
-export type UnitaPrezzo = 'a persona' | 'a barca'
+export type UnitaPrezzo = 'a persona' | 'a gommone'
 export type TipoTour = 'condiviso' | 'privato'
 
 export type Tour = {

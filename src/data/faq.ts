@@ -9,7 +9,7 @@ export const faq: FaqItem[] = [
   {
     id: 'f1',
     domanda: 'Da dove si parte?',
-    risposta: "Dalla Marina di Trapani, via Ammiraglio Staiti, pontile C. C'è un parcheggio a pagamento a cento metri e la stazione degli autobus è a cinque minuti a piedi.",
+    risposta: "Dal porticciolo di Nautica Cordaro, a Salinagrande (TP). Alla conferma ti mandiamo la posizione su Google Maps.",
     apertaDiDefault: true,
   },
   {
@@ -30,7 +30,7 @@ export const faq: FaqItem[] = [
   {
     id: 'f5',
     domanda: 'Si può venire con bambini piccoli?',
-    risposta: 'Sì, abbiamo giubbotti dalla taglia 0. Per i bimbi sotto i tre anni consigliamo il gozzo, che è più lento e più stabile.',
+    risposta: 'Sì, abbiamo giubbotti dalla taglia 0. Per i bimbi sotto i tre anni scriveteci: valutiamo insieme giornata, mare e itinerario.',
   },
   {
     id: 'f6',

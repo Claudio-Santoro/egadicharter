@@ -57,12 +57,7 @@ export default function Header() {
     <header className={`${styles.header} ${solido ? styles.solido : ''}`}>
       <div className={`wrap ${styles.in}`}>
         <Link className={styles.marchio} to="/" onClick={() => setAperto(false)}>
-          <svg className={styles.segno} viewBox="0 0 48 48" aria-hidden="true">
-            <circle cx="24" cy="24" r="23" fill="none" stroke="#37B7CE" strokeWidth="1.6" />
-            <path d="M9 30c4 0 4-3 8-3s4 3 8 3 4-3 8-3 4 3 6 3" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
-            <path d="M24 10l8 15H16l8-15z" fill="#fff" />
-            <path d="M24 25v6" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
-          </svg>
+          <img className={styles.segno} src="/brand/logo-bianco.svg" alt="" width="46" height="36" />
           <span className={styles.testo}>
             {site.nome}
             <span>{site.claim}</span>

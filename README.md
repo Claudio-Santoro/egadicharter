@@ -1,6 +1,6 @@
 # Bellavia Egadi Charter
 
-Sito vetrina per escursioni in barca alle Isole Egadi (Favignana e Levanzo) con partenza
+Sito vetrina per escursioni in gommone alle Isole Egadi (Favignana e Levanzo) con partenza
 da Trapani. React + TypeScript, CSS puro (CSS Modules), nessun backend.
 
 ## Avviare il sito
@@ -37,14 +37,12 @@ nome file):
 | `chi-siamo.jpg` | 1000×800 | Sezione "Chi siamo" |
 | `tour-favignana-levanzo.jpg` | 800×600 | Card escursione "Favignana e Levanzo, giornata intera" |
 | `tour-favignana-mezza-giornata.jpg` | 800×600 | Card escursione "Favignana, mezza giornata" |
-| `tour-giro-gozzo.jpg` | 800×600 | Card escursione "Giro dell'isola in gozzo" |
 | `tour-aperitivo-tramonto.jpg` | 800×600 | Card escursione "Aperitivo al tramonto" |
 | `tour-charter-privato.jpg` | 800×600 | Card escursione "Charter privato alle Egadi" |
 | `tour-mezza-giornata-privata.jpg` | 800×600 | Card escursione "Mezza giornata privata" |
 | `isola-favignana.jpg` | 1400×1040 | Card isola Favignana |
 | `isola-levanzo.jpg` | 1400×1040 | Card isola Levanzo |
 | `barca-gommone.jpg` | 800×500 | Scheda gommone |
-| `barca-gozzo.jpg` | 800×500 | Scheda gozzo |
 | `barca-motobarca.jpg` | 800×500 | Scheda motobarca |
 | `finale-tramonto.jpg` | 1440×520 | Sfondo della sezione finale "Il mare domani è previsto calmo" |
 

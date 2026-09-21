@@ -11,7 +11,7 @@ export default function FleetGrid({ boats }: Props) {
     <Section id="flotta">
       <SectionIntro
         titolo="Le barche"
-        testo="Tre imbarcazioni, tutte con ombreggiatura, scaletta di risalita, frigo e doccetta di poppa."
+        testo="Due imbarcazioni, tutte con ombreggiatura, scaletta di risalita, frigo e doccetta di poppa."
       />
       <div className={styles.flotta}>
         {boats.map((barca) => (
