@@ -20,10 +20,6 @@
   transform: scale(1.07);
 }
 
-.elevato {
-  bottom: calc(84px + env(safe-area-inset-bottom, 0px));
-}
-
 .wa svg {
   width: 28px;
   height: 28px;
@@ -41,9 +37,5 @@
   .wa svg {
     width: 30px;
     height: 30px;
-  }
-
-  .elevato {
-    bottom: calc(18px + env(safe-area-inset-bottom, 0px));
   }
 }

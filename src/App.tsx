@@ -34,7 +34,8 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
-      <WhatsAppButton elevato={isTourDetail} />
+      {/* la pagina escursione ha già il suo bottone WhatsApp sempre visibile (barra mobile / aside sticky) */}
+      {!isTourDetail && <WhatsAppButton />}
     </>
   )
 }
