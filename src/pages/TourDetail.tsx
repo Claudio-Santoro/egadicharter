@@ -22,15 +22,11 @@ export default function TourDetail() {
 
   return (
     <div className={styles.pagina}>
-      <section className={styles.hero}>
-        <div className="wrap">
-          <Slideshow
-            className={styles.galleria}
-            foto={tour.galleria.map((src, i) => ({ src, alt: i === 0 ? `Foto principale di ${tour.titolo}` : `Foto ${i + 1} di ${tour.titolo}` }))}
-            label={`Foto di ${tour.titolo}`}
-          />
-        </div>
-      </section>
+      <Slideshow
+        className={styles.galleria}
+        foto={tour.galleria.map((src, i) => ({ src, alt: i === 0 ? `Foto principale di ${tour.titolo}` : `Foto ${i + 1} di ${tour.titolo}` }))}
+        label={`Foto di ${tour.titolo}`}
+      />
 
       <div className={`wrap ${styles.corpo}`}>
         <div className={styles.contenuto}>

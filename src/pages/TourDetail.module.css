@@ -3,14 +3,9 @@
   padding-bottom: 128px;
 }
 
-.hero {
-  padding: 20px 0;
-  background: var(--superficie);
-}
-
+/* galleria a tutta larghezza, senza cornice */
 .galleria {
-  max-width: 960px;
-  margin: 0 auto;
+  --raggio: 0;
 }
 
 .corpo {
@@ -160,7 +155,7 @@
 
 @media (min-width: 900px) {
   .galleria {
-    --ratio: 16 / 9;
+    --ratio: 21 / 9;
   }
 
   .pagina {

@@ -12,7 +12,7 @@ type Props = {
 
 const SOGLIA_SWIPE_PX = 40
 
-/** il rapporto foto si imposta dal consumer con `--ratio` sulla className (default 4 / 3) */
+/** rapporto e raggio si impostano dal consumer con `--ratio` (default 4 / 3) e `--raggio` (default var(--r)) sulla className */
 export default function Slideshow({ foto, label, autoplayMs, className }: Props) {
   const [attiva, setAttiva] = useState(0)
   const [inPausa, setInPausa] = useState(false)
