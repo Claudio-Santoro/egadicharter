@@ -10,6 +10,8 @@
   overflow: hidden;
   aspect-ratio: 4 / 3;
   min-height: 320px;
+  /* con width:auto l'aspect-ratio trasferisce il min-height alla larghezza (320*4/3 = 427px) e la card sfora il wrap */
+  width: 100%;
   display: flex;
   align-items: flex-end;
   color: #fff;
