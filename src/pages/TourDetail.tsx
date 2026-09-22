@@ -4,6 +4,7 @@ import { site } from '../data/site'
 import Section, { SectionIntro } from '../components/Section'
 import TourCard from '../components/TourCard'
 import Button from '../components/Button'
+import Slideshow from '../components/Slideshow'
 import styles from './TourDetail.module.css'
 
 export default function TourDetail() {
@@ -23,20 +24,11 @@ export default function TourDetail() {
     <div className={styles.pagina}>
       <section className={styles.hero}>
         <div className="wrap">
-          <div className={styles.galleria}>
-            <div className={styles.fotoPrincipale}>
-              <img src={tour.immagine} alt={`Foto principale di ${tour.titolo}`} loading="eager" fetchPriority="high" width="800" height="600" />
-            </div>
-            {tour.galleria.length > 1 && (
-              <div className={styles.miniature}>
-                {tour.galleria.slice(1).map((foto, i) => (
-                  <div className={styles.miniatura} key={foto}>
-                    <img src={foto} alt={`Foto ${i + 2} di ${tour.titolo}`} loading="lazy" width="200" height="150" />
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+          <Slideshow
+            className={styles.galleria}
+            foto={tour.galleria.map((src, i) => ({ src, alt: i === 0 ? `Foto principale di ${tour.titolo}` : `Foto ${i + 1} di ${tour.titolo}` }))}
+            label={`Foto di ${tour.titolo}`}
+          />
         </div>
       </section>
 

@@ -6,90 +6,10 @@
 }
 
 .slideshow {
+  --ratio: 4 / 5;
   max-width: 460px;
   width: 100%;
   margin: 0 auto;
-}
-
-.cornice {
-  position: relative;
-  aspect-ratio: 4 / 5;
-  border-radius: var(--r);
-  overflow: hidden;
-  background: var(--blu);
-}
-
-.slide {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity .9s ease;
-}
-
-.attiva {
-  opacity: 1;
-}
-
-.freccia {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border: 0;
-  border-radius: 50%;
-  background: rgba(6, 43, 61, .55);
-  color: #fff;
-  font-size: 1.6rem;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.freccia:hover {
-  background: rgba(6, 43, 61, .8);
-}
-
-.prec { left: 10px; }
-.succ { right: 10px; }
-
-.punti {
-  display: flex;
-  justify-content: center;
-  gap: 2px;
-  margin-top: 6px;
-}
-
-.punto {
-  position: relative;
-  width: 28px;
-  height: 28px;
-  border: 0;
-  background: none;
-  cursor: pointer;
-}
-
-.punto::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--bordo);
-  border: 1px solid var(--testo-soft);
-  transform: translate(-50%, -50%);
-  transition: background .2s, width .2s;
-}
-
-.puntoAttivo::after {
-  background: var(--turchese);
-  border-color: var(--turchese);
-  width: 20px;
-  border-radius: 5px;
 }
 
 .corpo h3 {
@@ -130,11 +50,5 @@
 
   .specifiche {
     grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .slide {
-    transition: none;
   }
 }
