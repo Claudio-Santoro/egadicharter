@@ -22,17 +22,22 @@ export default function TrustBar() {
     <section className={styles.fiducia}>
       <div className="wrap" style={{ paddingInline: 0 }}>
         <div className={styles.griglia}>
-          {site.fiducia.map((voce, i) => (
-            <div className={styles.voce} key={voce.titolo}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-                {icone[i]}
-              </svg>
-              <div>
-                <b>{voce.titolo}</b>
-                <small>{voce.testo}</small>
-              </div>
-            </div>
-          ))}
+          {site.fiducia.map((voce, i) => {
+            const contenuto = (
+              <>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+                  {icone[i]}
+                </svg>
+                <div>
+                  <b>{voce.titolo}</b>
+                  <small>{voce.testo}</small>
+                </div>
+              </>
+            )
+            return 'href' in voce
+              ? <a className={styles.voce} key={voce.titolo} href={voce.href} target="_blank" rel="noopener noreferrer">{contenuto}</a>
+              : <div className={styles.voce} key={voce.titolo}>{contenuto}</div>
+          })}
         </div>
       </div>
     </section>

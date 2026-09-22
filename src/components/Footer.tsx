@@ -49,7 +49,9 @@ export default function Footer() {
 
         <div>
           <h4>Dove siamo</h4>
-          <p>{site.indirizzo.riga1}<br />{site.indirizzo.riga2}<br />{site.indirizzo.riga3}</p>
+          <a className={styles.indirizzo} href={site.mappaLink} target="_blank" rel="noopener noreferrer">
+            {site.indirizzo.riga1}<br />{site.indirizzo.riga2}<br />{site.indirizzo.riga3}
+          </a>
           <p className={styles.orari}>{site.orari}</p>
           <a className={styles.telefono} href={site.telefonoHref}>{site.telefono}</a>
           <a href={`mailto:${site.email}`}>{site.email}</a>

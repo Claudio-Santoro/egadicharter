@@ -49,6 +49,7 @@ export const site = {
     {
       titolo: 'Imbarco a Salinagrande',
       testo: 'Porticciolo di Nautica Cordaro, con posizione su Maps',
+      href: 'https://maps.app.goo.gl/imVeZpXmcvMM6P3Q6',
     },
   ],
 

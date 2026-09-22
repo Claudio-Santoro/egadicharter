@@ -18,6 +18,15 @@
   align-items: flex-start;
 }
 
+a.voce {
+  color: inherit;
+  text-decoration: none;
+}
+
+a.voce:hover b {
+  text-decoration: underline;
+}
+
 .voce svg {
   width: 24px;
   height: 24px;
