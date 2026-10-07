@@ -18,7 +18,7 @@ export default function IslandCards({ islands }: Props) {
           <div className={styles.isola} key={isola.id}>
             <img
               src={isola.immagine}
-              alt={`Vista dell'isola di ${isola.nome}`}
+              alt={isola.alt ?? `Vista dell'isola di ${isola.nome}`}
               loading="lazy"
               width="700"
               height="520"
