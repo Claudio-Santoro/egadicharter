@@ -12,7 +12,7 @@ export default function AboutBlock() {
         <div className={styles.media}>
           <img
             src={chiSiamo.immagine}
-            alt="Marco Bellavia, comandante, al timone del gommone"
+            alt="Il nostro gommone Breva visto dall'alto mentre naviga sull'acqua turchese"
             loading="lazy"
             width="500"
             height="400"
