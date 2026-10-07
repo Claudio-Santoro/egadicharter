@@ -10,7 +10,7 @@ export default function Hero() {
       <div className={styles.scena}>
         <img
           src="/images/hero.jpg"
-          alt="Veduta aerea di Favignana e del suo porto"
+          alt="Mare turchese visto dall'alto con barche e yacht all'ancora"
           loading="eager"
           fetchPriority="high"
           width="1600"
