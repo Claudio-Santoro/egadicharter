@@ -14,7 +14,7 @@ export const toursPrivati: Tour[] = [
     maxPersone: 10,
     tipo: 'privato',
     immagine: '/images/tour-charter-privato.jpg',
-    galleria: ['/images/tour-charter-privato.jpg', '/images/flotta-2.jpg'],
+    galleria: ['/images/tour-charter-privato.jpg'],
     incluso: inclusoStandard,
     nonIncluso: nonInclusoStandard,
     itinerario: [

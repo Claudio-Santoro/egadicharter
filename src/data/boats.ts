@@ -15,7 +15,6 @@ export const fleet = {
   ],
   foto: [
     { src: '/images/flotta-1.jpg', alt: 'Gommone Breva 800 con tendalino, visto di lato' },
-    { src: '/images/flotta-2.jpg', alt: 'Gommone Breva 800 visto dall’alto, con prendisole di prua e pozzetto' },
     { src: '/images/flotta-3.jpg', alt: 'Gommone Breva 800 in navigazione' },
     { src: '/images/flotta-4.jpg', alt: 'Gommone Breva 800 in navigazione al tramonto' },
     { src: '/images/flotta-5.jpg', alt: 'I due gommoni Breva 800 in navigazione' },
