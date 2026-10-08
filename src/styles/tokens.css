@@ -18,6 +18,8 @@
   --superficie: var(--sabbia);
   --card: var(--bianco);
   --bordo: var(--linea);
+  --accento: var(--blu);
+  --link: #0E7A95;
 
   --max: 1240px;
   --r: 14px;
@@ -38,6 +40,8 @@
     --superficie: #0B2A3A;
     --card: #0D3145;
     --bordo: rgba(255, 255, 255, .12);
+    --accento: var(--turchese-chiaro);
+    --link: var(--turchese-chiaro);
   }
 }
 
@@ -48,4 +52,6 @@
   --superficie: #0B2A3A;
   --card: #0D3145;
   --bordo: rgba(255, 255, 255, .12);
+  --accento: var(--turchese-chiaro);
+  --link: var(--turchese-chiaro);
 }

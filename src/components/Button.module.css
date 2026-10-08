@@ -43,13 +43,13 @@
 
 .linea {
   background: transparent;
-  color: var(--blu);
-  border-color: var(--linea);
+  color: var(--accento);
+  border-color: var(--bordo);
 }
 
 .linea:hover {
-  border-color: var(--turchese);
-  color: var(--turchese);
+  border-color: var(--link);
+  color: var(--link);
 }
 
 @media (prefers-color-scheme: dark) {

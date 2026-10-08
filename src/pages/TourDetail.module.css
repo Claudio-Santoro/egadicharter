@@ -18,7 +18,7 @@
 .tag {
   display: inline-flex;
   background: var(--superficie);
-  color: var(--blu);
+  color: var(--accento);
   font-family: var(--display);
   font-weight: 600;
   font-size: .78rem;
@@ -114,13 +114,13 @@
 
 .prezzo small {
   font-size: .68rem;
-  color: var(--grigio);
+  color: var(--testo-soft);
 }
 
 .prezzo b {
   font-family: var(--display);
   font-size: 1.4rem;
-  color: var(--blu);
+  color: var(--accento);
 }
 
 .meta {
