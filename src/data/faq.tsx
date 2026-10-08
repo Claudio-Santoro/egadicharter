@@ -1,7 +1,10 @@
+import { ReactNode } from 'react'
+import { site } from './site'
+
 export type FaqItem = {
   id: string
   domanda: string
-  risposta: string
+  risposta: ReactNode
   apertaDiDefault?: boolean
 }
 
@@ -9,13 +12,13 @@ export const faq: FaqItem[] = [
   {
     id: 'f1',
     domanda: 'Da dove si parte?',
-    risposta: "Dal porticciolo di Nautica Cordaro, a Salinagrande (TP). Alla conferma ti mandiamo la posizione su Google Maps.",
+    risposta: <>Dal porticciolo di Nautica Cordaro, a Salinagrande (TP). <a href={site.mappaLink} target="_blank" rel="noopener noreferrer">Apri la posizione su Google Maps</a>.</>,
     apertaDiDefault: true,
   },
   {
     id: 'f2',
     domanda: 'Cosa è compreso nel prezzo?',
-    risposta: "Carburante, skipper, pranzo a bordo, acqua e bibite, maschere e boccagli, ombreggiatura e assicurazione. Non sono comprese le tasse di sbarco a Favignana e l'ingresso alla Grotta del Genovese.",
+    risposta: "Carburante, skipper, pranzo a bordo (tavola calda e piatti di pesce, tenendo conto degli allergeni che ci indicate), acqua e bibite, maschere e boccagli, ombreggiatura e assicurazione. Non sono comprese le tasse di sbarco a Favignana e l'ingresso alla Grotta del Genovese.",
   },
   {
     id: 'f3',

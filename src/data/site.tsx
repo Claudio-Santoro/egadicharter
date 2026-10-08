@@ -44,7 +44,7 @@ export const site = {
     },
     {
       titolo: 'Pranzo e bevande a bordo',
-      testo: 'Pane cunzato, frutta di stagione, acqua sempre fresca',
+      testo: <>Tavola calda di <a href="https://share.google/lfPQkfXaq0rj9qg4s" target="_blank" rel="noopener noreferrer">Messina Nicasio</a> e piatti di pesce di <a href="https://share.google/g2ZvxWJKVQcyeblcO" target="_blank" rel="noopener noreferrer">Nereide</a>, secondo gli allergeni che ci indicate</>,
     },
     {
       titolo: 'Imbarco a Salinagrande',
