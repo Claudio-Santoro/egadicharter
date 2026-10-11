@@ -18,7 +18,8 @@
   background: var(--blu);
 }
 
-.isola img {
+.isola img,
+.isola video {
   position: absolute;
   inset: 0;
   width: 100%;
