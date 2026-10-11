@@ -48,7 +48,6 @@ export default function IslandCards({ islands }: Props) {
                 height="520"
               />
             )}
-            <span className={styles.velo} />
             <div className={styles.testo}>
               <h3>{isola.nome}</h3>
               <p>{isola.descrizione}</p>

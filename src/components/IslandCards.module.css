@@ -1,41 +1,24 @@
 .destinazioni {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 22px;
-}
-
-.isola {
-  position: relative;
-  border-radius: var(--r);
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
-  min-height: 320px;
-  /* con width:auto l'aspect-ratio trasferisce il min-height alla larghezza (320*4/3 = 427px) e la card sfora il wrap */
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  color: #fff;
-  background: var(--blu);
+  gap: 40px;
+  margin-inline: calc(-1 * var(--fuori-wrap));
 }
 
 .isola img,
 .isola video {
-  position: absolute;
-  inset: 0;
+  display: block;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
+  /* sfumato in basso nello sfondo della sezione */
+  -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
 }
 
-.velo {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(5, 38, 53, 0) 35%, rgba(5, 38, 53, .85) 100%);
-}
-
+/* il testo resta allineato al contenuto del sito, non al bordo dello schermo */
 .testo {
-  position: relative;
-  padding: 28px 24px;
+  padding: 4px var(--fuori-wrap) 0;
 }
 
 .testo h3 {
@@ -44,7 +27,7 @@
 
 .testo p {
   margin-top: 10px;
-  color: rgba(255, 255, 255, .85);
+  color: var(--testo-soft);
   font-size: .95rem;
   max-width: 40ch;
 }
@@ -59,7 +42,8 @@
 .cale i {
   font-style: normal;
   font-size: .76rem;
-  border: 1px solid rgba(255, 255, 255, .45);
+  border: 1px solid var(--bordo);
+  color: var(--testo);
   border-radius: 99px;
   padding: 6px 11px;
   min-height: 28px;
@@ -70,15 +54,22 @@
 @media (min-width: 600px) {
   .destinazioni {
     grid-template-columns: 1fr 1fr;
-    gap: 26px;
+    gap: 40px 0;
   }
 
-  .isola {
-    min-height: 420px;
+  .isola img,
+  .isola video {
+    aspect-ratio: auto;
+    height: clamp(420px, 45vw, 640px);
   }
 
+  /* ogni testo sotto la sua metà: a sinistra si allinea al wrap, a destra lascia lo stesso respiro dal centro */
   .testo {
-    padding: 34px 30px;
+    padding: 4px 32px 0 var(--fuori-wrap);
+  }
+
+  .isola + .isola .testo {
+    padding: 4px var(--fuori-wrap) 0 32px;
   }
 
   .testo h3 {
