@@ -81,6 +81,12 @@ export const site = {
 
   ctaFinale: {
     titolo: 'Il mare domani è previsto calmo',
+    // Titolo in base alle previsioni di domani (se mancano resta "titolo").
+    titoloMeteo: {
+      perfetto: 'Il mare domani è previsto calmo',
+      buono: 'Domani mare buono per uscire',
+      sconsigliato: 'Domani mare mosso: ecco i giorni migliori',
+    },
     testo: "Scrivici su WhatsApp con la data e quante persone siete. Rispondiamo entro un'ora, anche la domenica.",
   },
 
