@@ -55,8 +55,8 @@ export const site = {
 
   chiSiamo: {
     titolo: 'Nati e cresciuti su questo mare',
-    paragrafo1: "Siamo di qui e il mare delle Egadi lo conosciamo da sempre. Portiamo in giro chi arriva a Trapani con una idea semplice: uscire presto, stare dove il mare è bello e tornare quando il sole scende.",
-    paragrafo2: 'Non facciamo partenze a raffica. Un gommone, un equipaggio, una giornata: se il tempo non promette bene ve lo diciamo il giorno prima e si sposta, senza penali.',
+    paragrafo1: "Durante l'escursione sarete accompagnati da uno skipper locale, che conosce e ama la sua terra. Avervi a bordo è un piacere: curiamo ogni dettaglio per regalarvi una giornata indimenticabile.",
+    paragrafo2: "Si parte al mattino, quando il mare è più calmo e limpido, per una giornata all'insegna del relax e della scoperta tra le cale delle Egadi. Cosa aspettate a prenotare?",
     firma: 'Marco Bellavia, comandante',
     immagine: '/images/chi-siamo.jpg',
   },

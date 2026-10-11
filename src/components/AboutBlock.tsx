@@ -23,7 +23,7 @@ export default function AboutBlock() {
           <p>{chiSiamo.paragrafo1}</p>
           <p style={{ marginTop: 14 }}>{chiSiamo.paragrafo2}</p>
           <div className={styles.firma}>{chiSiamo.firma}</div>
-          <Button href="/contatti" variante="linea" className={styles.azione}>La nostra storia</Button>
+          <Button href="/contatti" variante="linea" className={styles.azione}>Prenota la tua escursione</Button>
         </div>
       </div>
     </Section>
