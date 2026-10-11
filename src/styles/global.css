@@ -81,6 +81,11 @@ button {
   font: inherit;
 }
 
+:root {
+  /* distanza fra il contenuto del .wrap e il bordo dello schermo: serve ai media a tutta larghezza */
+  --fuori-wrap: calc(max(0px, (100vw - var(--max)) / 2) + 22px);
+}
+
 .wrap {
   width: 100%;
   max-width: var(--max);

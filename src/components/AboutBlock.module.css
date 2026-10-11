@@ -5,17 +5,18 @@
   align-items: center;
 }
 
+/* a tutta larghezza, sfumata in basso nello sfondo della sezione */
 .media {
-  border-radius: var(--r);
-  overflow: hidden;
+  margin-inline: calc(-1 * var(--fuori-wrap));
   aspect-ratio: 5 / 4;
-  background: var(--blu);
 }
 
 .media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
 }
 
 .misto h2 {
@@ -39,8 +40,15 @@
 }
 
 @media (min-width: 900px) {
+  /* la foto arriva al bordo sinistro dello schermo e occupa il 55% della larghezza */
   .misto {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: calc(55vw - var(--fuori-wrap)) 1fr;
     gap: 64px;
+  }
+
+  .media {
+    margin-right: 0;
+    aspect-ratio: auto;
+    height: clamp(440px, 42vw, 620px);
   }
 }
