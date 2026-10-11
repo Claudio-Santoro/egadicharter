@@ -61,15 +61,18 @@
   .isola video {
     aspect-ratio: auto;
     height: clamp(420px, 45vw, 640px);
+    /* su desktop niente sfumatura */
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
   /* ogni testo sotto la sua metà: a sinistra si allinea al wrap, a destra lascia lo stesso respiro dal centro */
   .testo {
-    padding: 4px 32px 0 var(--fuori-wrap);
+    padding: 28px 32px 0 var(--fuori-wrap);
   }
 
   .isola + .isola .testo {
-    padding: 4px var(--fuori-wrap) 0 32px;
+    padding: 28px var(--fuori-wrap) 0 32px;
   }
 
   .testo h3 {

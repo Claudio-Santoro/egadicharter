@@ -48,6 +48,7 @@
 
   .slideshow {
     --ratio: 5 / 4;
+    --maschera: none; /* su desktop niente sfumatura */
     margin-right: 0;
   }
 

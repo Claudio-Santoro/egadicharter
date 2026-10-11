@@ -64,6 +64,11 @@
 }
 
 @media (min-width: 600px) {
+  /* su desktop niente sfumatura verso la barra di fiducia */
+  .velo {
+    background: linear-gradient(180deg, rgba(5, 38, 53, .55) 0%, rgba(5, 38, 53, .08) 38%, rgba(5, 38, 53, .72) 100%);
+  }
+
   .scena img {
     object-position: 22% 50%;
   }

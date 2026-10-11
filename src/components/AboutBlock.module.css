@@ -51,4 +51,10 @@
     aspect-ratio: auto;
     height: clamp(440px, 42vw, 620px);
   }
+
+  /* su desktop niente sfumatura */
+  .media img {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
 }
