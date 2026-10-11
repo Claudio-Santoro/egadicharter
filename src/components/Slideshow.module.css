@@ -5,6 +5,8 @@
   overflow: hidden;
   background: var(--blu);
   touch-action: pan-y;
+  -webkit-mask-image: var(--maschera, none);
+  mask-image: var(--maschera, none);
 }
 
 .slide {

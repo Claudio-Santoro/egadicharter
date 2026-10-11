@@ -5,11 +5,12 @@
   align-items: center;
 }
 
+/* a tutta larghezza, sfumato in basso nello sfondo della sezione */
 .slideshow {
-  --ratio: 4 / 5;
-  max-width: 460px;
-  width: 100%;
-  margin: 0 auto;
+  --ratio: 4 / 3;
+  --raggio: 0;
+  --maschera: linear-gradient(to bottom, #000 60%, transparent 100%);
+  margin-inline: calc(-1 * var(--fuori-wrap));
 }
 
 .corpo h3 {
@@ -39,13 +40,15 @@
 }
 
 @media (min-width: 900px) {
+  /* lo slideshow arriva al bordo sinistro dello schermo e occupa il 55% della larghezza */
   .flotta {
-    grid-template-columns: minmax(0, 440px) 1fr;
-    gap: 56px;
+    grid-template-columns: calc(55vw - var(--fuori-wrap)) 1fr;
+    gap: 64px;
   }
 
   .slideshow {
-    margin: 0;
+    --ratio: 5 / 4;
+    margin-right: 0;
   }
 
   .specifiche {
