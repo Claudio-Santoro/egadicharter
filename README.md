@@ -62,7 +62,6 @@ componente grafico.
 Allo stesso modo:
 - la flotta (modello, specifiche, foto dello slideshow) è in [`src/data/boats.ts`](src/data/boats.ts)
 - le isole sono in [`src/data/islands.ts`](src/data/islands.ts)
-- le recensioni sono in [`src/data/reviews.ts`](src/data/reviews.ts)
 - le domande frequenti sono in [`src/data/faq.ts`](src/data/faq.ts)
 
 ## Dove cambiare telefono, WhatsApp, email e indirizzo
