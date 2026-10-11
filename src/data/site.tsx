@@ -97,7 +97,7 @@ export const site = {
       { label: 'La flotta', href: '/#flotta' },
       { label: 'Domande frequenti', href: '/#faq' },
       { label: 'Condizioni di prenotazione', href: '/contatti' },
-      { label: 'Privacy e cookie', href: '/contatti' },
+      { label: 'Privacy e cookie', href: '/privacy' },
     ],
   },
 }

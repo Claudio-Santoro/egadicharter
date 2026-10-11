@@ -1,0 +1,51 @@
+.pagina {
+  padding-top: 66px;
+}
+
+.testo {
+  max-width: 720px;
+}
+
+.testo h1 {
+  font-size: clamp(1.7rem, 6vw, 2.6rem);
+}
+
+.intro {
+  margin-top: 16px;
+  font-size: 1.05rem;
+}
+
+.testo h2 {
+  margin-top: 40px;
+  font-size: 1.3rem;
+  scroll-margin-top: calc(74px + env(safe-area-inset-top, 0px));
+}
+
+.testo h3 {
+  margin-top: 24px;
+  font-size: 1.05rem;
+}
+
+.testo p,
+.testo ul {
+  margin-top: 12px;
+  color: var(--testo-soft);
+}
+
+.testo ul {
+  padding-left: 22px;
+}
+
+.testo li {
+  padding: 4px 0;
+}
+
+.testo a {
+  color: var(--link);
+}
+
+@media (min-width: 900px) {
+  .pagina {
+    padding-top: 74px;
+  }
+}

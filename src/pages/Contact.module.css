@@ -66,6 +66,16 @@
   margin-top: 2px;
 }
 
+.nota {
+  margin-top: -10px;
+  font-size: .85rem;
+  color: var(--testo-soft);
+}
+
+.checkbox a {
+  color: var(--link);
+}
+
 .errore {
   color: #B3261E;
   font-size: .92rem;
@@ -134,6 +144,39 @@
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+.mappaSegnaposto {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.recapiti .mappaSegnaposto p {
+  margin-top: 0;
+  font-size: .85rem;
+}
+
+.mappaSegnaposto a {
+  color: var(--link);
+}
+
+.mostraMappa {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: .95rem;
+  background: var(--card);
+  color: var(--testo);
+  border: 1.5px solid var(--bordo);
+  border-radius: 10px;
+  padding: .7rem 1.2rem;
+  min-height: 44px;
+  cursor: pointer;
 }
 
 @media (min-width: 600px) {

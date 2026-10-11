@@ -6,6 +6,7 @@ import WhatsAppButton from './components/WhatsAppButton'
 import Home from './pages/Home'
 import TourDetail from './pages/TourDetail'
 import Contact from './pages/Contact'
+import Privacy from './pages/Privacy'
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -31,6 +32,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/escursioni/:slug" element={<TourDetail />} />
           <Route path="/contatti" element={<Contact />} />
+          <Route path="/privacy" element={<Privacy />} />
         </Routes>
       </main>
       <Footer />

@@ -1,4 +1,5 @@
 import { FormEvent, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { site } from '../data/site'
 import { tours } from '../data/tours'
 import Section, { SectionIntro } from '../components/Section'
@@ -11,6 +12,7 @@ const FORM_ENDPOINT = import.meta.env.VITE_FORM_ENDPOINT as string | undefined
 export default function Contact() {
   const [stato, setStato] = useState<Stato>('idle')
   const [erroreValidazione, setErroreValidazione] = useState<string | null>(null)
+  const [mostraMappa, setMostraMappa] = useState(false)
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -18,7 +20,7 @@ export default function Contact() {
     const dati = new FormData(form)
 
     if (!dati.get('consenso')) {
-      setErroreValidazione('Devi accettare il trattamento dei dati per inviare la richiesta.')
+      setErroreValidazione("Conferma di aver letto l'informativa privacy per inviare la richiesta.")
       return
     }
     setErroreValidazione(null)
@@ -95,11 +97,14 @@ export default function Contact() {
             </label>
             <label className={styles.campo}>
               Messaggio
-              <textarea name="messaggio" rows={4} />
+              <textarea name="messaggio" rows={4} aria-describedby="nota-messaggio" />
             </label>
+            <p id="nota-messaggio" className={styles.nota}>
+              Non scrivere qui allergie o intolleranze: te le chiediamo noi alla conferma della prenotazione.
+            </p>
             <label className={styles.checkbox}>
               <input type="checkbox" name="consenso" required />
-              <span>Acconsento al trattamento dei miei dati per essere ricontattato/a.</span>
+              <span>Ho letto l'<Link to="/privacy">informativa privacy</Link>.</span>
             </label>
 
             {erroreValidazione && <p className={styles.errore}>{erroreValidazione}</p>}
@@ -119,12 +124,20 @@ export default function Contact() {
             <a className={styles.link} href={`mailto:${site.email}`}>{site.email}</a>
 
             <div className={styles.mappa}>
-              <iframe
-                src={site.mappaSrc}
-                title="Mappa del punto d'imbarco a Salinagrande"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+              {/* la mappa di Google imposta cookie di terze parti: si carica solo su richiesta */}
+              {mostraMappa ? (
+                <iframe
+                  src={site.mappaSrc}
+                  title="Mappa del punto d'imbarco a Salinagrande"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              ) : (
+                <div className={styles.mappaSegnaposto}>
+                  <button type="button" className={styles.mostraMappa} onClick={() => setMostraMappa(true)}>Mostra mappa</button>
+                  <p>Caricando la mappa, Google può impostare cookie sul tuo dispositivo. <a href="/privacy#cookie">Dettagli</a></p>
+                </div>
+              )}
             </div>
             <a className={styles.link} href={site.mappaLink} target="_blank" rel="noopener noreferrer">Apri in Google Maps</a>
           </div>
