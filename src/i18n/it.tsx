@@ -72,7 +72,7 @@ const it = {
 
   tourGrid: {
     titolo: 'Le nostre giornate in mare',
-    testo: "Quattro modi di vedere le Egadi. Tutte le escursioni partono da Salinagrande (TP) e rientrano prima del tramonto, tranne l'aperitivo.",
+    testo: "Cinque modi di vedere le Egadi. Tutte le escursioni partono da Salinagrande (TP) e rientrano prima del tramonto, tranne l'aperitivo.",
   },
 
   tourCard: {
@@ -190,7 +190,7 @@ const it = {
   },
 
   finale: {
-    titolo: 'Il mare domani è previsto calmo',
+    titolo: 'Scegli il tuo giorno di mare',
     // titolo in base alle previsioni di domani (se mancano resta "titolo")
     titoloMeteo: {
       perfetto: 'Il mare domani è previsto calmo',

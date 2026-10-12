@@ -66,7 +66,7 @@ const fr: Dict = {
 
   tourGrid: {
     titolo: 'Nos journées en mer',
-    testo: "Quatre façons de découvrir les Égades. Toutes les excursions partent de Salinagrande (TP) et rentrent avant le coucher du soleil, sauf l'apéritif.",
+    testo: "Cinq façons de découvrir les Égades. Toutes les excursions partent de Salinagrande (TP) et rentrent avant le coucher du soleil, sauf l'apéritif.",
   },
 
   tourCard: {
@@ -183,7 +183,7 @@ const fr: Dict = {
   },
 
   finale: {
-    titolo: 'Mer calme prévue demain',
+    titolo: 'Choisissez votre journée en mer',
     titoloMeteo: {
       perfetto: 'Mer calme prévue demain',
       buono: 'Demain, mer favorable pour sortir',

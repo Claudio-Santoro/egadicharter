@@ -66,7 +66,7 @@ const es: Dict = {
 
   tourGrid: {
     titolo: 'Nuestros días en el mar',
-    testo: 'Cuatro formas de ver las Egadas. Todas las excursiones salen de Salinagrande (TP) y vuelven antes del atardecer, excepto el aperitivo.',
+    testo: 'Cinco formas de ver las Egadas. Todas las excursiones salen de Salinagrande (TP) y vuelven antes del atardecer, excepto el aperitivo.',
   },
 
   tourCard: {
@@ -183,7 +183,7 @@ const es: Dict = {
   },
 
   finale: {
-    titolo: 'Mañana se prevé mar en calma',
+    titolo: 'Elige tu día de mar',
     titoloMeteo: {
       perfetto: 'Mañana se prevé mar en calma',
       buono: 'Mañana buen mar para salir',

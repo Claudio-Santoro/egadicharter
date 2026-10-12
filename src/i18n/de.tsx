@@ -66,7 +66,7 @@ const de: Dict = {
 
   tourGrid: {
     titolo: 'Unsere Tage auf dem Meer',
-    testo: 'Vier Arten, die Ägadischen Inseln zu erleben. Alle Ausflüge starten in Salinagrande (TP) und kehren vor Sonnenuntergang zurück, außer dem Aperitivo.',
+    testo: 'Fünf Arten, die Ägadischen Inseln zu erleben. Alle Ausflüge starten in Salinagrande (TP) und kehren vor Sonnenuntergang zurück, außer dem Aperitivo.',
   },
 
   tourCard: {
@@ -183,7 +183,7 @@ const de: Dict = {
   },
 
   finale: {
-    titolo: 'Für morgen ist ruhige See vorhergesagt',
+    titolo: 'Wählen Sie Ihren Tag auf dem Meer',
     titoloMeteo: {
       perfetto: 'Für morgen ist ruhige See vorhergesagt',
       buono: 'Morgen gutes Wetter zum Rausfahren',

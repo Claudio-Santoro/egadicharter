@@ -66,7 +66,7 @@ const en: Dict = {
 
   tourGrid: {
     titolo: 'Our days at sea',
-    testo: 'Four ways to see the Egadi Islands. All trips depart from Salinagrande (TP) and return before sunset, except the aperitivo.',
+    testo: 'Five ways to see the Egadi Islands. All trips depart from Salinagrande (TP) and return before sunset, except the aperitivo.',
   },
 
   tourCard: {
@@ -183,7 +183,7 @@ const en: Dict = {
   },
 
   finale: {
-    titolo: 'Calm sea forecast for tomorrow',
+    titolo: 'Pick your day at sea',
     titoloMeteo: {
       perfetto: 'Calm sea forecast for tomorrow',
       buono: 'Good sea for going out tomorrow',

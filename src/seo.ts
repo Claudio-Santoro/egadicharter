@@ -1,9 +1,20 @@
+import { isValidElement, type ReactNode } from 'react'
 import { site } from './data/site'
 import { getTours } from './data/tours'
 import { HREFLANG, LANGS, LANG_DEFAULT, OG_LOCALE, dicts, lp, splitPath } from './i18n'
 
 const esc = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+
+/** testo semplice di una risposta FAQ, che può contenere link JSX */
+const testo = (n: ReactNode): string =>
+  typeof n === 'string' || typeof n === 'number' ? String(n)
+  : Array.isArray(n) ? n.map(testo).join('')
+  : isValidElement<{ children?: ReactNode }>(n) ? testo(n.props.children)
+  : ''
+
+const jsonLdTag = (dati: object) =>
+  `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', ...dati }).replace(/</g, '\\u003c')}</script>`
 
 /** tag del <head> che cambiano per pagina e lingua; tutti con data-head, così il client li sostituisce */
 export function headHtml(pathname: string, siteUrl: string): { lang: string; html: string } {
@@ -39,30 +50,61 @@ export function headHtml(pathname: string, siteUrl: string): { lang: string; htm
       `<meta property="og:locale" content="${OG_LOCALE[lang]}">`,
       ...LANGS.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alternate" content="${OG_LOCALE[l]}">`),
     )
+    const azienda = {
+      '@type': 'LocalBusiness',
+      '@id': `${siteUrl}/#azienda`,
+      name: 'Bellavia Egadi Charter',
+      url: url(lang),
+      image: immagine,
+      description: t.meta.jsonLd,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Porticciolo, Nautica Cordaro',
+        addressLocality: 'Salinagrande',
+        postalCode: '91031',
+        addressRegion: 'TP',
+        addressCountry: 'IT',
+      },
+      telephone: site.telefono,
+      email: site.email,
+      sameAs: [site.social.instagram, site.social.tiktok],
+      priceRange: '€45-€900',
+      openingHours: 'Mo-Su 08:00-20:00',
+    }
     if (path === '/') {
-      const jsonLd = {
-        '@context': 'https://schema.org',
-        '@type': 'LocalBusiness',
-        name: 'Bellavia Egadi Charter',
+      tag.push(jsonLdTag({
+        '@graph': [
+          { ...azienda, inLanguage: HREFLANG[lang] },
+          {
+            '@type': 'FAQPage',
+            inLanguage: HREFLANG[lang],
+            mainEntity: t.faq.lista.map((f) => ({
+              '@type': 'Question',
+              name: f.domanda,
+              acceptedAnswer: { '@type': 'Answer', text: testo(f.risposta) },
+            })),
+          },
+        ],
+      }))
+    } else if (tour) {
+      tag.push(jsonLdTag({
+        '@type': 'TouristTrip',
+        name: tour.titolo,
+        description: tour.descrizioneBreve,
         url: url(lang),
-        image: immagine,
-        description: t.meta.jsonLd,
+        image: siteUrl + tour.immagine,
         inLanguage: HREFLANG[lang],
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: 'Porticciolo, Nautica Cordaro',
-          addressLocality: 'Salinagrande',
-          postalCode: '91031',
-          addressRegion: 'TP',
-          addressCountry: 'IT',
+        itinerary: { '@type': 'ItemList', itemListElement: tour.itinerario.map((x, i) => ({ '@type': 'ListItem', position: i + 1, name: x })) },
+        provider: { '@id': azienda['@id'], '@type': 'LocalBusiness', name: azienda.name, url: siteUrl + lp('/', lang) },
+        offers: {
+          '@type': 'Offer',
+          price: tour.prezzoDa,
+          priceCurrency: 'EUR',
+          url: url(lang),
+          // prezzo a persona per i condivisi, per gommone per i privati
+          eligibleQuantity: { '@type': 'QuantitativeValue', maxValue: tour.maxPersone, unitText: tour.unitaPrezzo === 'persona' ? 'person' : 'boat' },
         },
-        telephone: site.telefono,
-        email: site.email,
-        sameAs: [site.social.instagram, site.social.tiktok],
-        priceRange: '€45-€900',
-        openingHours: 'Mo-Su 08:00-20:00',
-      }
-      tag.push(`<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>`)
+      }))
     }
   }
 

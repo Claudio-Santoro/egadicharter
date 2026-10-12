@@ -66,7 +66,7 @@ const zh: Dict = {
 
   tourGrid: {
     titolo: '我们的海上一日',
-    testo: '四种游览埃加迪群岛的方式。所有项目均从萨利纳格兰德（TP）出发，并在日落前返回，日落开胃酒除外。',
+    testo: '五种游览埃加迪群岛的方式。所有项目均从萨利纳格兰德（TP）出发，并在日落前返回，日落开胃酒除外。',
   },
 
   tourCard: {
@@ -183,7 +183,7 @@ const zh: Dict = {
   },
 
   finale: {
-    titolo: '预计明天海面平静',
+    titolo: '选择您的出海日',
     titoloMeteo: {
       perfetto: '预计明天海面平静',
       buono: '明天海况良好，适合出海',

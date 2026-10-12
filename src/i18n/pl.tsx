@@ -66,7 +66,7 @@ const pl: Dict = {
 
   tourGrid: {
     titolo: 'Nasze dni na morzu',
-    testo: 'Cztery sposoby na poznanie Wysp Egadzkich. Wszystkie rejsy wypływają z Salinagrande (TP) i wracają przed zachodem słońca, z wyjątkiem aperitivo.',
+    testo: 'Pięć sposobów na poznanie Wysp Egadzkich. Wszystkie rejsy wypływają z Salinagrande (TP) i wracają przed zachodem słońca, z wyjątkiem aperitivo.',
   },
 
   tourCard: {
@@ -183,7 +183,7 @@ const pl: Dict = {
   },
 
   finale: {
-    titolo: 'Jutro zapowiadane spokojne morze',
+    titolo: 'Wybierz swój dzień na morzu',
     titoloMeteo: {
       perfetto: 'Jutro zapowiadane spokojne morze',
       buono: 'Jutro dobre morze na rejs',
