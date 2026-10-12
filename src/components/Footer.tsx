@@ -3,12 +3,9 @@ import { site, waLink } from '../data/site'
 import { lp, useLang, useT } from '../i18n'
 import styles from './Footer.module.css'
 
+// foto Wikimedia ancora in uso: isola-levanzo.jpg (Verbavolan) e finale-tramonto.jpg (Tommie Hansen); togliere quando si sostituiscono
 const crediti = [
-  { autore: 'Ugeorge', licenza: 'CC BY-SA 3.0', url: 'https://creativecommons.org/licenses/by-sa/3.0/', file: 'https://commons.wikimedia.org/wiki/File:Favignana_(1).jpg' },
-  { autore: 'A. Farricelli', licenza: 'CC BY-SA 4.0', url: 'https://creativecommons.org/licenses/by-sa/4.0/', file: 'https://commons.wikimedia.org/wiki/File:Sea_and_rocks_of_Favignana_Island.jpg' },
   { autore: 'Verbavolan', licenza: 'CC BY-SA 3.0', url: 'https://creativecommons.org/licenses/by-sa/3.0/', file: 'https://commons.wikimedia.org/wiki/File:Levanzo,_Egadi.jpg' },
-  { autore: 'Dantadd', licenza: 'CC BY-SA 2.5', url: 'https://creativecommons.org/licenses/by-sa/2.5/', file: 'https://commons.wikimedia.org/wiki/File:Levanzo_e_Favignana.jpg' },
-  { autore: 'Norbert Nagel', licenza: 'CC BY-SA 3.0', url: 'https://creativecommons.org/licenses/by-sa/3.0/', file: 'https://commons.wikimedia.org/wiki/File:Levanzo_Italy_04.jpg' },
   { autore: 'Tommie Hansen', licenza: 'CC BY 3.0', url: 'https://creativecommons.org/licenses/by/3.0/', file: 'https://commons.wikimedia.org/wiki/File:Sunrise_at_Favignana_Island,_Sicily_(Italy)_-_panoramio.jpg' },
 ]
 
