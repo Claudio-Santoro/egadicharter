@@ -16,6 +16,7 @@ services:
       dockerfile: Dockerfile
       args:
         VITE_FORM_ENDPOINT: ${VITE_FORM_ENDPOINT:-}
+        SITE_URL: ${SITE_URL:-http://localhost:8080}
     ports:
       - "8080:80"
     restart: unless-stopped

@@ -64,6 +64,7 @@
   font-size: .94rem;
   color: #fff;
   text-decoration: none;
+  white-space: nowrap;
   opacity: .86;
   padding: 4px 0;
   border-bottom: 2px solid transparent;
@@ -85,18 +86,34 @@
   display: none;
 }
 
-.lingue {
-  display: none;
-  gap: 9px;
-  font-size: .78rem;
+.lingue,
+.pannelloLingue {
   font-family: var(--display);
   font-weight: 600;
-  color: rgba(255, 255, 255, .65);
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .35);
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-.lingue b {
-  color: #fff;
-  font-weight: 700;
+.lingue {
+  display: none;
+  font-size: .82rem;
+  padding: 6px 8px;
+}
+
+.pannelloLingue {
+  margin-top: 24px;
+  font-size: 1.05rem;
+  padding: 12px;
+  min-height: 44px;
+}
+
+/* il menu a tendina nativo usa sfondo chiaro */
+.lingue option,
+.pannelloLingue option {
+  color: #000;
 }
 
 .hamburger {
@@ -171,12 +188,16 @@
     font-size: .63rem;
   }
 
+}
+
+/* menu completo da 1024px: con tedesco, francese e spagnolo a 900px le voci andrebbero a capo */
+@media (min-width: 1024px) {
   .nav {
     display: flex;
   }
 
   .lingue {
-    display: flex;
+    display: block;
   }
 
   .prenota {

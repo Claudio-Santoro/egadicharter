@@ -1,43 +1,42 @@
-import { Navigate, useParams } from 'react-router-dom'
-import { getTourBySlug, tours } from '../data/tours'
-import { site } from '../data/site'
+import { useParams } from 'react-router-dom'
+import { useTours } from '../data/tours'
+import { site, waLink } from '../data/site'
+import { useT } from '../i18n'
 import Section, { SectionIntro } from '../components/Section'
 import TourCard from '../components/TourCard'
 import Button from '../components/Button'
 import Slideshow from '../components/Slideshow'
+import NotFound from './NotFound'
 import styles from './TourDetail.module.css'
 
 export default function TourDetail() {
   const { slug } = useParams()
-  const tour = slug ? getTourBySlug(slug) : undefined
+  const { tour: t, comune } = useT()
+  const tours = useTours()
+  const tour = tours.find((x) => x.slug === slug)
 
-  if (!tour) {
-    return <Navigate to="/" replace />
-  }
+  if (!tour) return <NotFound />
 
-  const waHref = `https://wa.me/${site.whatsappNumero}?text=${encodeURIComponent(
-    `Ciao! Vorrei prenotare: ${tour.titolo}.`
-  )}`
-  const altreEscursioni = tours.filter((t) => t.id !== tour.id).slice(0, 3)
+  const altreEscursioni = tours.filter((x) => x.id !== tour.id).slice(0, 3)
 
   return (
     <div className={styles.pagina}>
       <Slideshow
         className={styles.galleria}
-        foto={tour.galleria.map((src, i) => ({ src, alt: i === 0 ? `Foto principale di ${tour.titolo}` : `Foto ${i + 1} di ${tour.titolo}` }))}
-        label={`Foto di ${tour.titolo}`}
+        foto={tour.galleria.map((src, i) => ({ src, alt: i === 0 ? t.fotoPrincipale(tour.titolo) : t.foto(i + 1, tour.titolo) }))}
+        label={t.fotoDi(tour.titolo)}
       />
 
       <div className={`wrap ${styles.corpo}`}>
         <div className={styles.contenuto}>
           <span className={`${styles.tag} ${tour.tipo === 'privato' ? styles.tagPrivato : ''}`}>
-            {tour.tipo === 'privato' ? 'Tour privato' : 'Tour condiviso'}
+            {tour.tipo === 'privato' ? comune.tourPrivato : comune.tourCondiviso}
           </span>
           <h1>{tour.titolo}</h1>
           <p className={styles.descrizione}>{tour.descrizioneLunga}</p>
 
           <div className={styles.blocco}>
-            <h2>Itinerario</h2>
+            <h2>{t.itinerario}</h2>
             <ol className={styles.itinerario}>
               {tour.itinerario.map((tappa) => <li key={tappa}>{tappa}</li>)}
             </ol>
@@ -45,14 +44,14 @@ export default function TourDetail() {
 
           <div className={styles.listeIncluso}>
             <div className={styles.blocco}>
-              <h2>Incluso</h2>
+              <h2>{t.incluso}</h2>
               <ul className={styles.lista}>
                 {tour.incluso.map((v) => <li key={v}>{v}</li>)}
               </ul>
             </div>
             {tour.nonIncluso.length > 0 && (
               <div className={styles.blocco}>
-                <h2>Non incluso</h2>
+                <h2>{t.nonIncluso}</h2>
                 <ul className={styles.lista}>
                   {tour.nonIncluso.map((v) => <li key={v}>{v}</li>)}
                 </ul>
@@ -64,27 +63,27 @@ export default function TourDetail() {
         <aside className={styles.riepilogo}>
           <div className={styles.riepilogoIn}>
             <div className={styles.prezzo}>
-              <small>da</small>
+              <small>{comune.da}</small>
               <b>€{tour.prezzoDa}</b>
-              <small>{tour.unitaPrezzo}</small>
+              <small>{comune.unita[tour.unitaPrezzo]}</small>
             </div>
             <div className={styles.meta}>
               <span>{tour.durata}</span>
-              <span>max {tour.maxPersone} persone</span>
-              <span>Partenza {tour.orarioPartenza}</span>
+              <span>{t.persone(tour.maxPersone)}</span>
+              <span>{t.partenza(tour.orarioPartenza ?? t.aScelta)}</span>
             </div>
             <div className={styles.azioni}>
-              <Button href={waHref} variante="primario">Scrivici su WhatsApp</Button>
-              <Button href={site.telefonoHref} variante="linea">Chiama</Button>
+              <Button href={waLink(t.waPrenota(tour.titolo))} variante="primario">{comune.scriviciWa}</Button>
+              <Button href={site.telefonoHref} variante="linea">{t.chiama}</Button>
             </div>
           </div>
         </aside>
       </div>
 
       <Section>
-        <SectionIntro titolo="Altre escursioni" />
+        <SectionIntro titolo={t.altre} />
         <div className={styles.altre}>
-          {altreEscursioni.map((t) => <TourCard key={t.id} tour={t} />)}
+          {altreEscursioni.map((x) => <TourCard key={x.id} tour={x} />)}
         </div>
       </Section>
     </div>

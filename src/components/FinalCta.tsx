@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react'
-import { site } from '../data/site'
+import { site, waLink } from '../data/site'
+import { LOCALE, useLang, useT } from '../i18n'
 import { caricaPrevisioni, type Giorno } from '../data/meteo'
 import Button from './Button'
 import styles from './FinalCta.module.css'
 
-const waLink = (testo: string) => `https://wa.me/${site.whatsappNumero}?text=${encodeURIComponent(testo)}`
-
 // Mezzogiorno per non scivolare di giorno con il fuso.
-const giornoIt = (data: string, opts: Intl.DateTimeFormatOptions) =>
-  new Date(`${data}T12:00:00`).toLocaleDateString('it-IT', opts)
+const giorno = (data: string, locale: string, opts: Intl.DateTimeFormatOptions) =>
+  new Date(`${data}T12:00:00`).toLocaleDateString(locale, opts)
+const LUNGO: Intl.DateTimeFormatOptions = { weekday: 'long', day: 'numeric', month: 'long' }
 
-const ETICHETTA = { perfetto: 'Giorno ideale', buono: 'Buono', sconsigliato: 'Mare mosso' }
 const ICONA = { perfetto: '☀', buono: '✓', sconsigliato: '✕' }
 
 function usePrevisioni() {
@@ -29,15 +28,17 @@ function usePrevisioni() {
 
 export default function FinalCta() {
   const giorni = usePrevisioni()
+  const { finale: t, comune } = useT()
+  const locale = LOCALE[useLang()]
   const domani = giorni?.[1]
-  const titolo = domani ? site.ctaFinale.titoloMeteo[domani.stato] : site.ctaFinale.titolo
+  const titolo = domani ? t.titoloMeteo[domani.stato] : t.titolo
 
   return (
     <section className={styles.finale} id="contatti">
       <img
         className={styles.sfondo}
         src="/images/finale-tramonto.jpg"
-        alt="Tramonto visto dal mare davanti alle Egadi"
+        alt={t.alt}
         loading="lazy"
         width="1440"
         height="520"
@@ -45,17 +46,17 @@ export default function FinalCta() {
       <span className={styles.velo} />
       <div className={`wrap ${styles.in}`}>
         <h2>{titolo}</h2>
-        <p>{site.ctaFinale.testo}</p>
+        <p>{t.testo}</p>
 
         {giorni && (
           <div className={styles.meteo}>
-            <p className={styles.meteoTitolo}>Mare nei prossimi 7 giorni</p>
+            <p className={styles.meteoTitolo}>{t.meteoTitolo}</p>
             <ul className={styles.giorni}>
               {giorni.map(g => {
                 const contenuto = (
                   <>
-                    <span className={styles.data}>{giornoIt(g.data, { weekday: 'short', day: 'numeric' })}</span>
-                    <span className={styles.stato}><span aria-hidden="true">{ICONA[g.stato]}</span> {ETICHETTA[g.stato]}</span>
+                    <span className={styles.data}>{giorno(g.data, locale, { weekday: 'short', day: 'numeric' })}</span>
+                    <span className={styles.stato}><span aria-hidden="true">{ICONA[g.stato]}</span> {t.etichetta[g.stato]}</span>
                     <span className={styles.valori}>
                       {g.onda != null && `${g.onda.toFixed(1)} m`}
                       {g.vento != null && ` · ${Math.round(g.vento)} kn`}
@@ -69,8 +70,8 @@ export default function FinalCta() {
                     ) : (
                       <a
                         className={`${styles.giorno} ${styles[g.stato]}`}
-                        href={waLink(`Ciao! Vorrei prenotare per ${giornoIt(g.data, { weekday: 'long', day: 'numeric', month: 'long' })}.`)}
-                        aria-label={`Prenota ${giornoIt(g.data, { weekday: 'long', day: 'numeric', month: 'long' })}, ${ETICHETTA[g.stato]}, su WhatsApp`}
+                        href={waLink(t.waGiorno(giorno(g.data, locale, LUNGO)))}
+                        aria-label={t.ariaGiorno(giorno(g.data, locale, LUNGO), t.etichetta[g.stato])}
                       >
                         {contenuto}
                       </a>
@@ -80,13 +81,13 @@ export default function FinalCta() {
               })}
             </ul>
             <p className={styles.fonte}>
-              Previsioni <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>, aggiornate ogni ora. Onda massima e vento in nodi.
+              {t.fonte}
             </p>
           </div>
         )}
 
         <div className={styles.cta}>
-          <Button href={waLink('Ciao! Vorrei prenotare un\'escursione.')} variante="primario">Scrivici su WhatsApp</Button>
+          <Button href={waLink(t.waPrenota)} variante="primario">{comune.scriviciWa}</Button>
           <Button href={site.telefonoHref} variante="chiaro">{site.telefono}</Button>
         </div>
       </div>

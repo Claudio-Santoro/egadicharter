@@ -1,4 +1,4 @@
-import { site } from '../data/site'
+import { useT } from '../i18n'
 import styles from './TrustBar.module.css'
 
 const icone = [
@@ -22,7 +22,7 @@ export default function TrustBar() {
     <section className={styles.fiducia}>
       <div className="wrap" style={{ paddingInline: 0 }}>
         <div className={styles.griglia}>
-          {site.fiducia.map((voce, i) => {
+          {useT().fiducia.map((voce, i) => {
             const contenuto = (
               <>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
@@ -34,7 +34,7 @@ export default function TrustBar() {
                 </div>
               </>
             )
-            return 'href' in voce
+            return voce.href
               ? <a className={styles.voce} key={voce.titolo} href={voce.href} target="_blank" rel="noopener noreferrer">{contenuto}</a>
               : <div className={styles.voce} key={voce.titolo}>{contenuto}</div>
           })}

@@ -7,21 +7,18 @@ import IslandCards from '../components/IslandCards'
 import HowItWorks from '../components/HowItWorks'
 import Faq from '../components/Faq'
 import FinalCta from '../components/FinalCta'
-import { tours } from '../data/tours'
-import { islands } from '../data/islands'
-import { faq } from '../data/faq'
 
 export default function Home() {
   return (
     <>
       <Hero />
       <TrustBar />
-      <TourGrid tours={tours} />
+      <TourGrid />
       <AboutBlock />
       <FleetGrid />
-      <IslandCards islands={islands} />
+      <IslandCards />
       <HowItWorks />
-      <Faq items={faq} />
+      <Faq />
       <FinalCta />
     </>
   )

@@ -1,7 +1,8 @@
 import { FormEvent, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { site } from '../data/site'
-import { tours } from '../data/tours'
+import { useTours } from '../data/tours'
+import { lp, useLang, useT } from '../i18n'
 import Section, { SectionIntro } from '../components/Section'
 import styles from './Contact.module.css'
 
@@ -13,6 +14,9 @@ export default function Contact() {
   const [stato, setStato] = useState<Stato>('idle')
   const [erroreValidazione, setErroreValidazione] = useState<string | null>(null)
   const [mostraMappa, setMostraMappa] = useState(false)
+  const { contatti: t, footer } = useT()
+  const lang = useLang()
+  const tours = useTours()
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -20,23 +24,23 @@ export default function Contact() {
     const dati = new FormData(form)
 
     if (!dati.get('consenso')) {
-      setErroreValidazione("Conferma di aver letto l'informativa privacy per inviare la richiesta.")
+      setErroreValidazione(t.erroreConsenso)
       return
     }
     setErroreValidazione(null)
 
     const riepilogo = [
-      `Nome: ${dati.get('nome')}`,
-      `Email: ${dati.get('email')}`,
-      `Telefono: ${dati.get('telefono')}`,
-      `Data: ${dati.get('data')}`,
-      `Persone: ${dati.get('persone')}`,
-      `Escursione: ${dati.get('escursione')}`,
-      `Messaggio: ${dati.get('messaggio')}`,
+      `${t.nome}: ${dati.get('nome')}`,
+      `${t.email}: ${dati.get('email')}`,
+      `${t.telefono}: ${dati.get('telefono')}`,
+      `${t.data}: ${dati.get('data')}`,
+      `${t.persone}: ${dati.get('persone')}`,
+      `${t.escursione}: ${dati.get('escursione')}`,
+      `${t.messaggio}: ${dati.get('messaggio')}`,
     ].join('\n')
 
     if (!FORM_ENDPOINT) {
-      window.location.href = `mailto:${site.email}?subject=${encodeURIComponent('Richiesta escursione')}&body=${encodeURIComponent(riepilogo)}`
+      window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(t.oggetto)}&body=${encodeURIComponent(riepilogo)}`
       setStato('ok')
       return
     }
@@ -58,68 +62,65 @@ export default function Contact() {
   return (
     <div className={styles.pagina}>
       <Section id="modulo">
-        <SectionIntro
-          titolo="Contattaci"
-          testo="Scrivici con la data e quante persone siete: rispondiamo entro un'ora."
-        />
+        <SectionIntro titolo={t.titolo} testo={t.testo} />
 
         <div className={styles.griglia}>
           <form className={styles.form} onSubmit={onSubmit} noValidate>
             <label className={styles.campo}>
-              Nome e cognome
+              {t.nome}
               <input type="text" name="nome" autoComplete="name" required />
             </label>
             <label className={styles.campo}>
-              Email
+              {t.email}
               <input type="email" name="email" autoComplete="email" required />
             </label>
             <label className={styles.campo}>
-              Telefono
+              {t.telefono}
               <input type="tel" name="telefono" autoComplete="tel" required />
             </label>
             <div className={styles.riga}>
               <label className={styles.campo}>
-                Data desiderata
+                {t.data}
                 <input type="date" name="data" />
               </label>
               <label className={styles.campo}>
-                Numero di persone
+                {t.persone}
                 <input type="number" name="persone" min={1} max={30} inputMode="numeric" defaultValue={2} />
               </label>
             </div>
             <label className={styles.campo}>
-              Escursione di interesse
+              {t.escursione}
               <select name="escursione" defaultValue="">
-                <option value="" disabled>Scegli un'escursione</option>
+                <option value="" disabled>{t.scegli}</option>
                 {tours.map((t) => <option key={t.id} value={t.titolo}>{t.titolo}</option>)}
-                <option value="Non so ancora">Non so ancora</option>
+                <option value={t.nonSo}>{t.nonSo}</option>
               </select>
             </label>
             <label className={styles.campo}>
-              Messaggio
+              {t.messaggio}
               <textarea name="messaggio" rows={4} aria-describedby="nota-messaggio" />
             </label>
             <p id="nota-messaggio" className={styles.nota}>
-              Non scrivere qui allergie o intolleranze: te le chiediamo noi alla conferma della prenotazione.
+              {t.notaMessaggio}
             </p>
             <label className={styles.checkbox}>
               <input type="checkbox" name="consenso" required />
-              <span>Ho letto l'<Link to="/privacy">informativa privacy</Link>.</span>
+              <span>{t.consenso(<Link to={lp('/privacy', lang)}>{t.linkPrivacy}</Link>)}</span>
             </label>
 
             {erroreValidazione && <p className={styles.errore}>{erroreValidazione}</p>}
-            {stato === 'errore' && <p className={styles.errore}>Invio non riuscito. Riprova o scrivici su WhatsApp.</p>}
-            {stato === 'ok' && <p className={styles.successo}>Richiesta inviata! Ti risponderemo il prima possibile.</p>}
+            {stato === 'errore' && <p className={styles.errore}>{t.erroreInvio}</p>}
+            {stato === 'ok' && <p className={styles.successo}>{t.ok}</p>}
 
             <button className={styles.invia} type="submit" disabled={stato === 'invio'}>
-              {stato === 'invio' ? 'Invio in corso…' : 'Invia richiesta'}
+              {stato === 'invio' ? t.invio : t.invia}
             </button>
           </form>
 
           <div className={styles.recapiti}>
-            <h3>Recapiti</h3>
+            <h3>{t.recapiti}</h3>
             <p>{site.indirizzo.riga1}<br />{site.indirizzo.riga2}<br />{site.indirizzo.riga3}</p>
-            <p className={styles.orari}>{site.orari}</p>
+            <p className={styles.orari}>{footer.orari}</p>
             <a className={styles.link} href={site.telefonoHref}>{site.telefono}</a>
             <a className={styles.link} href={`mailto:${site.email}`}>{site.email}</a>
 
@@ -128,18 +129,18 @@ export default function Contact() {
               {mostraMappa ? (
                 <iframe
                   src={site.mappaSrc}
-                  title="Mappa del punto d'imbarco a Salinagrande"
+                  title={t.mappaTitolo}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
               ) : (
                 <div className={styles.mappaSegnaposto}>
-                  <button type="button" className={styles.mostraMappa} onClick={() => setMostraMappa(true)}>Mostra mappa</button>
-                  <p>Caricando la mappa, Google può impostare cookie sul tuo dispositivo. <a href="/privacy#cookie">Dettagli</a></p>
+                  <button type="button" className={styles.mostraMappa} onClick={() => setMostraMappa(true)}>{t.mostraMappa}</button>
+                  <p>{t.mappaCookie} <a href={lp('/privacy#cookie', lang)}>{t.dettagli}</a></p>
                 </div>
               )}
             </div>
-            <a className={styles.link} href={site.mappaLink} target="_blank" rel="noopener noreferrer">Apri in Google Maps</a>
+            <a className={styles.link} href={site.mappaLink} target="_blank" rel="noopener noreferrer">{t.apriMaps}</a>
           </div>
         </div>
       </Section>

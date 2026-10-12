@@ -5,7 +5,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts'],
+  ignorePatterns: ['dist', 'dist-ssr', '.eslintrc.cjs', 'vite.config.ts'],
   parser: '@typescript-eslint/parser',
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module', ecmaFeatures: { jsx: true } },
   plugins: ['react-refresh'],

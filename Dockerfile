@@ -8,6 +8,8 @@ RUN npm ci
 FROM node:20-alpine AS build
 ARG VITE_FORM_ENDPOINT
 ENV VITE_FORM_ENDPOINT=$VITE_FORM_ENDPOINT
+ARG SITE_URL
+ENV SITE_URL=$SITE_URL
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .

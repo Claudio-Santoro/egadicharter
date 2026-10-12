@@ -27,6 +27,17 @@
   object-position: 50% 50%;
 }
 
+.scena picture {
+  display: contents;
+}
+
+/* su mobile l'<img> mostra il poster del video: stessa inquadratura del video */
+@media (max-width: 599px) {
+  .scena img {
+    object-position: 50% 50%;
+  }
+}
+
 .velo {
   position: absolute;
   inset: 0;

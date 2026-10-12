@@ -1,50 +1,26 @@
-import type { Tour } from './tour-types'
-import { inclusoStandard, nonInclusoStandard } from './tour-types'
+import type { TourBase } from './tour-types'
 
-export const toursPrivati: Tour[] = [
+export const toursPrivati: TourBase[] = [
   {
     id: 't5',
     slug: 'charter-privato-egadi',
-    titolo: 'Charter privato alle Egadi',
-    descrizioneBreve: "Gommone solo per voi, itinerario deciso insieme la sera prima guardando il meteo.",
-    descrizioneLunga: "L'intero gommone con equipaggio a vostra disposizione per una giornata. L'itinerario si decide insieme la sera prima, guardando meteo e condizioni del mare, per andare esattamente dove volete voi.",
     prezzoDa: 900,
-    unitaPrezzo: 'a gommone',
-    durata: '8 ore',
+    unitaPrezzo: 'gommone',
     maxPersone: 10,
     tipo: 'privato',
     immagine: '/images/tour-charter-privato.jpg',
     galleria: ['/images/tour-charter-privato.jpg'],
-    incluso: inclusoStandard,
-    nonIncluso: nonInclusoStandard,
-    itinerario: [
-      'Orario di partenza a scelta',
-      'Itinerario personalizzato tra Favignana e Levanzo',
-      'Soste bagno dove e quando preferite',
-      'Rientro in serata',
-    ],
-    orarioPartenza: 'a scelta',
+    orarioPartenza: null,
   },
   {
     id: 't6',
     slug: 'mezza-giornata-privata',
-    titolo: 'Mezza giornata privata',
-    descrizioneBreve: 'Quattro ore di mare per famiglie e piccoli gruppi, con orario di uscita a scelta.',
-    descrizioneLunga: 'La versione più breve del charter privato: quattro ore di mare, ideali per famiglie con bambini piccoli o per chi ha solo mezza giornata a disposizione, con orario di uscita concordato insieme.',
     prezzoDa: 450,
-    unitaPrezzo: 'a gommone',
-    durata: '4 ore',
+    unitaPrezzo: 'gommone',
     maxPersone: 10,
     tipo: 'privato',
     immagine: '/images/tour-mezza-giornata-privata.jpg',
     galleria: ['/images/tour-mezza-giornata-privata.jpg', '/images/flotta-4.jpg'],
-    incluso: inclusoStandard,
-    nonIncluso: nonInclusoStandard,
-    itinerario: [
-      'Orario di partenza a scelta',
-      'Una o due soste bagno a seconda della meta',
-      'Rientro dopo circa quattro ore',
-    ],
-    orarioPartenza: 'a scelta',
+    orarioPartenza: null,
   },
 ]

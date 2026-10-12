@@ -1,18 +1,15 @@
-import { FaqItem } from '../data/faq'
+import { useT } from '../i18n'
 import Section, { SectionIntro } from './Section'
 import styles from './Faq.module.css'
 
-type Props = {
-  items: FaqItem[]
-}
-
-export default function Faq({ items }: Props) {
+export default function Faq() {
+  const { faq } = useT()
   return (
     <Section id="faq">
-      <SectionIntro titolo="Domande frequenti" />
+      <SectionIntro titolo={faq.titolo} />
       <div className={styles.faq}>
-        {items.map((item) => (
-          <details key={item.id} open={item.apertaDiDefault}>
+        {faq.lista.map((item, i) => (
+          <details key={i} open={i === 0}>
             <summary>{item.domanda}</summary>
             <p>{item.risposta}</p>
           </details>

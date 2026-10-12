@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import { Foto } from '../data/boats'
+import { useT } from '../i18n'
 import styles from './Slideshow.module.css'
+
+export type Foto = { src: string; alt: string }
 
 type Props = {
   foto: Foto[]
@@ -18,6 +20,7 @@ export default function Slideshow({ foto, label, autoplayMs, className }: Props)
   const [inPausa, setInPausa] = useState(false)
   const touchX = useRef<number | null>(null)
   const n = foto.length
+  const t = useT().slideshow
 
   useEffect(() => {
     if (!autoplayMs || n < 2 || inPausa || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
@@ -38,7 +41,7 @@ export default function Slideshow({ foto, label, autoplayMs, className }: Props)
     <div
       className={className}
       role="region"
-      aria-roledescription="carosello"
+      aria-roledescription={t.carosello}
       aria-label={label}
       onMouseEnter={() => setInPausa(true)}
       onMouseLeave={() => setInPausa(false)}
@@ -63,8 +66,8 @@ export default function Slideshow({ foto, label, autoplayMs, className }: Props)
         ))}
         {n > 1 && (
           <>
-            <button type="button" className={`${styles.freccia} ${styles.prec}`} onClick={() => vai(attiva - 1)} aria-label="Foto precedente">‹</button>
-            <button type="button" className={`${styles.freccia} ${styles.succ}`} onClick={() => vai(attiva + 1)} aria-label="Foto successiva">›</button>
+            <button type="button" className={`${styles.freccia} ${styles.prec}`} onClick={() => vai(attiva - 1)} aria-label={t.precedente}>‹</button>
+            <button type="button" className={`${styles.freccia} ${styles.succ}`} onClick={() => vai(attiva + 1)} aria-label={t.successiva}>›</button>
           </>
         )}
       </div>
@@ -76,7 +79,7 @@ export default function Slideshow({ foto, label, autoplayMs, className }: Props)
               type="button"
               className={i === attiva ? `${styles.punto} ${styles.puntoAttivo}` : styles.punto}
               onClick={() => vai(i)}
-              aria-label={`Vai alla foto ${i + 1} di ${n}`}
+              aria-label={t.vai(i + 1, n)}
               aria-current={i === attiva}
             />
           ))}

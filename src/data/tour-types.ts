@@ -1,36 +1,30 @@
-export type UnitaPrezzo = 'a persona' | 'a gommone'
+export type UnitaPrezzo = 'persona' | 'gommone'
 export type TipoTour = 'condiviso' | 'privato'
 
-export type Tour = {
+/** parte che non cambia con la lingua; i testi sono in src/i18n/<lingua>.tsx → tours[slug] */
+export type TourBase = {
   id: string
   slug: string
-  titolo: string
-  descrizioneBreve: string
-  descrizioneLunga: string
   prezzoDa: number
   unitaPrezzo: UnitaPrezzo
-  durata: string
   maxPersone: number
   tipo: TipoTour
   immagine: string
   galleria: string[]
+  /** null = orario a scelta */
+  orarioPartenza: string | null
+}
+
+export type TourTesti = {
+  titolo: string
+  /** titolo breve per il footer */
+  breve: string
+  descrizioneBreve: string
+  descrizioneLunga: string
+  durata: string
   incluso: string[]
   nonIncluso: string[]
   itinerario: string[]
-  orarioPartenza: string
 }
 
-export const inclusoStandard = [
-  'Carburante',
-  'Skipper',
-  'Pranzo a bordo',
-  'Acqua e bibite',
-  'Maschere e boccagli',
-  'Ombreggiatura',
-  'Assicurazione',
-]
-
-export const nonInclusoStandard = [
-  'Tasse di sbarco a Favignana',
-  'Ingresso alla Grotta del Genovese',
-]
+export type Tour = TourBase & TourTesti

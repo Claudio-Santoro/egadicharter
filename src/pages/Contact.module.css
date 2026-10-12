@@ -4,7 +4,8 @@
 
 .griglia {
   display: grid;
-  grid-template-columns: 1fr;
+  /* minmax: il <select> delle escursioni è largo quanto l'opzione più lunga e non deve allargare la pagina */
+  grid-template-columns: minmax(0, 1fr);
   gap: 40px;
 }
 
@@ -191,7 +192,7 @@
   }
 
   .griglia {
-    grid-template-columns: 1.3fr 1fr;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
     gap: 64px;
   }
 

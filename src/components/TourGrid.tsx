@@ -1,21 +1,16 @@
-import { Tour } from '../data/tours'
+import { useTours } from '../data/tours'
+import { useT } from '../i18n'
 import Section, { SectionIntro } from './Section'
 import TourCard from './TourCard'
 import styles from './TourGrid.module.css'
 
-type Props = {
-  tours: Tour[]
-}
-
-export default function TourGrid({ tours }: Props) {
+export default function TourGrid() {
+  const { tourGrid } = useT()
   return (
     <Section id="escursioni">
-      <SectionIntro
-        titolo="Le nostre giornate in mare"
-        testo="Quattro modi di vedere le Egadi. Tutte le escursioni partono da Salinagrande (TP) e rientrano prima del tramonto, tranne l'aperitivo."
-      />
+      <SectionIntro titolo={tourGrid.titolo} testo={tourGrid.testo} />
       <div className={styles.griglia}>
-        {tours.map((tour) => (
+        {useTours().map((tour) => (
           <TourCard key={tour.id} tour={tour} />
         ))}
       </div>
