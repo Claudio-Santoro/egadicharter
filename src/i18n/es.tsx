@@ -157,7 +157,7 @@ const es: Dict = {
     lista: [
       {
         domanda: '¿Desde dónde se sale?',
-        risposta: <>Desde el puerto deportivo de Nautica Cordaro, en Salinagrande (TP). <a href={site.mappaLink} {...ext}>Abrir la ubicación en Google Maps</a>.</>,
+        risposta: <>Desde el puerto deportivo de Nautica Cordaro, en Salinagrande (TP), a unos 15 minutos en coche de Trápani, 10 del aeropuerto de Birgi y 25 de Marsala. El aparcamiento es gratuito. <a href={site.mappaLink} {...ext}>Abrir la ubicación en Google Maps</a>.</>,
       },
       {
         domanda: '¿Qué incluye el precio?',

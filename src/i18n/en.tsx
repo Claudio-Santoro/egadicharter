@@ -157,7 +157,7 @@ const en: Dict = {
     lista: [
       {
         domanda: 'Where do we leave from?',
-        risposta: <>From the Nautica Cordaro marina in Salinagrande (TP). <a href={site.mappaLink} {...ext}>Open the location in Google Maps</a>.</>,
+        risposta: <>From the Nautica Cordaro marina in Salinagrande (TP), about 15 minutes by car from Trapani, 10 from Birgi airport and 25 from Marsala. Parking is free. <a href={site.mappaLink} {...ext}>Open the location in Google Maps</a>.</>,
       },
       {
         domanda: 'What is included in the price?',

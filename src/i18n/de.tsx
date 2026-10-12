@@ -157,7 +157,7 @@ const de: Dict = {
     lista: [
       {
         domanda: 'Wo geht es los?',
-        risposta: <>Am kleinen Hafen von Nautica Cordaro in Salinagrande (TP). <a href={site.mappaLink} {...ext}>Standort in Google Maps öffnen</a>.</>,
+        risposta: <>Am kleinen Hafen von Nautica Cordaro in Salinagrande (TP), etwa 15 Autominuten von Trapani, 10 vom Flughafen Birgi und 25 von Marsala entfernt. Das Parken ist kostenlos. <a href={site.mappaLink} {...ext}>Standort in Google Maps öffnen</a>.</>,
       },
       {
         domanda: 'Was ist im Preis enthalten?',

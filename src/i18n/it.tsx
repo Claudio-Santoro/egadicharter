@@ -164,7 +164,7 @@ const it = {
     lista: [
       {
         domanda: 'Da dove si parte?',
-        risposta: <>Dal porticciolo di Nautica Cordaro, a Salinagrande (TP). <a href={site.mappaLink} {...ext}>Apri la posizione su Google Maps</a>.</> as ReactNode,
+        risposta: <>Dal porticciolo di Nautica Cordaro, a Salinagrande (TP), circa 15 minuti in auto da Trapani, 10 dall'aeroporto di Birgi e 25 da Marsala. Il parcheggio è gratuito. <a href={site.mappaLink} {...ext}>Apri la posizione su Google Maps</a>.</> as ReactNode,
       },
       {
         domanda: 'Cosa è compreso nel prezzo?',

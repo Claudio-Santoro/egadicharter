@@ -157,7 +157,7 @@ const zh: Dict = {
     lista: [
       {
         domanda: '从哪里出发？',
-        risposta: <>从萨利纳格兰德（TP）的 Nautica Cordaro 小码头出发。<a href={site.mappaLink} {...ext}>在 Google 地图中打开位置</a>。</>,
+        risposta: <>从萨利纳格兰德（TP）的 Nautica Cordaro 小码头出发，距特拉帕尼车程约 15 分钟，距比尔吉机场约 10 分钟，距马尔萨拉约 25 分钟。停车免费。<a href={site.mappaLink} {...ext}>在 Google 地图中打开位置</a>。</>,
       },
       {
         domanda: '价格包含什么？',

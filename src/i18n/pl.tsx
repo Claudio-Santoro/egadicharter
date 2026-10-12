@@ -157,7 +157,7 @@ const pl: Dict = {
     lista: [
       {
         domanda: 'Skąd wypływamy?',
-        risposta: <>Z przystani Nautica Cordaro w Salinagrande (TP). <a href={site.mappaLink} {...ext}>Otwórz lokalizację w Mapach Google</a>.</>,
+        risposta: <>Z przystani Nautica Cordaro w Salinagrande (TP), około 15 minut samochodem z Trapani, 10 z lotniska Birgi i 25 z Marsali. Parking jest bezpłatny. <a href={site.mappaLink} {...ext}>Otwórz lokalizację w Mapach Google</a>.</>,
       },
       {
         domanda: 'Co jest wliczone w cenę?',

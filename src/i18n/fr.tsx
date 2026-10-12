@@ -157,7 +157,7 @@ const fr: Dict = {
     lista: [
       {
         domanda: "D'où part-on ?",
-        risposta: <>Du petit port de Nautica Cordaro, à Salinagrande (TP). <a href={site.mappaLink} {...ext}>Ouvrir l’emplacement dans Google Maps</a>.</>,
+        risposta: <>Du petit port de Nautica Cordaro, à Salinagrande (TP), à environ 15 minutes en voiture de Trapani, 10 de l’aéroport de Birgi et 25 de Marsala. Le parking est gratuit. <a href={site.mappaLink} {...ext}>Ouvrir l’emplacement dans Google Maps</a>.</>,
       },
       {
         domanda: 'Qu’est-ce qui est compris dans le prix ?',
