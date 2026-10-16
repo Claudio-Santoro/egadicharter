@@ -132,7 +132,7 @@ const de: Dict = {
 
   passi: {
     titolo: 'So buchen Sie',
-    testo: 'Drei Schritte, keine Online-Anzahlung.',
+    testo: 'Drei Schritte.',
     lista: [
       {
         numero: 'Schritt 1',

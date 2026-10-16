@@ -132,7 +132,7 @@ const pl: Dict = {
 
   passi: {
     titolo: 'Jak zarezerwować',
-    testo: 'Trzy kroki, bez zaliczki online.',
+    testo: 'Trzy kroki.',
     lista: [
       {
         numero: 'Krok 1',

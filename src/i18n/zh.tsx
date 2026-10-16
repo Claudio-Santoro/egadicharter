@@ -132,7 +132,7 @@ const zh: Dict = {
 
   passi: {
     titolo: '如何预订',
-    testo: '三个步骤，无需在线预付定金。',
+    testo: '三个步骤。',
     lista: [
       {
         numero: '第 1 步',
