@@ -42,6 +42,26 @@
   margin-top: 26px;
 }
 
+/* su mobile il video sta sopra il testo e sfuma nello sfondo della sezione, come le card delle isole */
+@media (max-width: 599px) {
+  .sfondo {
+    position: static;
+    display: block;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+  }
+
+  .velo {
+    display: none;
+  }
+
+  .in {
+    padding-top: 8px;
+  }
+}
+
 @media (min-width: 600px) {
   .in {
     padding: 104px 0;

@@ -139,7 +139,6 @@ const it = {
 
   passi: {
     titolo: 'Come si prenota',
-    testo: 'Tre passaggi.',
     lista: [
       {
         numero: 'Passo 1',

@@ -132,7 +132,6 @@ const fr: Dict = {
 
   passi: {
     titolo: 'Comment réserver',
-    testo: 'Trois étapes.',
     lista: [
       {
         numero: 'Étape 1',

@@ -132,7 +132,6 @@ const en: Dict = {
 
   passi: {
     titolo: 'How to book',
-    testo: 'Three steps.',
     lista: [
       {
         numero: 'Step 1',
