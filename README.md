@@ -43,7 +43,6 @@ nome file):
 | `flotta-1.jpg` … `flotta-9.jpg` | 1000×1250 / 1000×1500 | Foto dello slideshow della flotta (Breva 800) |
 | `isola-favignana.jpg` | 1400×1040 | Card isola Favignana |
 | `isola-levanzo.jpg` | 1400×1040 | Card isola Levanzo |
-| `finale-tramonto.jpg` | 1440×520 | Sfondo della sezione finale "Il mare domani è previsto calmo" |
 
 Se manca un file o il nome non corrisponde, il sito non si rompe: al suo posto resta
 uno sfondo colorato delle stesse proporzioni.

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState, type RefObject } from 'react'
 import { site, waLink } from '../data/site'
 import { LOCALE, useLang, useT } from '../i18n'
 import { caricaPrevisioni, type Giorno } from '../data/meteo'
@@ -26,23 +26,35 @@ function usePrevisioni() {
   return giorni
 }
 
+// Come nell'hero: nell'HTML prerenderizzato c'è il poster; il video (2,5 MB) parte solo
+// quando la sezione si avvicina allo schermo e se non è richiesto il movimento ridotto.
+function useVideo(ref: RefObject<HTMLElement>) {
+  const [video, setVideo] = useState(false)
+  useEffect(() => {
+    if (!matchMedia('(prefers-reduced-motion: no-preference)').matches) return
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVideo(true); io.disconnect() } }, { rootMargin: '300px' })
+    if (ref.current) io.observe(ref.current)
+    return () => io.disconnect()
+  }, [ref])
+  return video
+}
+
 export default function FinalCta() {
   const giorni = usePrevisioni()
+  const sezione = useRef<HTMLElement>(null)
+  const video = useVideo(sezione)
   const { finale: t, comune } = useT()
   const locale = LOCALE[useLang()]
   const domani = giorni?.[1]
   const titolo = domani ? t.titoloMeteo[domani.stato] : t.titolo
 
   return (
-    <section className={styles.finale} id="contatti">
-      <img
-        className={styles.sfondo}
-        src="/images/finale-tramonto.jpg"
-        alt={t.alt}
-        loading="lazy"
-        width="1440"
-        height="520"
-      />
+    <section className={styles.finale} id="contatti" ref={sezione}>
+      {video ? (
+        <video className={styles.sfondo} src="/videos/finale.mp4" poster="/videos/finale.jpg" autoPlay muted loop playsInline aria-hidden="true" />
+      ) : (
+        <img className={styles.sfondo} src="/videos/finale.jpg" alt={t.alt} loading="lazy" width="1280" height="720" />
+      )}
       <span className={styles.velo} />
       <div className={`wrap ${styles.in}`}>
         <h2>{titolo}</h2>

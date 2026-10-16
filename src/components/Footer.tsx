@@ -3,10 +3,9 @@ import { site, waLink } from '../data/site'
 import { lp, useLang, useT } from '../i18n'
 import styles from './Footer.module.css'
 
-// foto Wikimedia ancora in uso: isola-levanzo.jpg (Verbavolan) e finale-tramonto.jpg (Tommie Hansen); togliere quando si sostituiscono
+// foto Wikimedia ancora in uso: isola-levanzo.jpg (Verbavolan); togliere quando si sostituisce
 const crediti = [
   { autore: 'Verbavolan', licenza: 'CC BY-SA 3.0', url: 'https://creativecommons.org/licenses/by-sa/3.0/', file: 'https://commons.wikimedia.org/wiki/File:Levanzo,_Egadi.jpg' },
-  { autore: 'Tommie Hansen', licenza: 'CC BY 3.0', url: 'https://creativecommons.org/licenses/by/3.0/', file: 'https://commons.wikimedia.org/wiki/File:Sunrise_at_Favignana_Island,_Sicily_(Italy)_-_panoramio.jpg' },
 ]
 
 export default function Footer() {
