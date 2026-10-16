@@ -56,7 +56,7 @@ const en: Dict = {
 
   fiducia: [
     { titolo: 'Local skipper from Trapani', testo: "We know the coves you won't find on any map" },
-    { titolo: 'Maximum 10 people', testo: 'Never a crowded boat, never a queue for the ladder' },
+    { titolo: 'Maximum 10 people, skipper included', testo: 'Never a crowded boat, never a queue for the ladder' },
     {
       titolo: 'Lunch and drinks on board',
       testo: <>Hot dishes from <a href="https://share.google/lfPQkfXaq0rj9qg4s" {...ext}>Messina Nicasio</a> and seafood from <a href="https://share.google/g2ZvxWJKVQcyeblcO" {...ext}>Nereide</a>, based on the allergens you tell us about</>,
@@ -94,7 +94,7 @@ const en: Dict = {
       { valore: '2', label: 'boats' },
       { valore: '8.5 m', label: 'length' },
       { valore: '3 m', label: 'beam' },
-      { valore: '10', label: 'people on board' },
+      { valore: '10', label: 'people on board, skipper included' },
       { valore: 'Cat. B', label: 'CE certification' },
       { valore: 'Toilet', label: 'on board' },
     ],
@@ -245,7 +245,7 @@ const en: Dict = {
     itinerario: 'Itinerary',
     incluso: 'Included',
     nonIncluso: 'Not included',
-    persone: (n) => `max ${n} people`,
+    persone: (n) => `max ${n} people, skipper included`,
     partenza: (orario) => `Departure ${orario}`,
     aScelta: 'your choice',
     chiama: 'Call',

@@ -56,7 +56,7 @@ const es: Dict = {
 
   fiducia: [
     { titolo: 'Patrón de Trapani', testo: 'Conocemos las calas que no aparecen en los mapas' },
-    { titolo: 'Máximo 10 personas', testo: 'Nunca lanchas abarrotadas, nunca colas para la escalerilla' },
+    { titolo: 'Máximo 10 personas, patrón incluido', testo: 'Nunca lanchas abarrotadas, nunca colas para la escalerilla' },
     {
       titolo: 'Comida y bebidas a bordo',
       testo: <>Platos calientes de <a href="https://share.google/lfPQkfXaq0rj9qg4s" {...ext}>Messina Nicasio</a> y pescado de <a href="https://share.google/g2ZvxWJKVQcyeblcO" {...ext}>Nereide</a>, según los alérgenos que nos indiquéis</>,
@@ -94,7 +94,7 @@ const es: Dict = {
       { valore: '2', label: 'lanchas' },
       { valore: '8,5 m', label: 'eslora' },
       { valore: '3 m', label: 'manga' },
-      { valore: '10', label: 'personas a bordo' },
+      { valore: '10', label: 'personas a bordo, patrón incluido' },
       { valore: 'Cat. B', label: 'homologación CE' },
       { valore: 'Aseo', label: 'a bordo' },
     ],
@@ -245,7 +245,7 @@ const es: Dict = {
     itinerario: 'Itinerario',
     incluso: 'Incluido',
     nonIncluso: 'No incluido',
-    persone: (n) => `máx. ${n} personas`,
+    persone: (n) => `máx. ${n} personas, patrón incluido`,
     partenza: (orario) => `Salida ${orario}`,
     aScelta: 'a elegir',
     chiama: 'Llamar',

@@ -56,7 +56,7 @@ const zh: Dict = {
 
   fiducia: [
     { titolo: '特拉帕尼本地船长', testo: '我们熟悉地图上找不到的海湾' },
-    { titolo: '最多 10 人', testo: '船上从不拥挤，下水从不排队' },
+    { titolo: '最多 10 人（含船长）', testo: '船上从不拥挤，下水从不排队' },
     {
       titolo: '船上提供午餐和饮料',
       testo: <>热菜来自 <a href="https://share.google/lfPQkfXaq0rj9qg4s" {...ext}>Messina Nicasio</a>，海鲜来自 <a href="https://share.google/g2ZvxWJKVQcyeblcO" {...ext}>Nereide</a>，并根据您告知的过敏原调整</>,
@@ -94,7 +94,7 @@ const zh: Dict = {
       { valore: '2', label: '艘橡皮艇' },
       { valore: '8.5 米', label: '全长' },
       { valore: '3 米', label: '船宽' },
-      { valore: '10', label: '人可乘坐' },
+      { valore: '10', label: '人可乘坐（含船长）' },
       { valore: 'B 类', label: 'CE 认证' },
       { valore: '卫生间', label: '船上配备' },
     ],
@@ -245,7 +245,7 @@ const zh: Dict = {
     itinerario: '行程',
     incluso: '包含',
     nonIncluso: '不包含',
-    persone: (n) => `最多 ${n} 人`,
+    persone: (n) => `最多 ${n} 人（含船长）`,
     partenza: (orario) => `出发时间 ${orario}`,
     aScelta: '自选',
     chiama: '致电',

@@ -62,7 +62,7 @@ const it = {
 
   fiducia: [
     { titolo: 'Skipper trapanese', testo: 'Conosciamo le cale che non trovi sulle mappe' as ReactNode },
-    { titolo: 'Massimo 10 persone', testo: 'Mai gommoni affollati, mai fila per la scaletta' },
+    { titolo: 'Massimo 10 persone, skipper incluso', testo: 'Mai gommoni affollati, mai fila per la scaletta' },
     {
       titolo: 'Pranzo e bevande a bordo',
       testo: <>Tavola calda di <a href="https://share.google/lfPQkfXaq0rj9qg4s" {...ext}>Messina Nicasio</a> e piatti di pesce di <a href="https://share.google/g2ZvxWJKVQcyeblcO" {...ext}>Nereide</a>, secondo gli allergeni che ci indicate</>,
@@ -100,7 +100,7 @@ const it = {
       { valore: '2', label: 'gommoni' },
       { valore: '8,5 m', label: 'lunghezza' },
       { valore: '3 m', label: 'larghezza' },
-      { valore: '10', label: 'persone a bordo' },
+      { valore: '10', label: 'persone a bordo, skipper incluso' },
       { valore: 'Cat. B', label: 'omologazione CE' },
       { valore: 'Bagno', label: 'a bordo' },
     ],
@@ -253,7 +253,7 @@ const it = {
     itinerario: 'Itinerario',
     incluso: 'Incluso',
     nonIncluso: 'Non incluso',
-    persone: (n: number) => `max ${n} persone`,
+    persone: (n: number) => `max ${n} persone, skipper incluso`,
     partenza: (orario: string) => `Partenza ${orario}`,
     aScelta: 'a scelta',
     chiama: 'Chiama',

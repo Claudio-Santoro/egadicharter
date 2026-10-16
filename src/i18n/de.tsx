@@ -56,7 +56,7 @@ const de: Dict = {
 
   fiducia: [
     { titolo: 'Skipper aus Trapani', testo: 'Wir kennen die Buchten, die auf keiner Karte stehen' },
-    { titolo: 'Maximal 10 Personen', testo: 'Nie ein überfülltes Boot, nie Schlange an der Badeleiter' },
+    { titolo: 'Maximal 10 Personen, Skipper inklusive', testo: 'Nie ein überfülltes Boot, nie Schlange an der Badeleiter' },
     {
       titolo: 'Mittagessen und Getränke an Bord',
       testo: <>Warme Gerichte von <a href="https://share.google/lfPQkfXaq0rj9qg4s" {...ext}>Messina Nicasio</a> und Fischgerichte von <a href="https://share.google/g2ZvxWJKVQcyeblcO" {...ext}>Nereide</a>, abgestimmt auf die Allergene, die Sie uns nennen</>,
@@ -94,7 +94,7 @@ const de: Dict = {
       { valore: '2', label: 'Boote' },
       { valore: '8,5 m', label: 'Länge' },
       { valore: '3 m', label: 'Breite' },
-      { valore: '10', label: 'Personen an Bord' },
+      { valore: '10', label: 'Personen an Bord, Skipper inklusive' },
       { valore: 'Kat. B', label: 'CE-Zulassung' },
       { valore: 'Toilette', label: 'an Bord' },
     ],
@@ -245,7 +245,7 @@ const de: Dict = {
     itinerario: 'Route',
     incluso: 'Inklusive',
     nonIncluso: 'Nicht inklusive',
-    persone: (n) => `max. ${n} Personen`,
+    persone: (n) => `max. ${n} Personen, Skipper inklusive`,
     partenza: (orario) => `Abfahrt ${orario}`,
     aScelta: 'nach Wahl',
     chiama: 'Anrufen',

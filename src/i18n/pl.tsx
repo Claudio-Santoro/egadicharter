@@ -56,7 +56,7 @@ const pl: Dict = {
 
   fiducia: [
     { titolo: 'Skipper z Trapani', testo: 'Znamy zatoczki, których nie ma na mapach' },
-    { titolo: 'Maksymalnie 10 osób', testo: 'Nigdy zatłoczonej łodzi, nigdy kolejki do drabinki' },
+    { titolo: 'Maksymalnie 10 osób, łącznie ze skipperem', testo: 'Nigdy zatłoczonej łodzi, nigdy kolejki do drabinki' },
     {
       titolo: 'Obiad i napoje na pokładzie',
       testo: <>Ciepłe dania od <a href="https://share.google/lfPQkfXaq0rj9qg4s" {...ext}>Messina Nicasio</a> i dania rybne od <a href="https://share.google/g2ZvxWJKVQcyeblcO" {...ext}>Nereide</a>, z uwzględnieniem alergenów, które nam podacie</>,
@@ -94,7 +94,7 @@ const pl: Dict = {
       { valore: '2', label: 'pontony' },
       { valore: '8,5 m', label: 'długość' },
       { valore: '3 m', label: 'szerokość' },
-      { valore: '10', label: 'osób na pokładzie' },
+      { valore: '10', label: 'osób na pokładzie, łącznie ze skipperem' },
       { valore: 'Kat. B', label: 'homologacja CE' },
       { valore: 'Toaleta', label: 'na pokładzie' },
     ],
@@ -245,7 +245,7 @@ const pl: Dict = {
     itinerario: 'Trasa',
     incluso: 'W cenie',
     nonIncluso: 'Poza ceną',
-    persone: (n) => `maks. ${n} osób`,
+    persone: (n) => `maks. ${n} osób, łącznie ze skipperem`,
     partenza: (orario) => `Wypłynięcie ${orario}`,
     aScelta: 'do wyboru',
     chiama: 'Zadzwoń',
