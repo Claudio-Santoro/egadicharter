@@ -303,14 +303,15 @@ const it = {
     'aperitivo-al-tramonto': {
       titolo: 'Aperitivo al tramonto',
       breve: 'Aperitivo al tramonto',
-      descrizioneBreve: "Si esce alle 18:00 verso Levanzo, si beve un bicchiere di grillo mentre il sole cala dietro l'isola.",
-      descrizioneLunga: "Una breve uscita serale verso Levanzo, con un calice di vino bianco locale in mano mentre il sole tramonta dietro l'isola. Niente soste bagno, solo mare, luce e un buon bicchiere.",
+      descrizioneBreve: "Si esce alle 18:00 verso San Teodoro, vicino Marsala, e si beve un bicchiere di grillo mentre il sole cala sull'Isola Grande.",
+      descrizioneLunga: "Una breve uscita serale a San Teodoro, vicino Marsala: acqua cristallina, la Torre di San Teodoro sulla costa e l'Isola Grande dello Stagnone davanti. Un calice di vino bianco locale in mano mentre il sole tramonta. Sosta bagno, poi solo mare, luce e un buon bicchiere.",
       durata: '2,5 ore',
       incluso: ['Carburante', 'Skipper', 'Un calice di vino locale', 'Assicurazione'],
       nonIncluso: [],
       itinerario: [
         'Partenza da Salinagrande alle 18:00',
-        'Navigazione verso Levanzo',
+        'Navigazione verso San Teodoro (Marsala)',
+        'Sosta bagno a San Teodoro',
         'Aperitivo a bordo al tramonto',
         'Rientro a Salinagrande entro le 20:30',
       ],

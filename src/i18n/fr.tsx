@@ -295,14 +295,15 @@ const fr: Dict = {
     'aperitivo-al-tramonto': {
       titolo: 'Apéritif au coucher du soleil',
       breve: 'Apéritif au coucher du soleil',
-      descrizioneBreve: "On part à 18h00 vers Levanzo et on boit un verre de grillo pendant que le soleil se couche derrière l'île.",
-      descrizioneLunga: "Une courte sortie en soirée vers Levanzo, un verre de vin blanc local à la main pendant que le soleil se couche derrière l'île. Pas de pause baignade, seulement la mer, la lumière et un bon verre.",
+      descrizioneBreve: "On part à 18h00 vers San Teodoro, près de Marsala, et on boit un verre de grillo pendant que le soleil se couche sur l'Isola Grande.",
+      descrizioneLunga: "Une courte sortie en soirée à San Teodoro, près de Marsala : une eau cristalline, la tour de San Teodoro sur la côte et l'Isola Grande du Stagnone face à vous. Un verre de vin blanc local à la main pendant que le soleil se couche. Une pause baignade, puis seulement la mer, la lumière et un bon verre.",
       durata: '2,5 heures',
       incluso: ['Carburant', 'Skipper', 'Un verre de vin local', 'Assurance'],
       nonIncluso: [],
       itinerario: [
         'Départ de Salinagrande à 18h00',
-        'Navigation vers Levanzo',
+        'Navigation vers San Teodoro (Marsala)',
+        'Pause baignade à San Teodoro',
         'Apéritif à bord au coucher du soleil',
         'Retour à Salinagrande avant 20h30',
       ],

@@ -295,14 +295,15 @@ const es: Dict = {
     'aperitivo-al-tramonto': {
       titolo: 'Aperitivo al atardecer',
       breve: 'Aperitivo al atardecer',
-      descrizioneBreve: 'Salimos a las 18:00 hacia Levanzo y tomamos una copa de grillo mientras el sol se pone tras la isla.',
-      descrizioneLunga: 'Una breve salida al atardecer hacia Levanzo, con una copa de vino blanco local en la mano mientras el sol se pone detrás de la isla. Sin paradas de baño, solo mar, luz y una buena copa.',
+      descrizioneBreve: "Salimos a las 18:00 hacia San Teodoro, cerca de Marsala, y tomamos una copa de grillo mientras el sol se pone sobre la Isola Grande.",
+      descrizioneLunga: "Una breve salida al atardecer a San Teodoro, cerca de Marsala: agua cristalina, la torre de San Teodoro en la costa y la Isola Grande del Stagnone enfrente. Una copa de vino blanco local en la mano mientras se pone el sol. Una parada de baño y luego solo mar, luz y una buena copa.",
       durata: '2,5 horas',
       incluso: ['Combustible', 'Patrón', 'Una copa de vino local', 'Seguro'],
       nonIncluso: [],
       itinerario: [
         'Salida desde Salinagrande a las 18:00',
-        'Navegación hacia Levanzo',
+        'Navegación hacia San Teodoro (Marsala)',
+        'Parada de baño en San Teodoro',
         'Aperitivo a bordo al atardecer',
         'Regreso a Salinagrande antes de las 20:30',
       ],

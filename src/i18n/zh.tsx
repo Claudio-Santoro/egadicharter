@@ -295,14 +295,15 @@ const zh: Dict = {
     'aperitivo-al-tramonto': {
       titolo: '日落开胃酒',
       breve: '日落开胃酒',
-      descrizioneBreve: '18:00 驶向莱万佐岛，在夕阳沉入岛后时品一杯格里洛（Grillo）白葡萄酒。',
-      descrizioneLunga: '傍晚驶向莱万佐岛的短途航行，手持一杯本地白葡萄酒，看夕阳在岛后落下。不安排游泳，只有大海、光影和一杯好酒。',
+      descrizioneBreve: "18:00 驶向马尔萨拉附近的圣特奥多罗（San Teodoro），在夕阳落向大岛（Isola Grande）时品一杯格里洛（Grillo）白葡萄酒。",
+      descrizioneLunga: "傍晚前往马尔萨拉附近圣特奥多罗的短途航行：海水清澈见底，岸边是圣特奥多罗塔，眼前是斯塔尼奥内潟湖的大岛（Isola Grande）。手持一杯本地白葡萄酒，看夕阳落下。先下水游个泳，然后只有大海、光影和一杯好酒。",
       durata: '2.5 小时',
       incluso: ['燃油', '船长', '一杯本地葡萄酒', '保险'],
       nonIncluso: [],
       itinerario: [
         '18:00 从萨利纳格兰德出发',
-        '驶向莱万佐岛',
+        '驶向圣特奥多罗（马尔萨拉）',
+        '在圣特奥多罗游泳',
         '日落时在船上享用开胃酒',
         '20:30 前返回萨利纳格兰德',
       ],

@@ -295,14 +295,15 @@ const en: Dict = {
     'aperitivo-al-tramonto': {
       titolo: 'Sunset aperitivo',
       breve: 'Sunset aperitivo',
-      descrizioneBreve: 'We head out at 18:00 towards Levanzo and sip a glass of Grillo while the sun sets behind the island.',
-      descrizioneLunga: 'A short evening trip towards Levanzo, with a glass of local white wine in hand while the sun sets behind the island. No swim stops, just sea, light and a good glass of wine.',
+      descrizioneBreve: "We head out at 18:00 towards San Teodoro, near Marsala, and sip a glass of Grillo while the sun goes down over Isola Grande.",
+      descrizioneLunga: "A short evening trip to San Teodoro, near Marsala: crystal-clear water, the San Teodoro tower on the shore and Isola Grande of the Stagnone lagoon in front of you. A glass of local white wine in hand while the sun sets. A swim stop, then just sea, light and a good glass of wine.",
       durata: '2.5 hours',
       incluso: ['Fuel', 'Skipper', 'A glass of local wine', 'Insurance'],
       nonIncluso: [],
       itinerario: [
         'Departure from Salinagrande at 18:00',
-        'Cruise towards Levanzo',
+        'Cruise towards San Teodoro (Marsala)',
+        'Swim stop at San Teodoro',
         'Aperitivo on board at sunset',
         'Back in Salinagrande by 20:30',
       ],

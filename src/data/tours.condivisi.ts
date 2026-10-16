@@ -31,7 +31,7 @@ export const toursCondivisi: TourBase[] = [
     maxPersone: 10,
     tipo: 'condiviso',
     immagine: '/images/tour-aperitivo-tramonto.jpg',
-    galleria: ['/images/tour-aperitivo-tramonto.jpg', '/images/isola-levanzo.jpg'],
+    galleria: ['/images/tour-aperitivo-tramonto.jpg'],
     orarioPartenza: '18:00',
   },
 ]

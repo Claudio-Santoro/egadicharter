@@ -295,14 +295,15 @@ const pl: Dict = {
     'aperitivo-al-tramonto': {
       titolo: 'Aperitivo o zachodzie słońca',
       breve: 'Aperitivo o zachodzie',
-      descrizioneBreve: 'Wypływamy o 18:00 w stronę Levanzo i pijemy kieliszek grillo, gdy słońce chowa się za wyspą.',
-      descrizioneLunga: 'Krótki wieczorny rejs w stronę Levanzo, z kieliszkiem lokalnego białego wina w dłoni, gdy słońce zachodzi za wyspą. Bez postojów na kąpiel, tylko morze, światło i dobre wino.',
+      descrizioneBreve: "Wypływamy o 18:00 w stronę San Teodoro koło Marsali i pijemy kieliszek grillo, gdy słońce zachodzi nad Isola Grande.",
+      descrizioneLunga: "Krótki wieczorny rejs do San Teodoro koło Marsali: krystalicznie czysta woda, wieża San Teodoro na brzegu i Isola Grande w lagunie Stagnone przed dziobem. Kieliszek lokalnego białego wina w dłoni, gdy słońce zachodzi. Postój na kąpiel, a potem tylko morze, światło i dobre wino.",
       durata: '2,5 godziny',
       incluso: ['Paliwo', 'Skipper', 'Kieliszek lokalnego wina', 'Ubezpieczenie'],
       nonIncluso: [],
       itinerario: [
         'Wypłynięcie z Salinagrande o 18:00',
-        'Rejs w stronę Levanzo',
+        'Rejs w stronę San Teodoro (Marsala)',
+        'Postój na kąpiel w San Teodoro',
         'Aperitivo na pokładzie o zachodzie słońca',
         'Powrót do Salinagrande do 20:30',
       ],
