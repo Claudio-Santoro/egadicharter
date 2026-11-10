@@ -37,6 +37,16 @@
 
 .azione {
   margin-top: 26px;
+  background: #fff;
+  color: var(--blu);
+  border-color: #fff;
+  box-shadow: 0 10px 26px rgba(6, 44, 64, .18);
+}
+
+.azione:hover {
+  background: var(--blu);
+  color: #fff;
+  border-color: var(--blu);
 }
 
 @media (min-width: 900px) {
