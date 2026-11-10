@@ -1,4 +1,5 @@
 .tour {
+  position: relative;
   background: var(--card);
   border: 1px solid var(--bordo);
   border-radius: var(--r);
@@ -6,6 +7,27 @@
   display: flex;
   flex-direction: column;
   transition: box-shadow .25s ease, transform .25s ease;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.link:focus-visible {
+  outline: none;
+}
+
+.tour:has(.link:focus-visible) {
+  outline: 3px solid var(--turchese);
+  outline-offset: 3px;
 }
 
 .tour:hover {

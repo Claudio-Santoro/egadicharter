@@ -1,6 +1,7 @@
 import { Tour } from '../data/tours'
 import { lp, useLang, useT } from '../i18n'
-import Button from './Button'
+import { Link } from 'react-router-dom'
+import btn from './Button.module.css'
 import styles from './TourCard.module.css'
 
 type Props = {
@@ -32,7 +33,10 @@ export default function TourCard({ tour }: Props) {
         </div>
       </div>
       <div className={styles.corpo}>
-        <h3>{tour.titolo}</h3>
+        <h3>
+          {/* ponytail: link "stirato" con ::after, rende cliccabile tutta la card senza annidare <a> */}
+          <Link to={lp(`/escursioni/${tour.slug}`, lang)} className={styles.link}>{tour.titolo}</Link>
+        </h3>
         <p>{tour.descrizioneBreve}</p>
         <div className={styles.meta}>
           <span>
@@ -45,9 +49,9 @@ export default function TourCard({ tour }: Props) {
           </span>
         </div>
         <div className={styles.azione}>
-          <Button href={lp(`/escursioni/${tour.slug}`, lang)} className={styles.btn}>
+          <span className={`${btn.btn} ${btn.primario} ${styles.btn}`} aria-hidden="true">
             {isPrivato ? tourCard.richiediPreventivo : tourCard.prenota}
-          </Button>
+          </span>
         </div>
       </div>
     </article>
