@@ -49,13 +49,13 @@ const fr: Dict = {
 
   hero: {
     titolo: 'Favignana et Levanzo en bateau depuis Trapani',
-    testo: "Des journées en mer entre les criques des Égades, avec un skipper né ici. Petits groupes, départ de Salinagrande à 10h00.",
+    testo: "Des journées en mer entre les criques des Égades, avec un skipper né ici. Petits groupes, départ à 10h00 de Salinagrande, à seulement 15 minutes de Trapani : transfert depuis Trapani sur demande et stationnement facile si vous venez en voiture.",
     alt: "Mer turquoise vue d'en haut avec bateaux et yachts au mouillage",
     vediEscursioni: 'Voir les excursions',
   },
 
   fiducia: [
-    { titolo: 'Skipper de Trapani', testo: 'Nous connaissons les criques absentes des cartes' },
+    { titolo: 'Skipper de Trapani', testo: 'Nous vous emmènerons dans les plus belles criques' },
     { titolo: '10 personnes maximum, skipper compris', testo: "Jamais de bateau bondé, jamais de file pour l'échelle" },
     {
       titolo: 'Déjeuner et boissons à bord',
@@ -65,6 +65,8 @@ const fr: Dict = {
   ],
 
   tourGrid: {
+    condivisi: 'Excursions partagées',
+    privati: 'Excursions privées',
     titolo: 'Nos journées en mer',
     testo: "Cinq façons de découvrir les Égades. Toutes les excursions partent de Salinagrande (TP) et rentrent avant le coucher du soleil, sauf l'apéritif.",
   },

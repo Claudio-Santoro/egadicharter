@@ -49,13 +49,13 @@ const es: Dict = {
 
   hero: {
     titolo: 'Favignana y Levanzo en lancha desde Trapani',
-    testo: 'Días en el mar entre las calas de las Egadas, con un patrón que nació aquí. Grupos pequeños, salida desde Salinagrande a las 10:00.',
+    testo: 'Días en el mar entre las calas de las Egadas, con un patrón que nació aquí. Grupos pequeños, salida a las 10:00 desde Salinagrande, a solo 15 minutos de Trapani: traslado desde Trapani bajo petición y aparcamiento sin problemas si venís en coche.',
     alt: 'Mar turquesa visto desde arriba con barcos y yates fondeados',
     vediEscursioni: 'Ver las excursiones',
   },
 
   fiducia: [
-    { titolo: 'Patrón de Trapani', testo: 'Conocemos las calas que no aparecen en los mapas' },
+    { titolo: 'Patrón de Trapani', testo: 'Os llevaremos a las calas más bonitas' },
     { titolo: 'Máximo 10 personas, patrón incluido', testo: 'Nunca lanchas abarrotadas, nunca colas para la escalerilla' },
     {
       titolo: 'Comida y bebidas a bordo',
@@ -65,6 +65,8 @@ const es: Dict = {
   ],
 
   tourGrid: {
+    condivisi: 'Tours compartidos',
+    privati: 'Tours privados',
     titolo: 'Nuestros días en el mar',
     testo: 'Cinco formas de ver las Egadas. Todas las excursiones salen de Salinagrande (TP) y vuelven antes del atardecer, excepto el aperitivo.',
   },

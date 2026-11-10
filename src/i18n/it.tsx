@@ -55,13 +55,13 @@ const it = {
 
   hero: {
     titolo: 'Favignana e Levanzo, in gommone da Trapani',
-    testo: 'Giornate in mare tra le cale delle Egadi, con uno skipper che è nato qui. Gruppi piccoli, partenza da Salinagrande alle 10:00.',
+    testo: 'Giornate in mare tra le cale delle Egadi, con uno skipper che è nato qui. Gruppi piccoli, partenza alle 10:00 da Salinagrande, a soli 15 minuti da Trapani: transfer da Trapani su richiesta e parcheggio senza problemi se venite in auto.',
     alt: "Mare turchese visto dall'alto con barche e yacht all'ancora",
     vediEscursioni: 'Vedi le escursioni',
   },
 
   fiducia: [
-    { titolo: 'Skipper trapanese', testo: 'Conosciamo le cale che non trovi sulle mappe' as ReactNode },
+    { titolo: 'Skipper trapanese', testo: 'Vi porteremo nelle cale più belle' as ReactNode },
     { titolo: 'Massimo 10 persone, skipper incluso', testo: 'Mai gommoni affollati, mai fila per la scaletta' },
     {
       titolo: 'Pranzo e bevande a bordo',
@@ -71,6 +71,8 @@ const it = {
   ] as { titolo: string; testo: ReactNode; href?: string }[],
 
   tourGrid: {
+    condivisi: 'Tour condivisi',
+    privati: 'Tour privati',
     titolo: 'Le nostre giornate in mare',
     testo: "Cinque modi di vedere le Egadi. Tutte le escursioni partono da Salinagrande (TP) e rientrano prima del tramonto, tranne l'aperitivo.",
   },

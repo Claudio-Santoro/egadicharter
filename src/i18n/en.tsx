@@ -49,13 +49,13 @@ const en: Dict = {
 
   hero: {
     titolo: 'Favignana and Levanzo by boat from Trapani',
-    testo: 'Days at sea among the coves of the Egadi Islands, with a skipper who was born here. Small groups, departure from Salinagrande at 10:00.',
+    testo: 'Days at sea among the coves of the Egadi Islands, with a skipper who was born here. Small groups, departure at 10:00 from Salinagrande, just 15 minutes from Trapani: transfer from Trapani on request and easy parking if you come by car.',
     alt: 'Turquoise sea seen from above with boats and yachts at anchor',
     vediEscursioni: 'See the trips',
   },
 
   fiducia: [
-    { titolo: 'Local skipper from Trapani', testo: "We know the coves you won't find on any map" },
+    { titolo: 'Local skipper from Trapani', testo: "We'll take you to the most beautiful coves" },
     { titolo: 'Maximum 10 people, skipper included', testo: 'Never a crowded boat, never a queue for the ladder' },
     {
       titolo: 'Lunch and drinks on board',
@@ -65,6 +65,8 @@ const en: Dict = {
   ],
 
   tourGrid: {
+    condivisi: 'Shared tours',
+    privati: 'Private tours',
     titolo: 'Our days at sea',
     testo: 'Five ways to see the Egadi Islands. All trips depart from Salinagrande (TP) and return before sunset, except the aperitivo.',
   },

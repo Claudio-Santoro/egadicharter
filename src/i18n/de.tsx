@@ -49,13 +49,13 @@ const de: Dict = {
 
   hero: {
     titolo: 'Favignana und Levanzo im Schlauchboot ab Trapani',
-    testo: 'Tage auf dem Meer zwischen den Buchten der Ägadischen Inseln, mit einem Skipper, der hier geboren ist. Kleine Gruppen, Abfahrt in Salinagrande um 10:00 Uhr.',
+    testo: 'Tage auf dem Meer zwischen den Buchten der Ägadischen Inseln, mit einem Skipper, der hier geboren ist. Kleine Gruppen, Abfahrt um 10:00 Uhr in Salinagrande, nur 15 Minuten von Trapani: Transfer ab Trapani auf Anfrage und problemloses Parken, wenn Sie mit dem Auto kommen.',
     alt: 'Türkisfarbenes Meer von oben mit ankernden Booten und Jachten',
     vediEscursioni: 'Ausflüge ansehen',
   },
 
   fiducia: [
-    { titolo: 'Skipper aus Trapani', testo: 'Wir kennen die Buchten, die auf keiner Karte stehen' },
+    { titolo: 'Skipper aus Trapani', testo: 'Wir bringen Sie zu den schönsten Buchten' },
     { titolo: 'Maximal 10 Personen, Skipper inklusive', testo: 'Nie ein überfülltes Boot, nie Schlange an der Badeleiter' },
     {
       titolo: 'Mittagessen und Getränke an Bord',
@@ -65,6 +65,8 @@ const de: Dict = {
   ],
 
   tourGrid: {
+    condivisi: 'Geteilte Touren',
+    privati: 'Private Touren',
     titolo: 'Unsere Tage auf dem Meer',
     testo: 'Fünf Arten, die Ägadischen Inseln zu erleben. Alle Ausflüge starten in Salinagrande (TP) und kehren vor Sonnenuntergang zurück, außer dem Aperitivo.',
   },

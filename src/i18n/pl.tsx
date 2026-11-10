@@ -49,13 +49,13 @@ const pl: Dict = {
 
   hero: {
     titolo: 'Favignana i Levanzo pontonem z Trapani',
-    testo: 'Dni na morzu wśród zatoczek Wysp Egadzkich, ze skipperem, który się tu urodził. Małe grupy, wypłynięcie z Salinagrande o 10:00.',
+    testo: 'Dni na morzu wśród zatoczek Wysp Egadzkich, ze skipperem, który się tu urodził. Małe grupy, wypłynięcie o 10:00 z Salinagrande, zaledwie 15 minut od Trapani: transfer z Trapani na życzenie i bez problemu z parkowaniem, jeśli przyjeżdżacie autem.',
     alt: 'Turkusowe morze z lotu ptaka z łodziami i jachtami na kotwicy',
     vediEscursioni: 'Zobacz rejsy',
   },
 
   fiducia: [
-    { titolo: 'Skipper z Trapani', testo: 'Znamy zatoczki, których nie ma na mapach' },
+    { titolo: 'Skipper z Trapani', testo: 'Zabierzemy Was do najpiękniejszych zatoczek' },
     { titolo: 'Maksymalnie 10 osób, łącznie ze skipperem', testo: 'Nigdy zatłoczonej łodzi, nigdy kolejki do drabinki' },
     {
       titolo: 'Obiad i napoje na pokładzie',
@@ -65,6 +65,8 @@ const pl: Dict = {
   ],
 
   tourGrid: {
+    condivisi: 'Rejsy grupowe',
+    privati: 'Rejsy prywatne',
     titolo: 'Nasze dni na morzu',
     testo: 'Pięć sposobów na poznanie Wysp Egadzkich. Wszystkie rejsy wypływają z Salinagrande (TP) i wracają przed zachodem słońca, z wyjątkiem aperitivo.',
   },
