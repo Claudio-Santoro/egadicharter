@@ -59,7 +59,7 @@ const en: Dict = {
     { titolo: 'Maximum 10 people, skipper included', testo: 'Never a crowded boat, never a queue for the ladder' },
     {
       titolo: 'Lunch and drinks on board',
-      testo: <>Hot dishes from <a href="https://share.google/lfPQkfXaq0rj9qg4s" {...ext}>Messina Nicasio</a> and seafood from <a href="https://share.google/g2ZvxWJKVQcyeblcO" {...ext}>Nereide</a>, based on the allergens you tell us about</>,
+      testo: 'Hot dishes and seafood, based on the allergens you tell us about',
     },
     { titolo: 'Boarding at Salinagrande', testo: 'Nautica Cordaro marina, with location on Maps', href: site.mappaLink },
   ],
@@ -412,7 +412,7 @@ const en: Dict = {
           <li><strong>Google</strong>: manages our mailbox (Gmail). It provides the Google Maps map, which loads only if you ask for it (see the Cookies section).</li>
           <li><strong>{FORNITORE_MODULO}</strong>: receives and forwards to us the messages from the contact form.</li>
           <li><strong>WhatsApp (Meta)</strong>: if you choose to message us on WhatsApp, Meta processes the data as an independent controller, under its own policy.</li>
-          <li><strong>Lunch suppliers</strong> (Messina Nicasio, Nereide): receive only the number of meals and any allergies or intolerances, without names.</li>
+          <li><strong>Lunch suppliers</strong>: receive only the number of meals and any allergies or intolerances, without names.</li>
           <li><strong>Accountant</strong>: for tax obligations.</li>
           <li><strong>Public authorities</strong>: only when required by law.</li>
         </ul>

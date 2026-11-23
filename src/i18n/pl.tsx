@@ -59,7 +59,7 @@ const pl: Dict = {
     { titolo: 'Maksymalnie 10 osób, łącznie ze skipperem', testo: 'Nigdy zatłoczonej łodzi, nigdy kolejki do drabinki' },
     {
       titolo: 'Obiad i napoje na pokładzie',
-      testo: <>Ciepłe dania od <a href="https://share.google/lfPQkfXaq0rj9qg4s" {...ext}>Messina Nicasio</a> i dania rybne od <a href="https://share.google/g2ZvxWJKVQcyeblcO" {...ext}>Nereide</a>, z uwzględnieniem alergenów, które nam podacie</>,
+      testo: 'Ciepłe dania i dania rybne, z uwzględnieniem alergenów, które nam podacie',
     },
     { titolo: 'Zaokrętowanie w Salinagrande', testo: 'Przystań Nautica Cordaro, z lokalizacją w Mapach', href: site.mappaLink },
   ],
@@ -412,7 +412,7 @@ const pl: Dict = {
           <li><strong>Google</strong>: obsługuje naszą skrzynkę e-mail (Gmail). Dostarcza mapę Google Maps, która ładuje się tylko na Twoje żądanie (zob. sekcja Cookie).</li>
           <li><strong>{FORNITORE_MODULO}</strong>: odbiera i przekazuje nam wiadomości z formularza kontaktowego.</li>
           <li><strong>WhatsApp (Meta)</strong>: jeśli zdecydujesz się napisać do nas na WhatsAppie, Meta przetwarza dane jako niezależny administrator, zgodnie z własną polityką.</li>
-          <li><strong>Dostawcy obiadów</strong> (Messina Nicasio, Nereide): otrzymują tylko liczbę posiłków i ewentualne alergie lub nietolerancje, bez nazwisk.</li>
+          <li><strong>Dostawcy obiadów</strong>: otrzymują tylko liczbę posiłków i ewentualne alergie lub nietolerancje, bez nazwisk.</li>
           <li><strong>Księgowy</strong>: w celu realizacji obowiązków podatkowych.</li>
           <li><strong>Organy publiczne</strong>: wyłącznie gdy wymaga tego prawo.</li>
         </ul>

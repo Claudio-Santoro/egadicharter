@@ -65,7 +65,7 @@ const it = {
     { titolo: 'Massimo 10 persone, skipper incluso', testo: 'Mai gommoni affollati, mai fila per la scaletta' },
     {
       titolo: 'Pranzo e bevande a bordo',
-      testo: <>Tavola calda di <a href="https://share.google/lfPQkfXaq0rj9qg4s" {...ext}>Messina Nicasio</a> e piatti di pesce di <a href="https://share.google/g2ZvxWJKVQcyeblcO" {...ext}>Nereide</a>, secondo gli allergeni che ci indicate</>,
+      testo: 'Tavola calda e piatti di pesce, secondo gli allergeni che ci indicate',
     },
     { titolo: 'Imbarco a Salinagrande', testo: 'Porticciolo di Nautica Cordaro, con posizione su Maps', href: site.mappaLink },
   ] as { titolo: string; testo: ReactNode; href?: string }[],
@@ -420,7 +420,7 @@ const it = {
           <li><strong>Google</strong>: gestisce la nostra casella email (Gmail). Fornisce la mappa di Google Maps, che si carica solo se lo chiedi tu (vedi la sezione Cookie).</li>
           <li><strong>{FORNITORE_MODULO}</strong>: riceve e ci inoltra i messaggi del modulo contatti.</li>
           <li><strong>WhatsApp (Meta)</strong>: se scegli di scriverci su WhatsApp, Meta tratta i dati come titolare autonomo, secondo la propria informativa.</li>
-          <li><strong>Fornitori del pranzo</strong> (Messina Nicasio, Nereide): ricevono solo il numero dei pasti e le eventuali allergie o intolleranze, senza i nomi.</li>
+          <li><strong>Fornitori del pranzo</strong>: ricevono solo il numero dei pasti e le eventuali allergie o intolleranze, senza i nomi.</li>
           <li><strong>Commercialista</strong>: per gli adempimenti fiscali.</li>
           <li><strong>Autorità pubbliche</strong>: solo se la legge lo richiede.</li>
         </ul>

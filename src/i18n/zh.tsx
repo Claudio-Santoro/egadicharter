@@ -59,7 +59,7 @@ const zh: Dict = {
     { titolo: '最多 10 人（含船长）', testo: '船上从不拥挤，下水从不排队' },
     {
       titolo: '船上提供午餐和饮料',
-      testo: <>热菜来自 <a href="https://share.google/lfPQkfXaq0rj9qg4s" {...ext}>Messina Nicasio</a>，海鲜来自 <a href="https://share.google/g2ZvxWJKVQcyeblcO" {...ext}>Nereide</a>，并根据您告知的过敏原调整</>,
+      testo: '热菜与海鲜，并根据您告知的过敏原调整',
     },
     { titolo: '在萨利纳格兰德登船', testo: 'Nautica Cordaro 小码头，可在地图中查看位置', href: site.mappaLink },
   ],
@@ -412,7 +412,7 @@ const zh: Dict = {
           <li><strong>Google</strong>：管理我们的电子邮箱（Gmail）。提供 Google 地图，仅在您要求时加载（见 Cookie 部分）。</li>
           <li><strong>{FORNITORE_MODULO}</strong>：接收联系表单的消息并转发给我们。</li>
           <li><strong>WhatsApp（Meta）</strong>：如果您选择通过 WhatsApp 联系我们，Meta 将作为独立控制者，按照其自身政策处理数据。</li>
-          <li><strong>午餐供应商</strong>（Messina Nicasio、Nereide）：仅获知餐食数量以及可能的过敏或不耐受信息，不含姓名。</li>
+          <li><strong>午餐供应商</strong>：仅获知餐食数量以及可能的过敏或不耐受信息，不含姓名。</li>
           <li><strong>会计师</strong>：用于履行税务义务。</li>
           <li><strong>公共机关</strong>：仅在法律要求时。</li>
         </ul>
