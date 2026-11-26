@@ -65,6 +65,10 @@
 }
 
 @media (min-width: 600px) {
+  .slotLive {
+    min-height: 34px;
+  }
+
   .scena img {
     object-position: 22% 50%;
   }
@@ -98,7 +102,7 @@
 
   .entra {
     animation: affiora var(--t-lento) var(--ease-out) both;
-    animation-delay: calc(480ms + var(--d, 0) * 90ms);
+    animation-delay: 520ms;
   }
   /* le previsioni arrivano dopo: il chip affiora quando c'è */
   .live {
@@ -121,12 +125,19 @@
   }
 }
 
-/* il mare di domani: dato vero di Open-Meteo, porta alle previsioni in fondo alla pagina */
+/* il mare di domani: dato vero di Open-Meteo, porta alle previsioni in fondo alla pagina.
+   Lo slot ha già l'altezza del chip (due righe su mobile, una da 600px). */
+.slotLive {
+  min-height: 52px;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: flex-end;
+}
+
 .live {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 22px;
   padding: 7px 14px 7px 11px;
   border-radius: 99px;
   color: #fff;

@@ -57,7 +57,8 @@ export default function Hero() {
       </div>
       <div className={styles.velo} />
       <div className={`wrap ${styles.in}`}>
-        <div className={styles.entra}><MareDomani /></div>
+        {/* spazio riservato: le previsioni arrivano dopo il primo disegno e non devono spostare niente */}
+        <div className={styles.slotLive}><MareDomani /></div>
         {/* parola per parola: ogni parola sale dal bordo della sua riga (solo CSS, già nell'HTML prerenderizzato) */}
         <h1 aria-label={hero.titolo}>
           {hero.titolo.split(' ').map((parola, i) => (
@@ -68,8 +69,9 @@ export default function Hero() {
             </Fragment>
           ))}
         </h1>
-        <p className={styles.entra} style={{ '--d': 1 } as CSSProperties}>{hero.testo}</p>
-        <div className={`${styles.cta} ${styles.entra}`} style={{ '--d': 2 } as CSSProperties}>
+        {/* il paragrafo non entra in dissolvenza: è l'elemento LCP su mobile */}
+        <p>{hero.testo}</p>
+        <div className={`${styles.cta} ${styles.entra}`}>
           <Button href={lp('/#escursioni', lang)} variante="primario" freccia>{hero.vediEscursioni}</Button>
           <Button href={waLink(comune.waInfo)} variante="chiaro">{comune.scriviciWa}</Button>
         </div>
