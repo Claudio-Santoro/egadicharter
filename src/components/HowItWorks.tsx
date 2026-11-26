@@ -7,15 +7,16 @@ export default function HowItWorks() {
   return (
     <Section>
       <SectionIntro titolo={passi.titolo} />
-      <div className={styles.passi}>
-        {passi.lista.map((passo) => (
-          <div className={styles.passo} key={passo.numero}>
-            <div className={styles.numero}>{passo.numero}</div>
-            <h3>{passo.titolo}</h3>
+      {/* la rotta: una linea che unisce i passi e si disegna mentre la sezione entra nello schermo */}
+      <ol className={styles.passi}>
+        {passi.lista.map((passo, i) => (
+          <li className={styles.passo} key={passo.numero}>
+            <span className={styles.nodo} aria-hidden="true">{i + 1}</span>
+            <h3><span className="sr">{passo.numero}: </span>{passo.titolo}</h3>
             <p>{passo.testo}</p>
-          </div>
+          </li>
         ))}
-      </div>
+      </ol>
     </Section>
   )
 }

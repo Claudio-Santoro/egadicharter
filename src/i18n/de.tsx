@@ -116,7 +116,6 @@ const de: Dict = {
     carosello: 'Karussell',
     precedente: 'Vorheriges Foto',
     successiva: 'Nächstes Foto',
-    vai: (i, n) => `Zu Foto ${i} von ${n}`,
   },
 
   isole: {

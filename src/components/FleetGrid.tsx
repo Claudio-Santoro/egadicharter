@@ -10,7 +10,7 @@ export default function FleetGrid() {
   const t = useT().fleet
   return (
     <Section id="flotta">
-      <SectionIntro titolo={t.titolo} testo={t.testo(fleet.modello)} />
+      <SectionIntro titolo={t.titolo} testo={t.testo(fleet.modello)} affiancato />
       <div className={styles.flotta}>
         <Slideshow
           className={styles.slideshow}
@@ -22,11 +22,11 @@ export default function FleetGrid() {
         <div className={styles.corpo}>
           <h3>{fleet.modello}</h3>
           <p>{t.descrizione}</p>
-          <div className={styles.specifiche}>
+          <ul className={styles.specifiche}>
             {t.specifiche.map((s) => (
-              <span key={s.label}><b>{s.valore}</b> {s.label}</span>
+              <li key={s.label}><b>{s.valore}</b> {s.label}</li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
     </Section>

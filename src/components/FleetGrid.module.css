@@ -1,7 +1,7 @@
 .flotta {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 28px;
+  gap: 30px;
   align-items: center;
 }
 
@@ -14,45 +14,76 @@
 }
 
 .corpo h3 {
-  font-size: 1.4rem;
+  font-size: 1.7rem;
+  letter-spacing: -.03em;
 }
 
 .corpo p {
   margin-top: 12px;
   color: var(--testo-soft);
+  max-width: 50ch;
 }
 
+/* scheda tecnica: numeri grandi, righe sottili */
 .specifiche {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 14px 18px;
-  margin-top: 24px;
-  font-size: .85rem;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--bordo);
+  font-size: .86rem;
+  line-height: 1.35;
   color: var(--testo-soft);
+}
+
+.specifiche li {
+  padding: 16px 16px 16px 0;
+  border-bottom: 1px solid var(--bordo);
+}
+
+.specifiche li:nth-child(even) {
+  padding: 16px 0 16px 16px;
+  border-left: 1px solid var(--bordo);
 }
 
 .specifiche b {
   display: block;
+  margin-bottom: 2px;
   font-family: var(--display);
-  font-size: 1.3rem;
+  font-size: 1.6rem;
+  font-weight: 650;
+  line-height: 1.1;
+  letter-spacing: -.03em;
   color: var(--testo);
-  font-weight: 600;
 }
 
 @media (min-width: 900px) {
   /* lo slideshow arriva al bordo sinistro dello schermo e occupa il 55% della larghezza */
   .flotta {
     grid-template-columns: calc(55vw - var(--fuori-wrap)) 1fr;
-    gap: 64px;
+    gap: 72px;
   }
 
   .slideshow {
     --ratio: 5 / 4;
     --maschera: none; /* su desktop niente sfumatura */
+    --comandi-dx: 0px;
     margin-right: 0;
   }
 
   .specifiche {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .specifiche li,
+  .specifiche li:nth-child(even) {
+    padding: 16px 14px;
+    border-left: 1px solid var(--bordo);
+  }
+
+  .specifiche li:nth-child(3n + 1) {
+    padding-left: 0;
+    border-left: 0;
   }
 }

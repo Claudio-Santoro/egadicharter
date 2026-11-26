@@ -1,57 +1,107 @@
-.faq {
-  max-width: 820px;
+.griglia {
+  display: grid;
+  gap: 0;
 }
 
-.faq details {
+/* domande a destra, titolo fermo a sinistra mentre si legge */
+@media (min-width: 900px) {
+  .griglia {
+    grid-template-columns: 5fr 7fr;
+    gap: 72px;
+    align-items: start;
+  }
+
+  .titolo {
+    position: sticky;
+    top: 120px;
+  }
+}
+
+.griglia details {
   border-bottom: 1px solid var(--bordo);
 }
 
-.faq summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 20px 40px 20px 0;
-  position: relative;
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: 1.02rem;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
+/* apertura con altezza animata dove interpolate-size esiste (vedi global.css) */
+.griglia details::details-content {
+  block-size: 0;
+  overflow: clip;
+  transition: block-size var(--t-medio) var(--ease-out), content-visibility var(--t-medio) allow-discrete;
 }
 
-.faq summary::-webkit-details-marker {
+.griglia details[open]::details-content {
+  block-size: auto;
+}
+
+.griglia summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 64px;
+  padding: 18px 0;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.06rem;
+  line-height: 1.35;
+  transition: color var(--t-veloce);
+}
+
+.griglia summary::-webkit-details-marker {
   display: none;
 }
 
-.faq summary::after {
-  content: "";
+.griglia summary:hover {
+  color: var(--link);
+}
+
+/* più che diventa meno */
+.segno {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  border: 1px solid var(--bordo);
+  color: var(--testo);
+  transition: background var(--t-medio), border-color var(--t-medio), color var(--t-medio);
+}
+
+.segno::before,
+.segno::after {
+  content: '';
   position: absolute;
-  right: 8px;
+  left: 50%;
   top: 50%;
   width: 11px;
-  height: 11px;
-  border-right: 2px solid var(--turchese);
-  border-bottom: 2px solid var(--turchese);
-  transform: translateY(-70%) rotate(45deg);
-  transition: transform .22s ease;
+  height: 1.6px;
+  margin: -.8px 0 0 -5.5px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform var(--t-medio) var(--ease-out);
 }
 
-.faq details[open] summary::after {
-  transform: translateY(-30%) rotate(225deg);
+.segno::after {
+  transform: rotate(90deg);
 }
 
-.faq details p {
-  padding: 0 40px 22px 0;
+details[open] .segno {
+  background: var(--turchese);
+  border-color: var(--turchese);
+  color: #fff;
+}
+
+details[open] .segno::after {
+  transform: rotate(0deg);
+}
+
+.griglia details p {
+  padding: 0 48px 24px 0;
   color: var(--testo-soft);
+  max-width: 62ch;
 }
 
-@media (min-width: 600px) {
-  .faq summary {
-    padding: 22px 44px 22px 0;
-    font-size: 1.06rem;
-  }
-
-  .faq details p {
-    padding: 0 44px 24px 0;
-  }
+.griglia details a {
+  color: var(--link);
 }

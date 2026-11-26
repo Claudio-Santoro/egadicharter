@@ -24,7 +24,8 @@ function ScrollToTop() {
 
 export default function App() {
   const { pathname } = useLocation()
-  const isTourDetail = splitPath(pathname).path.startsWith('/escursioni/')
+  const { path } = splitPath(pathname)
+  const isTourDetail = path.startsWith('/escursioni/')
 
   return (
     <>
@@ -45,7 +46,7 @@ export default function App() {
       </main>
       <Footer />
       {/* la pagina escursione ha già il suo bottone WhatsApp sempre visibile (barra mobile / aside sticky) */}
-      {!isTourDetail && <WhatsAppButton />}
+      {!isTourDetail && <WhatsAppButton dopoHero={path === '/'} />}
     </>
   )
 }

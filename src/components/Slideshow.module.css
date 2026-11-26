@@ -9,6 +9,7 @@
   mask-image: var(--maschera, none);
 }
 
+/* dissolvenza incrociata; la foto che arriva si assesta piano, come una barca all'ormeggio */
 .slide {
   position: absolute;
   inset: 0;
@@ -16,74 +17,89 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity .9s ease;
+  transform: scale(1.04);
+  transition: opacity 900ms var(--ease-in-out), transform 4.5s linear;
 }
 
 .attiva {
   opacity: 1;
+  transform: scale(1);
+}
+
+/* contatore, avanzamento, frecce: allineati al testo del sito anche quando la foto va a filo schermo */
+.comandi {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px var(--comandi-dx, var(--fuori-wrap)) 0 var(--comandi-sx, var(--fuori-wrap));
+}
+
+.contatore {
+  min-width: 5ch;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: .9rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--testo-soft);
+}
+
+.contatore b {
+  color: var(--testo);
+}
+
+.barra {
+  flex: 1;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--bordo);
+  overflow: hidden;
+}
+
+.barra i {
+  display: block;
+  height: 100%;
+  background: var(--turchese);
+  transform-origin: left;
+  transition: transform var(--t-medio) var(--ease-out);
+}
+
+.corre {
+  animation: riempi var(--ms) linear both;
+}
+
+@keyframes riempi {
+  from { transform: scaleX(0); }
 }
 
 .freccia {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   width: 44px;
   height: 44px;
-  border: 0;
+  flex: 0 0 auto;
   border-radius: 50%;
-  background: rgba(6, 43, 61, .55);
-  color: #fff;
-  font-size: 1.6rem;
-  line-height: 1;
+  border: 1px solid var(--bordo);
+  background: transparent;
+  color: var(--testo);
+  display: grid;
+  place-items: center;
   cursor: pointer;
+  transition: border-color var(--t-veloce), color var(--t-veloce), transform var(--t-veloce) var(--ease-out);
 }
 
 .freccia:hover {
-  background: rgba(6, 43, 61, .8);
-}
-
-.prec { left: 10px; }
-.succ { right: 10px; }
-
-.punti {
-  display: flex;
-  justify-content: center;
-  gap: 2px;
-  margin-top: 6px;
-}
-
-.punto {
-  position: relative;
-  width: 28px;
-  height: 28px;
-  border: 0;
-  background: none;
-  cursor: pointer;
-}
-
-.punto::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--bordo);
-  border: 1px solid var(--testo-soft);
-  transform: translate(-50%, -50%);
-  transition: background .2s, width .2s;
-}
-
-.puntoAttivo::after {
-  background: var(--turchese);
   border-color: var(--turchese);
-  width: 20px;
-  border-radius: 5px;
+  color: var(--turchese);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .slide {
-    transition: none;
-  }
+.freccia:active {
+  transform: scale(.94);
+}
+
+.freccia svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }

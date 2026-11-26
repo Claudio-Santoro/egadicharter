@@ -123,7 +123,6 @@ const it = {
     carosello: 'carosello',
     precedente: 'Foto precedente',
     successiva: 'Foto successiva',
-    vai: (i: number, n: number) => `Vai alla foto ${i} di ${n}`,
   },
 
   isole: {

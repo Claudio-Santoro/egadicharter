@@ -30,27 +30,29 @@ export default function IslandCards() {
 
   return (
     <Section id="isole" sabbia>
-      <SectionIntro titolo={t.titolo} testo={t.testo} />
+      <SectionIntro titolo={t.titolo} testo={t.testo} affiancato />
       <div className={styles.destinazioni}>
         {islands.map((isola) => (
           <div className={styles.isola} key={isola.id}>
-            {isola.video && !animazioniRidotte ? (
-              <VideoIsola src={isola.video} poster={isola.poster} />
-            ) : (
-              <img
-                src={isola.immagine}
-                alt={t[isola.id].alt}
-                loading="lazy"
-                width="700"
-                height="520"
-              />
-            )}
+            <div className={styles.media}>
+              {isola.video && !animazioniRidotte ? (
+                <VideoIsola src={isola.video} poster={isola.poster} />
+              ) : (
+                <img
+                  src={isola.immagine}
+                  alt={t[isola.id].alt}
+                  loading="lazy"
+                  width="700"
+                  height="520"
+                />
+              )}
+            </div>
             <div className={styles.testo}>
               <h3>{isola.nome}</h3>
               <p>{t[isola.id].descrizione}</p>
-              <div className={styles.cale}>
-                {isola.cale.map((cala) => <i key={cala}>{cala}</i>)}
-              </div>
+              <ul className={styles.cale}>
+                {isola.cale.map((cala) => <li key={cala}>{cala}</li>)}
+              </ul>
             </div>
           </div>
         ))}

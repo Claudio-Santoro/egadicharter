@@ -116,7 +116,6 @@ const pl: Dict = {
     carosello: 'karuzela',
     precedente: 'Poprzednie zdjęcie',
     successiva: 'Następne zdjęcie',
-    vai: (i, n) => `Przejdź do zdjęcia ${i} z ${n}`,
   },
 
   isole: {

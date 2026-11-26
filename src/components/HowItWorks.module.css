@@ -1,52 +1,137 @@
 .passi {
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr;
-  border: 1px solid var(--bordo);
-  border-radius: var(--r);
-  overflow: hidden;
-  background: var(--card);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  view-timeline: --passi block;
+}
+
+/* la linea della rotta, sotto i nodi: verticale su mobile, orizzontale da 900px */
+.passi::before,
+.passi::after {
+  content: '';
+  position: absolute;
+  left: 21px;
+  top: 22px;
+  bottom: 22px;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--bordo);
+}
+
+.passi::after {
+  background: var(--turchese);
+  transform-origin: top;
 }
 
 .passo {
-  padding: 28px 24px;
-  border-bottom: 1px solid var(--bordo);
+  position: relative;
+  padding: 0 0 36px 64px;
 }
 
 .passo:last-child {
-  border-bottom: 0;
+  padding-bottom: 0;
 }
 
-.numero {
+.nodo {
+  position: absolute;
+  left: 0;
+  top: -4px;
+  z-index: 1;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
   font-family: var(--display);
   font-weight: 700;
-  font-size: .85rem;
-  color: var(--link);
-  letter-spacing: .06em;
+  font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--turchese);
+  background: var(--bg);
+  border: 1.5px solid var(--turchese);
 }
 
 .passo h3 {
-  margin-top: 12px;
-  font-size: 1.14rem;
+  font-size: 1.3rem;
+  letter-spacing: -.02em;
 }
 
 .passo p {
-  margin-top: 9px;
+  margin-top: 8px;
   color: var(--testo-soft);
-  font-size: .94rem;
+  font-size: .97rem;
+  max-width: 40ch;
 }
 
 @media (min-width: 900px) {
   .passi {
     grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  /* dal centro del primo nodo al centro dell'ultimo */
+  .passi::before,
+  .passi::after {
+    left: 22px;
+    right: calc((100% - 80px) / 3 - 22px);
+    top: 21px;
+    bottom: auto;
+    width: auto;
+    height: 2px;
+  }
+
+  .passi::after {
+    transform-origin: left;
   }
 
   .passo {
-    padding: 34px 30px;
-    border-bottom: 0;
-    border-right: 1px solid var(--bordo);
+    padding: 72px 0 0;
   }
 
-  .passo:last-child {
-    border-right: 0;
+  .nodo {
+    top: 0;
+  }
+}
+
+/* senza animation-timeline (Safari, Firefox) o con movimento ridotto: linea piena, nodi a contorno */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .passi::after {
+      animation: traccia-y linear both;
+      animation-timeline: --passi;
+      animation-range: entry 30% cover 55%;
+    }
+
+    .nodo {
+      animation: accendi linear both;
+      animation-timeline: --passi;
+    }
+
+    .passo:nth-child(1) .nodo { animation-range: entry 25% entry 35%; }
+    .passo:nth-child(2) .nodo { animation-range: entry 40% cover 42%; }
+    .passo:nth-child(3) .nodo { animation-range: cover 48% cover 55%; }
+
+    @media (min-width: 900px) {
+      .passi::after {
+        animation-name: traccia-x;
+      }
+    }
+  }
+}
+
+@keyframes traccia-y {
+  from { transform: scaleY(0); }
+}
+
+@keyframes traccia-x {
+  from { transform: scaleX(0); }
+}
+
+@keyframes accendi {
+  to {
+    background: var(--turchese);
+    color: #fff;
   }
 }

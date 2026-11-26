@@ -11,13 +11,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, .28);
+  box-shadow: 0 10px 28px -6px rgba(0, 0, 0, .4);
   text-decoration: none;
-  transition: transform .2s ease;
+  transition: transform var(--t-veloce) var(--ease-out);
 }
 
 .wa:hover {
-  transform: scale(1.07);
+  transform: scale(1.06);
+}
+
+.wa:active {
+  transform: scale(.94);
+}
+
+/* compare nel primo mezzo schermo di scroll; dove animation-timeline non c'è resta sempre visibile */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .dopoHero {
+      animation: compare linear both;
+      animation-timeline: scroll();
+      animation-range: 25vh 60vh;
+    }
+  }
+}
+
+@keyframes compare {
+  from {
+    opacity: 0;
+    scale: .4;
+    visibility: hidden;
+  }
 }
 
 .wa svg {

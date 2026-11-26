@@ -116,7 +116,6 @@ const zh: Dict = {
     carosello: '轮播图',
     precedente: '上一张照片',
     successiva: '下一张照片',
-    vai: (i, n) => `转到第 ${i} 张照片，共 ${n} 张`,
   },
 
   isole: {

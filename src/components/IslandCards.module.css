@@ -5,15 +5,28 @@
   margin-inline: calc(-1 * var(--fuori-wrap));
 }
 
-.isola img,
-.isola video {
-  display: block;
-  width: 100%;
+.media {
   aspect-ratio: 4 / 3;
-  object-fit: cover;
+  overflow: hidden;
   /* sfumato in basso nello sfondo della sezione */
   -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
   mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+}
+
+.media img,
+.media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out);
+}
+
+@media (hover: hover) {
+  .isola:hover .media img,
+  .isola:hover .media video {
+    transform: scale(1.03);
+  }
 }
 
 /* il testo resta allineato al contenuto del sito, non al bordo dello schermo */
@@ -22,26 +35,27 @@
 }
 
 .testo h3 {
-  font-size: 1.6rem;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  letter-spacing: -.035em;
 }
 
 .testo p {
   margin-top: 10px;
   color: var(--testo-soft);
-  font-size: .95rem;
-  max-width: 40ch;
+  max-width: 42ch;
 }
 
 .cale {
-  margin-top: 16px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
-.cale i {
-  font-style: normal;
-  font-size: .76rem;
+.cale li {
+  font-size: .8rem;
   border: 1px solid var(--bordo);
   color: var(--testo);
   border-radius: 99px;
@@ -57,10 +71,9 @@
     gap: 40px 0;
   }
 
-  .isola img,
-  .isola video {
+  .media {
     aspect-ratio: auto;
-    height: clamp(420px, 45vw, 640px);
+    height: clamp(440px, 46vw, 660px);
     /* su desktop niente sfumatura */
     -webkit-mask-image: none;
     mask-image: none;
@@ -68,14 +81,10 @@
 
   /* ogni testo sotto la sua metà: a sinistra si allinea al wrap, a destra lascia lo stesso respiro dal centro */
   .testo {
-    padding: 28px 32px 0 var(--fuori-wrap);
+    padding: 30px 36px 0 var(--fuori-wrap);
   }
 
   .isola + .isola .testo {
-    padding: 28px var(--fuori-wrap) 0 32px;
-  }
-
-  .testo h3 {
-    font-size: 1.8rem;
+    padding: 30px var(--fuori-wrap) 0 36px;
   }
 }
