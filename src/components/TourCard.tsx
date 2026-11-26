@@ -30,7 +30,7 @@ export default function TourCard({ tour, largo }: Props) {
     document.startViewTransition(() => {
       if (foto) foto.style.viewTransitionName = ''
       flushSync(() => navigate(to))
-      window.scrollTo(0, 0)
+      window.scrollTo({ top: 0, behavior: 'instant' })
     })
   }
 

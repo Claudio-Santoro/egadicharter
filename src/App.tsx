@@ -16,7 +16,8 @@ function ScrollToTop() {
 
   useEffect(() => {
     if (hash) return
-    window.scrollTo(0, 0)
+    // instant: html ha scroll-behavior smooth per le ancore, ma cambiando pagina si parte dall'alto e basta
+    window.scrollTo({ top: 0, behavior: 'instant' })
   }, [pathname, hash])
 
   return null
