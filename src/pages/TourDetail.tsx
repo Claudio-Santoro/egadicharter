@@ -3,7 +3,7 @@ import { useTours } from '../data/tours'
 import { site, waLink } from '../data/site'
 import { useT } from '../i18n'
 import Section, { SectionIntro } from '../components/Section'
-import TourCard from '../components/TourCard'
+import TourCard, { VT_FOTO } from '../components/TourCard'
 import Button from '../components/Button'
 import Slideshow from '../components/Slideshow'
 import NotFound from './NotFound'
@@ -25,6 +25,7 @@ export default function TourDetail() {
         className={styles.galleria}
         foto={tour.galleria.map((src, i) => ({ src, alt: i === 0 ? t.fotoPrincipale(tour.titolo) : t.foto(i + 1, tour.titolo) }))}
         label={t.fotoDi(tour.titolo)}
+        vtPrima={VT_FOTO}
       />
 
       <div className={`wrap ${styles.corpo}`}>
@@ -73,7 +74,7 @@ export default function TourDetail() {
               <span>{t.partenza(tour.orarioPartenza ?? t.aScelta)}</span>
             </div>
             <div className={styles.azioni}>
-              <Button href={waLink(t.waPrenota(tour.titolo))} variante="primario">{comune.scriviciWa}</Button>
+              <Button href={waLink(t.waPrenota(tour.titolo))} variante="primario" freccia>{comune.scriviciWa}</Button>
               <Button href={site.telefonoHref} variante="linea">{t.chiama}</Button>
             </div>
           </div>
