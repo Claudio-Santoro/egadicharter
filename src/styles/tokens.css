@@ -34,7 +34,7 @@
   --t-medio: 320ms;
   --t-lento: 700ms;
   --display: "Schibsted Grotesk", system-ui, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
-  --body: "Inter", system-ui, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --body: "Schibsted Grotesk", system-ui, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
 
   /* breakpoint di riferimento (usati solo nei commenti, min-width nei componenti):
      600px  tablet piccolo
