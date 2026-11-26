@@ -1,7 +1,7 @@
 .misto {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 30px;
+  gap: 34px;
   align-items: center;
 }
 
@@ -9,6 +9,7 @@
 .media {
   margin-inline: calc(-1 * var(--fuori-wrap));
   aspect-ratio: 5 / 4;
+  overflow: hidden;
 }
 
 .media img {
@@ -20,46 +21,41 @@
 }
 
 .misto h2 {
-  font-size: clamp(1.7rem, 5.5vw, 2.6rem);
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -.035em;
+  max-width: 12ch;
 }
 
 .misto p {
-  margin-top: 16px;
+  margin-top: 18px;
   color: var(--testo-soft);
+  max-width: 52ch;
 }
 
 .firma {
-  margin-top: 20px;
+  margin-top: 26px;
   font-family: var(--display);
-  font-weight: 600;
-  color: var(--accento);
+  font-weight: 650;
+  font-size: 1.02rem;
+  color: var(--testo);
 }
 
 .azione {
-  margin-top: 26px;
-  background: #fff;
-  color: var(--blu);
-  border-color: #fff;
-  box-shadow: 0 10px 26px rgba(6, 44, 64, .18);
-}
-
-.azione:hover {
-  background: var(--blu);
-  color: #fff;
-  border-color: var(--blu);
+  margin-top: 30px;
 }
 
 @media (min-width: 900px) {
   /* la foto arriva al bordo sinistro dello schermo e occupa il 55% della larghezza */
   .misto {
     grid-template-columns: calc(55vw - var(--fuori-wrap)) 1fr;
-    gap: 64px;
+    gap: 72px;
   }
 
   .media {
     margin-right: 0;
     aspect-ratio: auto;
-    height: clamp(440px, 42vw, 620px);
+    height: clamp(460px, 44vw, 640px);
   }
 
   /* su desktop niente sfumatura */
@@ -67,4 +63,31 @@
     -webkit-mask-image: none;
     mask-image: none;
   }
+}
+
+/* la foto si apre mentre entra nello schermo: legata allo scroll, quindi si ferma e torna indietro con chi scorre.
+   Dove animation-timeline non c'è (Safari, Firefox) la foto è semplicemente aperta. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .media {
+      animation: apri linear both;
+      animation-timeline: view();
+      animation-range: entry 5% cover 45%;
+    }
+
+    .media img {
+      animation: rientra linear both;
+      animation-timeline: view();
+      animation-range: entry 5% cover 60%;
+    }
+  }
+}
+
+@keyframes apri {
+  from { clip-path: inset(8% 12% 8% 0 round 0 24px 24px 0); }
+  to { clip-path: inset(0 0 0 0 round 0); }
+}
+
+@keyframes rientra {
+  from { transform: scale(1.14); }
 }

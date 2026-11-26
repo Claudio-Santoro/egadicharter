@@ -23,9 +23,9 @@ export default function AboutBlock() {
         <div>
           <h2>{chiSiamo.titolo}</h2>
           <p>{chiSiamo.paragrafo1}</p>
-          <p style={{ marginTop: 14 }}>{chiSiamo.paragrafo2}</p>
+          <p>{chiSiamo.paragrafo2}</p>
           <div className={styles.firma}>{chiSiamo.firma}</div>
-          <Button href={lp('/contatti', lang)} className={styles.azione}>{chiSiamo.cta}</Button>
+          <Button href={lp('/contatti', lang)} className={styles.azione} freccia>{chiSiamo.cta}</Button>
         </div>
       </div>
     </Section>

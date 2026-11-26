@@ -1,34 +1,97 @@
+.gruppo {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  row-gap: 18px;
+}
+
 .gruppo + .gruppo {
-  margin-top: 44px;
+  margin-top: 56px;
 }
 
 .sottotitolo {
-  font-size: 1.3rem;
-  margin-bottom: 16px;
+  font-size: 1.35rem;
+  letter-spacing: -.02em;
+}
+
+.frecce {
+  display: none;
+  gap: 8px;
+}
+
+.frecce button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--bordo);
+  background: var(--card);
+  color: var(--testo);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: border-color var(--t-veloce), color var(--t-veloce), opacity var(--t-veloce), transform var(--t-veloce) var(--ease-out);
+}
+
+.frecce button:hover:not(:disabled) {
+  border-color: var(--turchese);
+  color: var(--turchese);
+}
+
+.frecce button:active:not(:disabled) {
+  transform: scale(.94);
+}
+
+.frecce button:disabled {
+  opacity: .35;
+  cursor: default;
+}
+
+.frecce svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 /* scorre a filo schermo; la card successiva sporge per far capire che si scorre */
 .carosello {
+  grid-column: 1 / -1;
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: min(82%, 340px);
-  gap: 18px;
+  grid-auto-columns: min(84%, 360px);
+  gap: 16px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   overscroll-behavior-x: contain;
   margin-inline: calc(-1 * var(--fuori-wrap));
-  padding: 4px var(--fuori-wrap) 18px;
+  padding: 6px var(--fuori-wrap) 22px;
   scroll-padding-inline: var(--fuori-wrap);
-  scrollbar-width: thin;
+  scrollbar-width: none;
+}
+
+.carosello::-webkit-scrollbar {
+  display: none;
 }
 
 .carosello > * {
   scroll-snap-align: start;
 }
 
+/* da 900px tre card riempiono esattamente la riga del .wrap (due per i privati, larghe) */
 @media (min-width: 900px) {
+  .frecce {
+    display: flex;
+  }
+
   .carosello {
-    grid-auto-columns: 360px;
+    grid-auto-columns: calc((min(100vw, var(--max)) - 44px - 48px) / 3);
     gap: 24px;
+  }
+
+  .privati .carosello {
+    grid-auto-columns: calc((min(100vw, var(--max)) - 44px - 24px) / 2);
   }
 }
