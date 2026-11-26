@@ -2,22 +2,35 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: .5rem;
+  gap: .55rem;
   font-family: var(--display);
   font-weight: 600;
-  font-size: .97rem;
+  font-size: .98rem;
+  line-height: 1.1;
   letter-spacing: -.01em;
-  padding: .82rem 1.45rem;
-  min-height: 44px;
-  border-radius: 10px;
+  padding: .8rem 1.4rem;
+  min-height: 48px;
+  border-radius: var(--r-s);
   border: 1.5px solid transparent;
   text-decoration: none;
   cursor: pointer;
-  transition: transform .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+  transition: background var(--t-veloce), color var(--t-veloce), border-color var(--t-veloce), transform var(--t-veloce) var(--ease-out);
 }
 
-.btn:hover {
-  transform: translateY(-2px);
+/* la risposta arriva alla pressione, non al rilascio */
+.btn:active {
+  transform: scale(.97);
+}
+
+.freccia {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  transition: transform var(--t-medio) var(--ease-out);
+}
+
+.btn:hover .freccia {
+  transform: translateX(3px);
 }
 
 .primario {
@@ -26,34 +39,28 @@
 }
 
 .primario:hover {
-  background: #0F7F9B;
+  background: #0E7F9B;
 }
 
 .chiaro {
-  background: rgba(255, 255, 255, .12);
+  background: rgba(255, 255, 255, .1);
   color: #fff;
-  border-color: rgba(255, 255, 255, .55);
-  backdrop-filter: blur(6px);
+  border-color: rgba(255, 255, 255, .5);
 }
 
 .chiaro:hover {
   background: #fff;
   color: var(--blu);
+  border-color: #fff;
 }
 
 .linea {
   background: transparent;
-  color: var(--accento);
+  color: var(--testo);
   border-color: var(--bordo);
 }
 
 .linea:hover {
   border-color: var(--link);
   color: var(--link);
-}
-
-@media (prefers-color-scheme: dark) {
-  .linea {
-    color: var(--testo);
-  }
 }

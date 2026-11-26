@@ -1,5 +1,5 @@
 .sezione {
-  padding: 62px 0;
+  padding: 72px 0;
 }
 
 .sabbia {
@@ -11,42 +11,42 @@
 }
 
 .intro {
-  max-width: 620px;
-  margin-bottom: 36px;
-}
-
-.introSplit {
-  max-width: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 24px;
-  flex-wrap: wrap;
-  margin-bottom: 36px;
-}
-
-.introSplit > div {
-  max-width: 620px;
+  margin-bottom: 40px;
 }
 
 .titolo {
-  font-size: clamp(1.7rem, 5vw, 2.85rem);
+  font-size: clamp(2rem, 6vw, 3.6rem);
   font-weight: 700;
+  letter-spacing: -.035em;
+  max-width: 16ch;
 }
 
 .testo {
-  margin-top: 15px;
+  margin-top: 16px;
   color: var(--testo-soft);
-  font-size: 1.05rem;
+  font-size: 1.06rem;
+  max-width: 46ch;
 }
 
 @media (min-width: 600px) {
   .sezione {
-    padding: 88px 0;
+    padding: 112px 0;
   }
 
-  .intro,
-  .introSplit {
-    margin-bottom: 46px;
+  .intro {
+    margin-bottom: 56px;
+  }
+}
+
+@media (min-width: 900px) {
+  .affiancato {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+  }
+
+  .affiancato .testo {
+    margin-top: 0;
   }
 }

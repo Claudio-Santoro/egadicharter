@@ -51,9 +51,18 @@ body {
   color: var(--testo);
   font-family: var(--body);
   font-size: 17px;
-  line-height: 1.65;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--turchese);
+  color: #fff;
+}
+
+html {
+  scrollbar-color: color-mix(in srgb, var(--turchese) 55%, transparent) transparent;
 }
 
 img, svg {
@@ -68,13 +77,25 @@ a {
 h1, h2, h3, h4 {
   font-family: var(--display);
   margin: 0;
-  line-height: 1.08;
+  line-height: 1.06;
   letter-spacing: -.025em;
-  font-weight: 600;
+  font-weight: 650;
+  text-wrap: balance;
 }
 
 p {
   margin: 0;
+  text-wrap: pretty;
+}
+
+/* solo per gli screen reader */
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 button {
@@ -93,30 +114,25 @@ button {
   padding-inline: 22px;
 }
 
-.sezione {
-  padding: 62px 0;
-}
-
-.sezione--sabbia {
-  background: var(--superficie);
-}
-
-@media (min-width: 600px) {
-  .sezione {
-    padding: 88px 0;
-  }
-}
-
 :focus-visible {
   outline: 3px solid var(--turchese-chiaro);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
+/* <details> che si apre e chiude con un'altezza animata (Chrome 131+, altrove si apre di colpo) */
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+}
+
+/* movimento ridotto: niente spostamenti, gli stati finali restano visibili */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation: none !important;
-    transition: none !important;
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 1ms !important;
   }
   html {
     scroll-behavior: auto;

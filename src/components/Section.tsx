@@ -20,17 +20,15 @@ export default function Section({ id, sabbia, children, className }: Props) {
 type IntroProps = {
   titolo: string
   testo?: string
-  azione?: ReactNode
+  /** su desktop il testo va a destra del titolo, allineato in basso (sezioni della home) */
+  affiancato?: boolean
 }
 
-export function SectionIntro({ titolo, testo, azione }: IntroProps) {
+export function SectionIntro({ titolo, testo, affiancato }: IntroProps) {
   return (
-    <div className={azione ? styles.introSplit : styles.intro}>
-      <div>
-        <h2 className={styles.titolo}>{titolo}</h2>
-        {testo && <p className={styles.testo}>{testo}</p>}
-      </div>
-      {azione}
+    <div className={`${styles.intro} ${affiancato ? styles.affiancato : ''}`}>
+      <h2 className={styles.titolo}>{titolo}</h2>
+      {testo && <p className={styles.testo}>{testo}</p>}
     </div>
   )
 }
