@@ -16,30 +16,32 @@
 .velo {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(5, 38, 53, .88), rgba(5, 38, 53, .35));
+  background: linear-gradient(90deg, rgba(5, 38, 53, .92), rgba(5, 38, 53, .45));
 }
 
 .in {
   position: relative;
-  padding: 64px 0;
-  max-width: 640px;
+  padding-block: 88px;
 }
 
 .in h2 {
-  font-size: clamp(1.9rem, 6.5vw, 3.2rem);
+  font-size: clamp(2.1rem, 6.6vw, 3.8rem);
   font-weight: 700;
+  letter-spacing: -.035em;
+  max-width: 18ch;
 }
 
 .in p {
-  margin-top: 14px;
+  margin-top: 16px;
   color: rgba(255, 255, 255, .85);
+  max-width: 48ch;
 }
 
 .cta {
   display: flex;
   flex-wrap: wrap;
-  gap: 13px;
-  margin-top: 26px;
+  gap: 12px;
+  margin-top: 32px;
 }
 
 /* su mobile il video sta sopra il testo e sfuma nello sfondo della sezione, come le card delle isole */
@@ -59,34 +61,26 @@
 
   .in {
     padding-top: 8px;
+    padding-bottom: 72px;
   }
 }
 
 @media (min-width: 600px) {
   .in {
-    padding: 104px 0;
-  }
-
-  .in p {
-    margin-top: 16px;
-  }
-
-  .cta {
-    margin-top: 32px;
+    padding-block: 128px;
   }
 }
 
 .meteo {
-  margin-top: 26px;
+  margin-top: 34px;
 }
 
 .in .meteoTitolo {
-  margin: 0 0 10px;
-  font-size: .8rem;
+  margin: 0 0 12px;
+  font-family: var(--display);
+  font-size: .84rem;
   font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, .7);
+  color: rgba(255, 255, 255, .72);
 }
 
 /* ponytail: scorrimento orizzontale dentro il contenitore, mai la pagina */
@@ -98,6 +92,7 @@
   list-style: none;
   overflow-x: auto;
   scroll-snap-type: x proximity;
+  scrollbar-width: none;
 }
 
 .giorni li {
@@ -106,28 +101,81 @@
 }
 
 .giorno {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 92px;
-  padding: 9px 11px;
-  border: 1px solid rgba(255, 255, 255, .22);
-  border-radius: 10px;
-  background: rgba(5, 38, 53, .55);
+  display: grid;
+  grid-template-rows: auto 64px auto auto;
+  gap: 6px;
+  width: 108px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: var(--r-s);
+  background: rgba(5, 38, 53, .5);
   color: #fff;
-  font-size: .82rem;
-  line-height: 1.3;
+  font-size: .8rem;
+  line-height: 1.25;
   text-decoration: none;
+  transition: border-color var(--t-veloce), background var(--t-veloce), transform var(--t-veloce) var(--ease-out);
 }
 
 a.giorno:hover,
 a.giorno:focus-visible {
   border-color: #fff;
+  background: rgba(5, 38, 53, .75);
+}
+
+a.giorno:active {
+  transform: scale(.97);
+}
+
+/* l'onda massima del giorno come barra: il dato si vede prima di leggerlo */
+.onda {
+  position: relative;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, .06);
+  overflow: hidden;
+}
+
+.onda i {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px 6px 0 0;
+  background: var(--c);
+  transform-origin: bottom;
+  transform: scaleY(var(--h));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .visto .onda i {
+    animation: cresce 900ms var(--ease-out) both;
+    animation-delay: calc(var(--i) * 60ms);
+  }
+}
+
+@keyframes cresce {
+  from { transform: scaleY(0); }
 }
 
 .data {
-  font-weight: 700;
+  font-weight: 600;
   text-transform: capitalize;
+}
+
+.stato {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.stato svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .valori {
@@ -135,17 +183,16 @@ a.giorno:focus-visible {
   font-variant-numeric: tabular-nums;
 }
 
-.perfetto {
-  border-color: var(--turchese-chiaro);
-  background: rgba(18, 143, 174, .45);
+.perfetto { --c: #5FD7C0; }
+.buono { --c: var(--turchese-chiaro); }
+.sconsigliato { --c: color-mix(in srgb, #F0A35E 75%, transparent); }
+
+.giorno.perfetto {
+  border-color: color-mix(in srgb, #5FD7C0 60%, transparent);
 }
 
-.perfetto .stato {
-  font-weight: 600;
-}
-
-.sconsigliato {
-  opacity: .6;
+.giorno.sconsigliato {
+  opacity: .62;
 }
 
 .in .fonte {

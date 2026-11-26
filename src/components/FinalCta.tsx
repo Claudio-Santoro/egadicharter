@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState, type RefObject } from 'react'
+import { useEffect, useRef, useState, type CSSProperties, type RefObject } from 'react'
 import { site, waLink } from '../data/site'
 import { LOCALE, useLang, useT } from '../i18n'
-import { caricaPrevisioni, type Giorno } from '../data/meteo'
+import { usePrevisioni } from '../data/meteo'
 import Button from './Button'
 import styles from './FinalCta.module.css'
 
@@ -10,20 +10,26 @@ const giorno = (data: string, locale: string, opts: Intl.DateTimeFormatOptions) 
   new Date(`${data}T12:00:00`).toLocaleDateString(locale, opts)
 const LUNGO: Intl.DateTimeFormatOptions = { weekday: 'long', day: 'numeric', month: 'long' }
 
-const ICONA = { perfetto: '☀', buono: '✓', sconsigliato: '✕' }
+// icone disegnate, stesso tratto delle altre del sito
+const ICONA = {
+  perfetto: <><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></>,
+  buono: <path d="M5 12.5l4.5 4.5L19 7.5" />,
+  sconsigliato: <path d="M2 9c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6 0M2 16c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6 0" />,
+}
 
-function usePrevisioni() {
-  const [giorni, setGiorni] = useState<Giorno[] | null>(null)
+/** onda massima che riempie la barra: oltre i 2 m il gommone resta comunque in porto */
+const ONDA_PIENA_M = 2
+
+// le barre crescono una volta, quando la striscia entra nello schermo
+function useVisto(ref: RefObject<HTMLElement>, pronto: boolean) {
+  const [visto, setVisto] = useState(false)
   useEffect(() => {
-    const ctrl = new AbortController()
-    const timeout = setTimeout(() => ctrl.abort(), 5000)
-    caricaPrevisioni(ctrl.signal)
-      .then(setGiorni)
-      .catch(() => { /* fallback: titolo statico, niente chip */ })
-      .finally(() => clearTimeout(timeout))
-    return () => { clearTimeout(timeout); ctrl.abort() }
-  }, [])
-  return giorni
+    if (!pronto || !ref.current) return
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVisto(true); io.disconnect() } }, { threshold: .4 })
+    io.observe(ref.current)
+    return () => io.disconnect()
+  }, [ref, pronto])
+  return visto
 }
 
 // Come nell'hero: nell'HTML prerenderizzato c'è il poster; il video (2,5 MB) parte solo
@@ -42,7 +48,9 @@ function useVideo(ref: RefObject<HTMLElement>) {
 export default function FinalCta() {
   const giorni = usePrevisioni()
   const sezione = useRef<HTMLElement>(null)
+  const striscia = useRef<HTMLDivElement>(null)
   const video = useVideo(sezione)
+  const visto = useVisto(striscia, !!giorni)
   const { finale: t, comune } = useT()
   const locale = LOCALE[useLang()]
   const domani = giorni?.[1]
@@ -61,16 +69,23 @@ export default function FinalCta() {
         <p>{t.testo}</p>
 
         {giorni && (
-          <div className={styles.meteo}>
+          <div className={`${styles.meteo} ${visto ? styles.visto : ''}`} ref={striscia}>
             <p className={styles.meteoTitolo}>{t.meteoTitolo}</p>
             <ul className={styles.giorni}>
-              {giorni.map(g => {
+              {giorni.map((g, i) => {
+                const altezza = g.onda == null ? 0 : Math.min(1, Math.max(.06, g.onda / ONDA_PIENA_M))
                 const contenuto = (
                   <>
                     <span className={styles.data}>{giorno(g.data, locale, { weekday: 'short', day: 'numeric' })}</span>
-                    <span className={styles.stato}><span aria-hidden="true">{ICONA[g.stato]}</span> {t.etichetta[g.stato]}</span>
+                    <span className={styles.onda} aria-hidden="true">
+                      <i style={{ '--h': altezza, '--i': i } as CSSProperties} />
+                    </span>
+                    <span className={styles.stato}>
+                      <svg viewBox="0 0 24 24" aria-hidden="true">{ICONA[g.stato]}</svg>
+                      {t.etichetta[g.stato]}
+                    </span>
                     <span className={styles.valori}>
-                      {g.onda != null && `${g.onda.toFixed(1)} m`}
+                      {g.onda != null && `${g.onda.toLocaleString(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 })} m`}
                       {g.vento != null && ` · ${Math.round(g.vento)} kn`}
                     </span>
                   </>

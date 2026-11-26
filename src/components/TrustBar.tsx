@@ -20,12 +20,12 @@ const icone = [
 export default function TrustBar() {
   return (
     <section className={styles.fiducia}>
-      <div className="wrap" style={{ paddingInline: 0 }}>
+      <div className="wrap">
         <div className={styles.griglia}>
           {useT().fiducia.map((voce, i) => {
             const contenuto = (
               <>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
                   {icone[i]}
                 </svg>
                 <div>

@@ -34,7 +34,7 @@ export default function Header() {
   const [scrollato, setScrollato] = useState(false)
   const [aperto, setAperto] = useState(false)
   const pannelloRef = useRef<HTMLDivElement>(null)
-  const solido = forzaSolido || scrollato
+  const solido = forzaSolido || scrollato || aperto
 
   useEffect(() => {
     if (forzaSolido) return
