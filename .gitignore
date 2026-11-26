@@ -5,3 +5,6 @@ dist
 *.local
 .DS_Store
 dist-ssr
+
+# taste-skill: 40 MB di asset, si ripristina con npx skills experimental_install (skills-lock.json)
+.claude/skills/design-taste-frontend/
