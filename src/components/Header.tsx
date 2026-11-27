@@ -78,7 +78,7 @@ export default function Header() {
   }, [aperto])
 
   return (
-    <header className={`${styles.header} ${solido ? styles.solido : ''}`}>
+    <header className={`${styles.header} ${solido ? styles.solido : ''} ${aperto ? styles.aperto : ''}`}>
       <div className={`wrap ${styles.in}`}>
         <Link className={styles.marchio} to={lp('/', lang)} onClick={() => setAperto(false)}>
           <img className={styles.segno} src="/brand/logo-bianco.svg" alt="" width="46" height="36" />

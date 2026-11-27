@@ -3,22 +3,38 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 60;
+  /* sopra il bottone WhatsApp (70): il menu aperto lo copre */
+  z-index: 80;
   padding-top: env(safe-area-inset-top, 0px);
-  transition: background var(--t-medio), box-shadow var(--t-medio);
-  background: transparent;
 }
 
-/* materiale traslucido: il contenuto scorre sotto e resta intuibile */
-.solido {
-  background: rgba(6, 43, 61, .9);
+/* materiale traslucido: il contenuto scorre sotto e resta intuibile.
+   Sta su uno strato a parte e non sull'header: backdrop-filter sull'header renderebbe l'header il
+   riferimento dei figli position: fixed, e il pannello del menu si ridurrebbe all'altezza della barra. */
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(10, 58, 82, .94);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
   backdrop-filter: blur(18px) saturate(160%);
   box-shadow: 0 1px 0 rgba(255, 255, 255, .06), 0 8px 30px -12px rgba(5, 38, 53, .5);
+  opacity: 0;
+  transition: opacity var(--t-medio);
+}
+
+.solido::before {
+  opacity: 1;
+}
+
+/* menu aperto: barra e pannello sono un pezzo unico, stesso colore pieno */
+.aperto::before {
+  background: var(--blu-scuro);
 }
 
 @media (prefers-reduced-transparency: reduce) {
-  .solido {
+  .header::before {
     background: var(--blu);
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
@@ -171,7 +187,8 @@
 
 /* tre linee che diventano una X */
 .hamburger[aria-expanded="true"] span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+  /* 12px = distanza fra i centri delle linee: 2px di linea + 5px + 5px di margine */
+  transform: translateY(12px) rotate(45deg);
 }
 
 .hamburger[aria-expanded="true"] span:nth-child(2) {
@@ -179,7 +196,7 @@
 }
 
 .hamburger[aria-expanded="true"] span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  transform: translateY(-12px) rotate(-45deg);
 }
 
 .pannello {
