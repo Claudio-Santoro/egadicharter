@@ -89,9 +89,9 @@
    Misurato sulla larghezza del riquadro (cqi), così "Favignana" ci sta intera a ogni schermo. */
 .nome {
   position: absolute;
-  left: var(--fuori-wrap);
-  /* sopra la sfumatura, dove sotto c'è ancora acqua */
-  bottom: 30%;
+  /* in basso a sinistra, appena sopra la parte più sfumata, dove sotto c'è ancora acqua */
+  left: max(12px, calc(var(--fuori-wrap) / 2));
+  bottom: 24%;
   color: rgba(255, 255, 255, .92);
   font-family: var(--display);
   font-weight: 700;
@@ -110,6 +110,6 @@
   }
 
   .isola + .isola .nome {
-    left: 36px;
+    left: 20px;
   }
 }
