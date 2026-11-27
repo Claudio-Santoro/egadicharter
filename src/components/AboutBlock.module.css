@@ -15,29 +15,36 @@
   gap: 34px;
 }
 
-/* a tutta larghezza, sfumata nello sfondo della sezione con un ovale (vedi --ovale). Quadrata su mobile */
+/* a tutta larghezza, sfumata nello sfondo della sezione sopra, sotto e a sinistra. Quadrata su mobile */
 .media {
-  /* una sola sfumatura ovale, omogenea su tutti i lati (sopra, sotto, sinistra; su desktop anche verso il
-     testo): stessa curva morbida dal 64% del raggio al bordo. Il gommone è lungo quasi quanto la cornice,
-     quindi l'ovale sfiora appena la punta della prua */
-  --ovale: radial-gradient(ellipse 52% 50% at 52% 50%, #000 64%, rgba(0, 0, 0, .96) 68.5%, rgba(0, 0, 0, .85) 73%, rgba(0, 0, 0, .68) 77.5%, rgba(0, 0, 0, .5) 82%, rgba(0, 0, 0, .32) 86.5%, rgba(0, 0, 0, .15) 91%, rgba(0, 0, 0, .04) 95.5%, transparent 100%);
+  /* sopra e sotto: stessa curva, speculare, 42% per lato */
+  --sfuma-y: linear-gradient(to bottom,
+    transparent 0%, rgba(0, 0, 0, .04) 5.25%, rgba(0, 0, 0, .15) 10.5%, rgba(0, 0, 0, .32) 15.75%, rgba(0, 0, 0, .5) 21%,
+    rgba(0, 0, 0, .68) 26.25%, rgba(0, 0, 0, .85) 31.5%, rgba(0, 0, 0, .96) 36.75%, #000 42%,
+    #000 58%, rgba(0, 0, 0, .96) 63.25%, rgba(0, 0, 0, .85) 68.5%, rgba(0, 0, 0, .68) 73.75%, rgba(0, 0, 0, .5) 79%,
+    rgba(0, 0, 0, .32) 84.25%, rgba(0, 0, 0, .15) 89.5%, rgba(0, 0, 0, .04) 94.75%, transparent 100%);
+  /* a sinistra: ovale ancorato a destra, così il bordo sinistro è curvo e gli angoli si arrotondano dentro le
+     sfumature di sopra e sotto. Stessa curva morbida, sul primo 16% a metà altezza: la prua sta al 12% */
+  --sfuma-sx: radial-gradient(ellipse 100% 72% at 100% 50%, #000 84%, rgba(0, 0, 0, .96) 86%, rgba(0, 0, 0, .85) 88%, rgba(0, 0, 0, .68) 90%, rgba(0, 0, 0, .5) 92%, rgba(0, 0, 0, .32) 94%, rgba(0, 0, 0, .15) 96%, rgba(0, 0, 0, .04) 98%, transparent 100%);
   margin-inline: calc(-1 * var(--fuori-wrap));
   aspect-ratio: 1 / 1;
   /* clip e non hidden: hidden rende la cornice un contenitore di scroll e la view() della foto
      si misurerebbe lì dentro (sempre ferma) invece che sulla pagina */
   overflow: clip;
   /* le sfumature stanno sulla cornice, che resta ferma: la foto ci scorre dentro */
-  -webkit-mask-image: var(--ovale);
-  mask-image: var(--ovale);
+  -webkit-mask-image: var(--sfuma-y), var(--sfuma-sx);
+  mask-image: var(--sfuma-y), var(--sfuma-sx);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
 }
 
 .media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* il gommone va dal 10% all'80% della foto (centro al 45%): inquadrata al 25%, a fine corsa
-     è centrato nella cornice con prua e motore dentro */
-  object-position: 25% 50%;
+  /* il gommone va dal 10% all'80% della foto: inquadrata da sinistra (0%), la prua resta al 12% della
+     cornice e c'è acqua da sfumare davanti; il gommone si ferma appena a destra del centro */
+  object-position: 0% 50%;
 }
 
 .misto h2 {
@@ -82,6 +89,12 @@
   .testo {
     align-self: center;
     padding-block: 112px;
+  }
+
+  /* su desktop la foto confina anche col testo: sfuma pure a destra */
+  .media {
+    -webkit-mask-image: var(--sfuma-y), var(--sfuma-sx), linear-gradient(to right, #000 62%, transparent);
+    mask-image: var(--sfuma-y), var(--sfuma-sx), linear-gradient(to right, #000 62%, transparent);
   }
 }
 
