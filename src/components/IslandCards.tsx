@@ -46,6 +46,8 @@ export default function IslandCards() {
                   height="520"
                 />
               )}
+              {/* il nome come immagine, fuso con il mare; il titolo vero resta l'h3 sotto */}
+              <span className={styles.nome} aria-hidden="true">{isola.nome}</span>
             </div>
             <div className={styles.testo}>
               <h3>{isola.nome}</h3>

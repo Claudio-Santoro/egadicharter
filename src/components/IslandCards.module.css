@@ -6,8 +6,10 @@
 }
 
 .media {
+  position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
+  container-type: inline-size;
   /* sfumato in basso nello sfondo della sezione */
   -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
   mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
@@ -86,5 +88,35 @@
 
   .isola + .isola .testo {
     padding: 30px var(--fuori-wrap) 0 36px;
+  }
+}
+
+/* nome dell'isola enorme sopra il video, in overlay: prende i colori dell'acqua che ha sotto.
+   Misurato sulla larghezza del riquadro (cqi), così "Favignana" ci sta intera a ogni schermo. */
+.nome {
+  position: absolute;
+  left: var(--fuori-wrap);
+  bottom: 22%;
+  color: rgba(255, 255, 255, .92);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 19cqi;
+  line-height: 1;
+  letter-spacing: -.05em;
+  white-space: nowrap;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* da 600px niente sfumatura in basso: il nome scende fino a farsi tagliare dal bordo */
+@media (min-width: 600px) {
+  .nome {
+    bottom: -.14em;
+    /* tetto a 8rem: sugli schermi larghi il testo parte dal margine del .wrap e avrebbe meno spazio */
+    font-size: min(18cqi, 8rem);
+  }
+
+  .isola + .isola .nome {
+    left: 36px;
   }
 }
