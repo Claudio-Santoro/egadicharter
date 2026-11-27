@@ -230,14 +230,16 @@ a.giorno:active {
 
 .perfetto { --c: #5FD7C0; }
 .buono { --c: var(--turchese-chiaro); }
-.sconsigliato { --c: color-mix(in srgb, #F0A35E 75%, transparent); }
+.sconsigliato { --c: #F59E42; }
+.forte { --c: #F0564A; }
 
 .giorno.perfetto {
   border-color: color-mix(in srgb, #5FD7C0 60%, transparent);
 }
 
-.giorno.sconsigliato {
-  opacity: .62;
+/* i giorni sconsigliati non si prenotano ma restano leggibili: niente trasparenza, la barra dice quanto è mosso */
+.giorno.sconsigliato .stato svg {
+  color: var(--c);
 }
 
 .in .fonte {

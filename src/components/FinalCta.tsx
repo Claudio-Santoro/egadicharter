@@ -24,6 +24,9 @@ const VENTO = <path d="M9.6 4.6A2 2 0 1 1 11 8H2M12.6 19.4A2 2 0 1 0 14 16H2M17.
 /** onda massima che riempie la barra: oltre i 2 m il gommone resta comunque in porto */
 const ONDA_PIENA_M = 2
 
+/** mare mosso "forte" (barra rossa invece che arancione): da tarare con lo skipper, come le soglie in meteo.ts */
+const FORTE = { onda: 1.5, vento: 20 }
+
 // le barre crescono una volta, quando la striscia entra nello schermo
 function useVisto(ref: RefObject<HTMLElement>, pronto: boolean) {
   const [visto, setVisto] = useState(false)
@@ -101,7 +104,7 @@ export default function FinalCta() {
                 return (
                   <li key={g.data}>
                     {g.stato === 'sconsigliato' ? (
-                      <span className={`${styles.giorno} ${styles.sconsigliato}`}>{contenuto}</span>
+                      <span className={`${styles.giorno} ${styles.sconsigliato} ${(g.onda ?? 0) >= FORTE.onda || (g.vento ?? 0) >= FORTE.vento ? styles.forte : ''}`}>{contenuto}</span>
                     ) : (
                       <a
                         className={`${styles.giorno} ${styles[g.stato]}`}
