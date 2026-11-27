@@ -35,22 +35,17 @@ export function classifica({ onda, vento, raffiche, pioggia }: Valori): Stato {
   return 'sconsigliato'
 }
 
-// Hero e finale chiedono le stesse previsioni: una sola richiesta per caricamento di pagina.
-let inCorso: Promise<Giorno[]> | null = null
-
-/** null finché non arrivano (o se falliscono: chi le usa mostra la versione statica) */
+/** null finché non arrivano (o se falliscono: il finale mostra la versione statica) */
 export function usePrevisioni() {
   const [giorni, setGiorni] = useState<Giorno[] | null>(null)
   useEffect(() => {
-    let vivo = true
-    if (!inCorso) {
-      const ctrl = new AbortController()
-      const timeout = setTimeout(() => ctrl.abort(), 5000)
-      inCorso = caricaPrevisioni(ctrl.signal).finally(() => clearTimeout(timeout))
-      inCorso.catch(() => { inCorso = null })
-    }
-    inCorso.then((g) => { if (vivo) setGiorni(g) }).catch(() => { /* fallback statico */ })
-    return () => { vivo = false }
+    const ctrl = new AbortController()
+    const timeout = setTimeout(() => ctrl.abort(), 5000)
+    caricaPrevisioni(ctrl.signal)
+      .then(setGiorni)
+      .catch(() => { /* fallback: titolo statico, niente striscia */ })
+      .finally(() => clearTimeout(timeout))
+    return () => { clearTimeout(timeout); ctrl.abort() }
   }, [])
   return giorni
 }
