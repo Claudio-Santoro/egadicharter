@@ -42,6 +42,14 @@
   /* il gommone va dal 10% all'80% della foto (centro al 45%): inquadrata al 25%, a fine corsa
      è centrato nella cornice con prua e motore dentro */
   object-position: 25% 50%;
+  /* stessa curva morbida delle sfumature sopra e sotto, sul primo 32% da sinistra */
+  --sfuma-x: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, .04) 4%, rgba(0, 0, 0, .15) 8%, rgba(0, 0, 0, .32) 12%, rgba(0, 0, 0, .5) 16%, rgba(0, 0, 0, .68) 20%, rgba(0, 0, 0, .85) 24%, rgba(0, 0, 0, .96) 28%, #000 32%);
+  --ovale: radial-gradient(ellipse 58% 24% at 50% 51%, #000 76%, rgba(0, 0, 0, .96) 79%, rgba(0, 0, 0, .85) 82%, rgba(0, 0, 0, .68) 85%, rgba(0, 0, 0, .5) 88%, rgba(0, 0, 0, .32) 91%, rgba(0, 0, 0, .15) 94%, rgba(0, 0, 0, .04) 97%, transparent 100%);
+  /* bordo sinistro sfumato solo sull'acqua: la sfumatura morbida qui sopra, più un ovale pieno attorno
+     al gommone (prua al 5%, motore al 95%, scafo fra il 35% e il 66% in altezza). Le due maschere si
+     sommano: il gommone non si scurisce mai e la sfumatura si arrotonda attorno alla prua */
+  -webkit-mask-image: var(--sfuma-x), var(--ovale);
+  mask-image: var(--sfuma-x), var(--ovale);
 }
 
 .misto h2 {
@@ -105,37 +113,15 @@
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .media img {
-      /* il bordo sinistro della foto in viaggio è sfumato: la maschera è più larga della foto (140%) e
-         scorre con lei; a gommone fermo la parte trasparente è già fuori dal bordo */
-      -webkit-mask-image: linear-gradient(to right, transparent, #000 25%);
-      mask-image: linear-gradient(to right, transparent, #000 25%);
-      -webkit-mask-size: 140% 100%;
-      mask-size: 140% 100%;
-      -webkit-mask-repeat: no-repeat;
-      mask-repeat: no-repeat;
       /* curva più dolce di --ease-out: avanza regolare e frena solo nell'ultimo tratto */
       animation: arriva cubic-bezier(.3, .55, .45, 1) both;
       animation-timeline: view();
-      animation-range: entry 0% cover 50%;
+      /* parte quando la cornice è già un po' dentro lo schermo e si ferma quando è nella metà alta */
+      animation-range: cover 12% cover 58%;
     }
   }
 }
 
-/* la sfumatura del bordo sinistro resta attaccata alla foto per quasi tutta la corsa ed esce solo alla fine,
-   quando il gommone è quasi fermo e il bordo della foto è già sul bordo della cornice */
 @keyframes arriva {
-  from {
-    transform: translateX(100%);
-    -webkit-mask-position: 0 0;
-    mask-position: 0 0;
-  }
-  85% {
-    -webkit-mask-position: 0 0;
-    mask-position: 0 0;
-  }
-  to {
-    transform: none;
-    -webkit-mask-position: 100% 0;
-    mask-position: 100% 0;
-  }
+  from { transform: translateX(100%); }
 }
