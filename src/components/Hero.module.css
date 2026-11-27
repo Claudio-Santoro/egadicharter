@@ -64,6 +64,14 @@
   display: inline-block;
 }
 
+/* su telefono il titolo si fonde con il mare del video, come i nomi delle isole; su desktop resta bianco pieno */
+@media (max-width: 599px) {
+  .in h1 {
+    color: rgba(255, 255, 255, .92);
+    mix-blend-mode: overlay;
+  }
+}
+
 @media (min-width: 600px) {
   .scena img {
     object-position: 22% 50%;
