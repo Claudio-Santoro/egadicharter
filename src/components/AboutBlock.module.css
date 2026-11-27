@@ -1,3 +1,10 @@
+/* su mobile la foto è il primo elemento: parte subito sotto la sezione precedente, senza fascia beige */
+@media (max-width: 899px) {
+  .sezione {
+    padding-top: 0;
+  }
+}
+
 .misto {
   display: grid;
   grid-template-columns: 1fr;

@@ -9,7 +9,7 @@ export default function AboutBlock() {
   const lang = useLang()
 
   return (
-    <Section id="noi" sabbia>
+    <Section id="noi" sabbia className={styles.sezione}>
       <div className={styles.misto}>
         <div className={styles.media}>
           <img

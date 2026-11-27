@@ -46,11 +46,10 @@ export default function IslandCards() {
                   height="520"
                 />
               )}
-              {/* il nome come immagine, fuso con il mare; il titolo vero resta l'h3 sotto */}
-              <span className={styles.nome} aria-hidden="true">{isola.nome}</span>
+              {/* il titolo della card è il nome stesso, enorme e fuso con il mare */}
+              <h3 className={styles.nome}>{isola.nome}</h3>
             </div>
             <div className={styles.testo}>
-              <h3>{isola.nome}</h3>
               <p>{t[isola.id].descrizione}</p>
               <ul className={styles.cale}>
                 {isola.cale.map((cala) => <li key={cala}>{cala}</li>)}
