@@ -5,6 +5,17 @@
   background: var(--blu-notte);
 }
 
+/* niente bordo netto in cima: il colore della sezione sopra sfuma nel video */
+.finale::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 1;
+  height: 120px;
+  background: linear-gradient(to bottom, var(--bg), transparent);
+  pointer-events: none;
+}
+
 .sfondo {
   position: absolute;
   inset: 0;
@@ -21,6 +32,7 @@
 
 .in {
   position: relative;
+  z-index: 2;
   padding-block: 88px;
 }
 
@@ -46,6 +58,11 @@
 
 /* su mobile il video sta sopra il testo e sfuma nello sfondo della sezione, come le card delle isole */
 @media (max-width: 599px) {
+  /* qui il video è alto 56vw: la sfumatura ne copre circa il 40% */
+  .finale::before {
+    height: 22vw;
+  }
+
   .sfondo {
     position: static;
     display: block;

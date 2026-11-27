@@ -19,6 +19,10 @@
   height: 100%;
   object-fit: cover;
   transition: transform 1.2s var(--ease-out);
+  /* sfuma in basso nello sfondo della sezione, senza stacco. La maschera sta sul video e non sul
+     riquadro: così non si porta via anche il nome */
+  -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
 }
 
 @media (hover: hover) {
@@ -30,7 +34,7 @@
 
 /* il testo resta allineato al contenuto del sito, non al bordo dello schermo */
 .testo {
-  padding: 20px var(--fuori-wrap) 0;
+  padding: 0 var(--fuori-wrap);
 }
 
 .testo p {
@@ -72,11 +76,11 @@
 
   /* ogni testo sotto la sua metà: a sinistra si allinea al wrap, a destra lascia lo stesso respiro dal centro */
   .testo {
-    padding: 30px 36px 0 var(--fuori-wrap);
+    padding: 0 36px 0 var(--fuori-wrap);
   }
 
   .isola + .isola .testo {
-    padding: 30px var(--fuori-wrap) 0 36px;
+    padding: 0 var(--fuori-wrap) 0 36px;
   }
 }
 
@@ -86,7 +90,8 @@
 .nome {
   position: absolute;
   left: var(--fuori-wrap);
-  bottom: -.14em;
+  /* sopra la sfumatura, dove sotto c'è ancora acqua */
+  bottom: 30%;
   color: rgba(255, 255, 255, .92);
   font-family: var(--display);
   font-weight: 700;
