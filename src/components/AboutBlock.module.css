@@ -27,17 +27,21 @@
     rgba(0, 0, 0, .32) 84.25%, rgba(0, 0, 0, .15) 89.5%, rgba(0, 0, 0, .04) 94.75%, transparent 100%);
   margin-inline: calc(-1 * var(--fuori-wrap));
   aspect-ratio: 1 / 1;
-  overflow: hidden;
+  /* clip e non hidden: hidden rende la cornice un contenitore di scroll e la view() della foto
+     si misurerebbe lì dentro (sempre ferma) invece che sulla pagina */
+  overflow: clip;
+  /* le sfumature stanno sulla cornice, che resta ferma: la foto ci scorre dentro */
+  -webkit-mask-image: var(--sfuma-y);
+  mask-image: var(--sfuma-y);
 }
 
 .media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* nel quadrato su mobile la prua del gommone resta dentro */
-  object-position: 12% 50%;
-  -webkit-mask-image: var(--sfuma-y);
-  mask-image: var(--sfuma-y);
+  /* il gommone va dal 10% all'80% della foto (centro al 45%): inquadrata al 25%, a fine corsa
+     è centrato nella cornice con prua e motore dentro */
+  object-position: 25% 50%;
 }
 
 .misto h2 {
@@ -84,50 +88,54 @@
     padding-block: 112px;
   }
 
-  /* su desktop la foto confina anche col testo: sfuma pure a destra (le due sfumature si sommano) */
-  .media img {
-    -webkit-mask-image: var(--sfuma-y), linear-gradient(to right, #000 55%, transparent);
-    mask-image: var(--sfuma-y), linear-gradient(to right, #000 55%, transparent);
+  /* su desktop la foto confina anche col testo: sfuma pure a destra (le due sfumature si sommano).
+     Il gommone entra proprio da questo lato: affiora dalla sfumatura */
+  .media {
+    -webkit-mask-image: var(--sfuma-y), linear-gradient(to right, #000 62%, transparent);
+    mask-image: var(--sfuma-y), linear-gradient(to right, #000 62%, transparent);
     -webkit-mask-composite: source-in;
     mask-composite: intersect;
   }
 }
 
-/* la foto si apre mentre entra nello schermo: legata allo scroll, quindi si ferma e torna indietro con chi scorre.
-   Dove animation-timeline non c'è (Safari, Firefox) la foto è semplicemente aperta. */
+/* il gommone arriva da destra, nella sua direzione di marcia (punta a sinistra, la scia è a destra), e si
+   ferma al centro della cornice. Legato allo scroll: tornando su, torna indietro. La curva lo fa
+   rallentare verso la fine, come una barca che toglie gas.
+   Dove animation-timeline non c'è (Safari, Firefox) o con movimento ridotto il gommone è già al centro. */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    .media {
-      animation: apri linear both;
-      animation-timeline: view();
-      /* parte appena la foto spunta dal basso e dura fino a metà schermo: l'onda si vede a lungo */
-      animation-range: entry 0% cover 55%;
-    }
-
     .media img {
-      animation: rientra linear both;
+      /* il bordo sinistro della foto in viaggio è sfumato: la maschera è più larga della foto (140%) e
+         scorre con lei; a gommone fermo la parte trasparente è già fuori dal bordo */
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 25%);
+      mask-image: linear-gradient(to right, transparent, #000 25%);
+      -webkit-mask-size: 140% 100%;
+      mask-size: 140% 100%;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      /* curva più dolce di --ease-out: avanza regolare e frena solo nell'ultimo tratto */
+      animation: arriva cubic-bezier(.3, .55, .45, 1) both;
       animation-timeline: view();
-      animation-range: entry 0% cover 60%;
+      animation-range: entry 0% cover 50%;
     }
   }
 }
 
-/* il bordo destro della foto è un'onda che avanza e scorre: la fase fa due giri interi durante l'apertura.
-   Un fotogramma ogni ottavo con un quarto di giro di fase fra l'uno e l'altro: il browser interpola punto per
-   punto, e con passi più lunghi a metà strada le onde opposte si annullerebbero in una linea dritta.
-   Alla fine l'onda sta tutta oltre il 100%. */
-@keyframes apri {
-  0% { clip-path: polygon(0 0, 62.0% 0.0%, 64.1% 4.2%, 65.9% 8.3%, 67.1% 12.5%, 67.5% 16.7%, 67.1% 20.8%, 65.9% 25.0%, 64.1% 29.2%, 62.0% 33.3%, 59.9% 37.5%, 58.1% 41.7%, 56.9% 45.8%, 56.5% 50.0%, 56.9% 54.2%, 58.1% 58.3%, 59.9% 62.5%, 62.0% 66.7%, 64.1% 70.8%, 65.9% 75.0%, 67.1% 79.2%, 67.5% 83.3%, 67.1% 87.5%, 65.9% 91.7%, 64.1% 95.8%, 62.0% 100.0%, 0 100%); }
-  12.5% { clip-path: polygon(0 0, 73.1% 0.0%, 72.7% 4.2%, 71.5% 8.3%, 69.7% 12.5%, 67.6% 16.7%, 65.5% 20.8%, 63.7% 25.0%, 62.5% 29.2%, 62.1% 33.3%, 62.5% 37.5%, 63.7% 41.7%, 65.5% 45.8%, 67.6% 50.0%, 69.7% 54.2%, 71.5% 58.3%, 72.7% 62.5%, 73.1% 66.7%, 72.7% 70.8%, 71.5% 75.0%, 69.7% 79.2%, 67.6% 83.3%, 65.5% 87.5%, 63.7% 91.7%, 62.5% 95.8%, 62.1% 100.0%, 0 100%); }
-  25% { clip-path: polygon(0 0, 73.2% 0.0%, 71.1% 4.2%, 69.4% 8.3%, 68.2% 12.5%, 67.8% 16.7%, 68.2% 20.8%, 69.4% 25.0%, 71.1% 29.2%, 73.2% 33.3%, 75.4% 37.5%, 77.1% 41.7%, 78.3% 45.8%, 78.8% 50.0%, 78.3% 54.2%, 77.1% 58.3%, 75.4% 62.5%, 73.2% 66.7%, 71.1% 70.8%, 69.4% 75.0%, 68.2% 79.2%, 67.8% 83.3%, 68.2% 87.5%, 69.4% 91.7%, 71.1% 95.8%, 73.2% 100.0%, 0 100%); }
-  37.5% { clip-path: polygon(0 0, 73.4% 0.0%, 73.8% 4.2%, 75.0% 8.3%, 76.8% 12.5%, 78.9% 16.7%, 81.0% 20.8%, 82.8% 25.0%, 84.0% 29.2%, 84.4% 33.3%, 84.0% 37.5%, 82.8% 41.7%, 81.0% 45.8%, 78.9% 50.0%, 76.8% 54.2%, 75.0% 58.3%, 73.8% 62.5%, 73.4% 66.7%, 73.8% 70.8%, 75.0% 75.0%, 76.8% 79.2%, 78.9% 83.3%, 81.0% 87.5%, 82.8% 91.7%, 84.0% 95.8%, 84.4% 100.0%, 0 100%); }
-  50% { clip-path: polygon(0 0, 84.5% 0.0%, 86.6% 4.2%, 88.4% 8.3%, 89.6% 12.5%, 90.0% 16.7%, 89.6% 20.8%, 88.4% 25.0%, 86.6% 29.2%, 84.5% 33.3%, 82.4% 37.5%, 80.6% 41.7%, 79.4% 45.8%, 79.0% 50.0%, 79.4% 54.2%, 80.6% 58.3%, 82.4% 62.5%, 84.5% 66.7%, 86.6% 70.8%, 88.4% 75.0%, 89.6% 79.2%, 90.0% 83.3%, 89.6% 87.5%, 88.4% 91.7%, 86.6% 95.8%, 84.5% 100.0%, 0 100%); }
-  62.5% { clip-path: polygon(0 0, 95.6% 0.0%, 95.2% 4.2%, 94.0% 8.3%, 92.2% 12.5%, 90.1% 16.7%, 88.0% 20.8%, 86.2% 25.0%, 85.0% 29.2%, 84.6% 33.3%, 85.0% 37.5%, 86.2% 41.7%, 88.0% 45.8%, 90.1% 50.0%, 92.2% 54.2%, 94.0% 58.3%, 95.2% 62.5%, 95.6% 66.7%, 95.2% 70.8%, 94.0% 75.0%, 92.2% 79.2%, 90.1% 83.3%, 88.0% 87.5%, 86.2% 91.7%, 85.0% 95.8%, 84.6% 100.0%, 0 100%); }
-  75% { clip-path: polygon(0 0, 95.8% 0.0%, 93.6% 4.2%, 91.9% 8.3%, 90.7% 12.5%, 90.2% 16.7%, 90.7% 20.8%, 91.9% 25.0%, 93.6% 29.2%, 95.8% 33.3%, 97.9% 37.5%, 99.6% 41.7%, 100.8% 45.8%, 101.2% 50.0%, 100.8% 54.2%, 99.6% 58.3%, 97.9% 62.5%, 95.8% 66.7%, 93.6% 70.8%, 91.9% 75.0%, 90.7% 79.2%, 90.2% 83.3%, 90.7% 87.5%, 91.9% 91.7%, 93.6% 95.8%, 95.8% 100.0%, 0 100%); }
-  87.5% { clip-path: polygon(0 0, 95.9% 0.0%, 96.3% 4.2%, 97.5% 8.3%, 99.3% 12.5%, 101.4% 16.7%, 103.5% 20.8%, 105.3% 25.0%, 106.5% 29.2%, 106.9% 33.3%, 106.5% 37.5%, 105.3% 41.7%, 103.5% 45.8%, 101.4% 50.0%, 99.3% 54.2%, 97.5% 58.3%, 96.3% 62.5%, 95.9% 66.7%, 96.3% 70.8%, 97.5% 75.0%, 99.3% 79.2%, 101.4% 83.3%, 103.5% 87.5%, 105.3% 91.7%, 106.5% 95.8%, 106.9% 100.0%, 0 100%); }
-  100% { clip-path: polygon(0 0, 107.0% 0.0%, 109.1% 4.2%, 110.9% 8.3%, 112.1% 12.5%, 112.5% 16.7%, 112.1% 20.8%, 110.9% 25.0%, 109.1% 29.2%, 107.0% 33.3%, 104.9% 37.5%, 103.1% 41.7%, 101.9% 45.8%, 101.5% 50.0%, 101.9% 54.2%, 103.1% 58.3%, 104.9% 62.5%, 107.0% 66.7%, 109.1% 70.8%, 110.9% 75.0%, 112.1% 79.2%, 112.5% 83.3%, 112.1% 87.5%, 110.9% 91.7%, 109.1% 95.8%, 107.0% 100.0%, 0 100%); }
-}
-
-@keyframes rientra {
-  from { transform: scale(1.14); }
+/* la sfumatura del bordo sinistro resta attaccata alla foto per quasi tutta la corsa ed esce solo alla fine,
+   quando il gommone è quasi fermo e il bordo della foto è già sul bordo della cornice */
+@keyframes arriva {
+  from {
+    transform: translateX(100%);
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  85% {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  to {
+    transform: none;
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
 }
