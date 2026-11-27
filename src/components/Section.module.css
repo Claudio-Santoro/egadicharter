@@ -15,10 +15,14 @@
 }
 
 .titolo {
-  font-size: clamp(2rem, 6vw, 3.6rem);
-  font-weight: 700;
-  letter-spacing: -.035em;
-  max-width: 16ch;
+  font-size: clamp(1.9rem, 5.6vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1;
+  /* maiuscolo dal CSS: i testi nei dizionari restano normali in tutte le lingue.
+     Le maiuscole sono già larghe: tracking appena negativo, non quello dei titoli in minuscolo */
+  text-transform: uppercase;
+  letter-spacing: -.01em;
+  max-width: 18ch;
 }
 
 .testo {
