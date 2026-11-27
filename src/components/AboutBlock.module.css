@@ -45,6 +45,14 @@
   object-position: 25% 50%;
   -webkit-mask-image: var(--sfuma-sx);
   mask-image: var(--sfuma-sx);
+  /* l'ovale è largo il 115% della foto: durante la corsa sta tutto sulla foto (posizione 0), a gommone fermo
+     scivola verso il bordo dello schermo (100%) e lascia piena la punta della prua */
+  -webkit-mask-size: 115% 100%;
+  mask-size: 115% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: 100% 0;
+  mask-position: 100% 0;
 }
 
 .misto h2 {
@@ -79,11 +87,12 @@
     gap: 72px;
   }
 
-  /* la foto è alta quanto la sezione; il testo è centrato con il suo respiro sopra e sotto */
+  /* cornice con le proporzioni della foto (5:4): si vede tutta, il gommone occupa il 70% della larghezza
+     e prua e motore restano fuori dalle sfumature */
   .media {
     margin-right: 0;
-    aspect-ratio: auto;
-    min-height: clamp(460px, 44vw, 640px);
+    align-self: center;
+    aspect-ratio: 5 / 4;
   }
 
   .testo {
@@ -91,17 +100,12 @@
     padding-block: 112px;
   }
 
-  /* su desktop la foto confina anche col testo: sfuma pure a destra */
+  /* su desktop la foto confina anche col testo: sfuma pure a destra, dopo il motore (che sta all'80%) */
   .media {
-    -webkit-mask-image: var(--sfuma-y), linear-gradient(to right, #000 62%, transparent);
-    mask-image: var(--sfuma-y), linear-gradient(to right, #000 62%, transparent);
+    -webkit-mask-image: var(--sfuma-y), linear-gradient(to right, #000 84%, rgba(0, 0, 0, .96) 86%, rgba(0, 0, 0, .85) 88%, rgba(0, 0, 0, .68) 90%, rgba(0, 0, 0, .5) 92%, rgba(0, 0, 0, .32) 94%, rgba(0, 0, 0, .15) 96%, rgba(0, 0, 0, .04) 98%, transparent 100%);
+    mask-image: var(--sfuma-y), linear-gradient(to right, #000 84%, rgba(0, 0, 0, .96) 86%, rgba(0, 0, 0, .85) 88%, rgba(0, 0, 0, .68) 90%, rgba(0, 0, 0, .5) 92%, rgba(0, 0, 0, .32) 94%, rgba(0, 0, 0, .15) 96%, rgba(0, 0, 0, .04) 98%, transparent 100%);
     -webkit-mask-composite: source-in;
     mask-composite: intersect;
-  }
-
-  /* colonna un po' più stretta della foto: inquadrata al 29% il gommone è centrato con il motore dentro */
-  .media img {
-    object-position: 29% 50%;
   }
 }
 
@@ -122,5 +126,9 @@
 }
 
 @keyframes arriva {
-  from { transform: translateX(100%); }
+  from {
+    transform: translateX(100%);
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
 }
