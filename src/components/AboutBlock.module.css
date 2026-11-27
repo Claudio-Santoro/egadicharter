@@ -15,10 +15,17 @@
   gap: 34px;
 }
 
-/* a tutta larghezza, sfumata sopra e sotto nello sfondo della sezione */
+/* a tutta larghezza, sfumata sopra e sotto nello sfondo della sezione.
+   Sfumatura lunga e con curva morbida (parte piano, accelera, rallenta): una lineare corta sul turchese
+   brillante si legge ancora come una riga. Quadrata su mobile, così resta mare pieno fra le due sfumature */
 .media {
+  --sfuma-y: linear-gradient(to bottom,
+    transparent 0%, rgba(0, 0, 0, .04) 6%, rgba(0, 0, 0, .15) 12%, rgba(0, 0, 0, .32) 18%, rgba(0, 0, 0, .5) 24%,
+    rgba(0, 0, 0, .68) 30%, rgba(0, 0, 0, .85) 36%, rgba(0, 0, 0, .96) 42%, #000 48%,
+    #000 58%, rgba(0, 0, 0, .96) 64%, rgba(0, 0, 0, .85) 70%, rgba(0, 0, 0, .68) 76%, rgba(0, 0, 0, .5) 82%,
+    rgba(0, 0, 0, .32) 88%, rgba(0, 0, 0, .15) 94%, transparent 100%);
   margin-inline: calc(-1 * var(--fuori-wrap));
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
 }
 
@@ -26,8 +33,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 24%, #000 70%, transparent);
-  mask-image: linear-gradient(to bottom, transparent, #000 24%, #000 70%, transparent);
+  /* nel quadrato su mobile la prua del gommone resta dentro */
+  object-position: 12% 50%;
+  -webkit-mask-image: var(--sfuma-y);
+  mask-image: var(--sfuma-y);
 }
 
 .misto h2 {
@@ -76,8 +85,8 @@
 
   /* su desktop la foto confina anche col testo: sfuma pure a destra (le due sfumature si sommano) */
   .media img {
-    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 24%, #000 70%, transparent), linear-gradient(to right, #000 55%, transparent);
-    mask-image: linear-gradient(to bottom, transparent, #000 24%, #000 70%, transparent), linear-gradient(to right, #000 55%, transparent);
+    -webkit-mask-image: var(--sfuma-y), linear-gradient(to right, #000 55%, transparent);
+    mask-image: var(--sfuma-y), linear-gradient(to right, #000 55%, transparent);
     -webkit-mask-composite: source-in;
     mask-composite: intersect;
   }
