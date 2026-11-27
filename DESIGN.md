@@ -24,9 +24,12 @@ niente gradienti decorativi, niente testo con gradiente.
 
 ## Tipografia
 
-- Un solo font, Schibsted Grotesk (variabile 400–700, self-hosted), per titoli e testo:
-  nato per i giornali, regge il corpo e ha più carattere di Inter (tolto: era il font da template).
-- Titoli: tracking negativo che cresce con la taglia (da -0.01em a -0.035em), interlinea stretta.
+- Un solo font, Figtree (variabile 300–900, self-hosted), per titoli e testo: geometrico, curve
+  morbide, pulito. Scelto al posto di Schibsted Grotesk su richiesta ("più morbido e moderno");
+  Inter tolto prima perché era il font da template.
+- Titoli di sezione (SectionIntro): MAIUSCOLO via CSS, peso 800, tracking -0.01em. I testi nei
+  dizionari restano in minuscolo.
+- Altri titoli: tracking negativo che cresce con la taglia (da -0.01em a -0.035em), interlinea stretta.
 - Testo: 17px, interlinea 1.6, misura massima ~65ch.
 - Numeri (prezzi, specifiche, meteo): cifre tabellari.
 
