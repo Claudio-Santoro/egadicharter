@@ -23,28 +23,28 @@
     rgba(0, 0, 0, .68) 26.25%, rgba(0, 0, 0, .85) 31.5%, rgba(0, 0, 0, .96) 36.75%, #000 42%,
     #000 58%, rgba(0, 0, 0, .96) 63.25%, rgba(0, 0, 0, .85) 68.5%, rgba(0, 0, 0, .68) 73.75%, rgba(0, 0, 0, .5) 79%,
     rgba(0, 0, 0, .32) 84.25%, rgba(0, 0, 0, .15) 89.5%, rgba(0, 0, 0, .04) 94.75%, transparent 100%);
-  /* a sinistra: ovale ancorato a destra, così il bordo sinistro è curvo e gli angoli si arrotondano dentro le
-     sfumature di sopra e sotto. Stessa curva morbida, sul primo 16% a metà altezza: la prua sta al 12% */
-  --sfuma-sx: radial-gradient(ellipse 100% 72% at 100% 50%, #000 84%, rgba(0, 0, 0, .96) 86%, rgba(0, 0, 0, .85) 88%, rgba(0, 0, 0, .68) 90%, rgba(0, 0, 0, .5) 92%, rgba(0, 0, 0, .32) 94%, rgba(0, 0, 0, .15) 96%, rgba(0, 0, 0, .04) 98%, transparent 100%);
+  /* a sinistra: ovale ancorato a destra, sulla foto (viaggia con lei per tutta la corsa). Bordo curvo, angoli
+     che si arrotondano dentro le sfumature di sopra e sotto; a metà altezza sfuma sull'8% davanti alla prua */
+  --sfuma-sx: radial-gradient(ellipse 100% 72% at 100% 50%, #000 92%, rgba(0, 0, 0, .96) 93%, rgba(0, 0, 0, .85) 94%, rgba(0, 0, 0, .68) 95%, rgba(0, 0, 0, .5) 96%, rgba(0, 0, 0, .32) 97%, rgba(0, 0, 0, .15) 98%, rgba(0, 0, 0, .04) 99%, transparent 100%);
   margin-inline: calc(-1 * var(--fuori-wrap));
   aspect-ratio: 1 / 1;
   /* clip e non hidden: hidden rende la cornice un contenitore di scroll e la view() della foto
      si misurerebbe lì dentro (sempre ferma) invece che sulla pagina */
   overflow: clip;
   /* le sfumature stanno sulla cornice, che resta ferma: la foto ci scorre dentro */
-  -webkit-mask-image: var(--sfuma-y), var(--sfuma-sx);
-  mask-image: var(--sfuma-y), var(--sfuma-sx);
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
+  -webkit-mask-image: var(--sfuma-y);
+  mask-image: var(--sfuma-y);
 }
 
 .media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* il gommone va dal 10% all'80% della foto: inquadrata da sinistra (0%), la prua resta al 12% della
-     cornice e c'è acqua da sfumare davanti; il gommone si ferma appena a destra del centro */
-  object-position: 0% 50%;
+  /* il gommone va dal 10% all'80% della foto (centro al 45%): inquadrata al 25%, a fine corsa è centrato,
+     prua al 6% e motore al 94% della cornice */
+  object-position: 25% 50%;
+  -webkit-mask-image: var(--sfuma-sx);
+  mask-image: var(--sfuma-sx);
 }
 
 .misto h2 {
@@ -91,10 +91,17 @@
     padding-block: 112px;
   }
 
-  /* su desktop la foto confina anche col testo: sfuma pure a destra */
+  /* su desktop la foto confina anche col testo: sfuma pure a destra, nell'ultimo tratto (dopo il motore) */
   .media {
-    -webkit-mask-image: var(--sfuma-y), var(--sfuma-sx), linear-gradient(to right, #000 62%, transparent);
-    mask-image: var(--sfuma-y), var(--sfuma-sx), linear-gradient(to right, #000 62%, transparent);
+    -webkit-mask-image: var(--sfuma-y), linear-gradient(to right, #000 86%, rgba(0, 0, 0, .96) 87.75%, rgba(0, 0, 0, .85) 89.5%, rgba(0, 0, 0, .68) 91.25%, rgba(0, 0, 0, .5) 93%, rgba(0, 0, 0, .32) 94.75%, rgba(0, 0, 0, .15) 96.5%, rgba(0, 0, 0, .04) 98.25%, transparent 100%);
+    mask-image: var(--sfuma-y), linear-gradient(to right, #000 86%, rgba(0, 0, 0, .96) 87.75%, rgba(0, 0, 0, .85) 89.5%, rgba(0, 0, 0, .68) 91.25%, rgba(0, 0, 0, .5) 93%, rgba(0, 0, 0, .32) 94.75%, rgba(0, 0, 0, .15) 96.5%, rgba(0, 0, 0, .04) 98.25%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+  }
+
+  /* colonna un po' più stretta della foto: inquadrata al 29% il gommone è centrato con il motore dentro */
+  .media img {
+    object-position: 29% 50%;
   }
 }
 
@@ -105,15 +112,6 @@
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .media img {
-      /* il bordo sinistro della foto in viaggio sfuma nel blu con la stessa curva di sopra e sotto
-         (sul 26% della foto): la maschera è larga il 130% e a fine corsa scivola fuori dal bordo, così il
-         gommone fermo resta pieno */
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, .04) 2.5%, rgba(0, 0, 0, .15) 5%, rgba(0, 0, 0, .32) 7.5%, rgba(0, 0, 0, .5) 10%, rgba(0, 0, 0, .68) 12.5%, rgba(0, 0, 0, .85) 15%, rgba(0, 0, 0, .96) 17.5%, #000 20%);
-      mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, .04) 2.5%, rgba(0, 0, 0, .15) 5%, rgba(0, 0, 0, .32) 7.5%, rgba(0, 0, 0, .5) 10%, rgba(0, 0, 0, .68) 12.5%, rgba(0, 0, 0, .85) 15%, rgba(0, 0, 0, .96) 17.5%, #000 20%);
-      -webkit-mask-size: 130% 100%;
-      mask-size: 130% 100%;
-      -webkit-mask-repeat: no-repeat;
-      mask-repeat: no-repeat;
       /* curva più dolce di --ease-out: avanza regolare e frena solo nell'ultimo tratto */
       animation: arriva cubic-bezier(.3, .55, .45, 1) both;
       animation-timeline: view();
@@ -123,20 +121,6 @@
   }
 }
 
-/* la sfumatura resta attaccata al bordo della foto nella prima metà della corsa, poi si stacca piano */
 @keyframes arriva {
-  from {
-    transform: translateX(100%);
-    -webkit-mask-position: 0 0;
-    mask-position: 0 0;
-  }
-  45% {
-    -webkit-mask-position: 0 0;
-    mask-position: 0 0;
-  }
-  to {
-    transform: none;
-    -webkit-mask-position: 100% 0;
-    mask-position: 100% 0;
-  }
+  from { transform: translateX(100%); }
 }
