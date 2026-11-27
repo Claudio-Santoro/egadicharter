@@ -12,16 +12,13 @@ export default function AboutBlock() {
     <Section id="noi" sabbia className={styles.sezione}>
       <div className={styles.misto}>
         <div className={styles.media}>
-          {/* la scia porta la sfumatura ovale e si muove insieme alla foto (vedi il CSS) */}
-          <div className={styles.scia}>
-            <img
-              src={site.chiSiamoImmagine}
-              alt={chiSiamo.alt}
-              loading="lazy"
-              width="500"
-              height="400"
-            />
-          </div>
+          <img
+            src={site.chiSiamoImmagine}
+            alt={chiSiamo.alt}
+            loading="lazy"
+            width="500"
+            height="400"
+          />
         </div>
         <div className={styles.testo}>
           <h2>{chiSiamo.titolo}</h2>
