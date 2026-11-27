@@ -191,7 +191,7 @@ const zh: Dict = {
     },
     testo: '通过 WhatsApp 告诉我们日期和人数。我们会在一小时内回复，周日也不例外。',
     alt: '从埃加迪群岛前的海上看日落',
-    etichetta: { perfetto: '理想', buono: '良好', sconsigliato: '风浪大' },
+    etichetta: { perfetto: '理想', buono: '良好', sconsigliato: '浪大' },
     meteoTitolo: '未来 7 天海况',
     fonte: <>预报来自 <a href="https://open-meteo.com/" {...ext}>Open-Meteo</a>，每小时更新。显示最大浪高和风速（节）。</>,
     waPrenota: '您好！我想预订一次出游。',

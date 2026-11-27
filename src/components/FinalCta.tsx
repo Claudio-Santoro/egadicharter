@@ -14,8 +14,12 @@ const LUNGO: Intl.DateTimeFormatOptions = { weekday: 'long', day: 'numeric', mon
 const ICONA = {
   perfetto: <><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></>,
   buono: <path d="M5 12.5l4.5 4.5L19 7.5" />,
-  sconsigliato: <path d="M2 9c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6 0M2 16c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6 0" />,
+  sconsigliato: <path d="M6.5 6.5l11 11M17.5 6.5l-11 11" />,
 }
+
+// icone dei valori: onda massima e vento
+const ONDA = <path d="M2 12c2.5-2.5 4.5-2.5 7 0s4.5 2.5 7 0 4.5-2.5 6 0M2 18c2.5-2.5 4.5-2.5 7 0s4.5 2.5 7 0 4.5-2.5 6 0" />
+const VENTO = <path d="M9.6 4.6A2 2 0 1 1 11 8H2M12.6 19.4A2 2 0 1 0 14 16H2M17.7 7.7A2.5 2.5 0 1 1 19.5 12H2" />
 
 /** onda massima che riempie la barra: oltre i 2 m il gommone resta comunque in porto */
 const ONDA_PIENA_M = 2
@@ -85,8 +89,12 @@ export default function FinalCta() {
                       {t.etichetta[g.stato]}
                     </span>
                     <span className={styles.valori}>
-                      {g.onda != null && `${g.onda.toLocaleString(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 })} m`}
-                      {g.vento != null && ` · ${Math.round(g.vento)} kn`}
+                      {g.onda != null && (
+                        <span><svg viewBox="0 0 24 24" aria-hidden="true">{ONDA}</svg>{g.onda.toLocaleString(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 })} m</span>
+                      )}
+                      {g.vento != null && (
+                        <span><svg viewBox="0 0 24 24" aria-hidden="true">{VENTO}</svg>{Math.round(g.vento)} kn</span>
+                      )}
                     </span>
                   </>
                 )

@@ -191,7 +191,7 @@ const en: Dict = {
     },
     testo: 'Message us on WhatsApp with the date and how many you are. We reply within an hour, even on Sundays.',
     alt: 'Sunset seen from the sea off the Egadi Islands',
-    etichetta: { perfetto: 'Ideal', buono: 'Good', sconsigliato: 'Rough sea' },
+    etichetta: { perfetto: 'Ideal', buono: 'Good', sconsigliato: 'Rough' },
     meteoTitolo: 'Sea over the next 7 days',
     fonte: <>Forecast by <a href="https://open-meteo.com/" {...ext}>Open-Meteo</a>, updated every hour. Maximum wave height and wind in knots.</>,
     waPrenota: "Hi! I'd like to book a boat trip.",

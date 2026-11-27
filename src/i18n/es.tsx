@@ -191,7 +191,7 @@ const es: Dict = {
     },
     testo: 'Escríbenos por WhatsApp con la fecha y cuántos sois. Respondemos en una hora, también los domingos.',
     alt: 'Atardecer visto desde el mar frente a las Egadas',
-    etichetta: { perfetto: 'Ideal', buono: 'Bueno', sconsigliato: 'Mar agitado' },
+    etichetta: { perfetto: 'Ideal', buono: 'Bueno', sconsigliato: 'Agitado' },
     meteoTitolo: 'El mar en los próximos 7 días',
     fonte: <>Previsiones de <a href="https://open-meteo.com/" {...ext}>Open-Meteo</a>, actualizadas cada hora. Ola máxima y viento en nudos.</>,
     waPrenota: '¡Hola! Me gustaría reservar una excursión.',

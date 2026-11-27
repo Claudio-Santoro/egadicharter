@@ -184,8 +184,28 @@ a.giorno:active {
 }
 
 .valori {
+  display: grid;
+  gap: 3px;
   color: rgba(255, 255, 255, .75);
   font-variant-numeric: tabular-nums;
+}
+
+.valori span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.valori svg {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: .8;
 }
 
 .perfetto { --c: #5FD7C0; }
