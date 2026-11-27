@@ -1,15 +1,16 @@
-/* su mobile la foto è il primo elemento: parte subito sotto la sezione precedente, senza fascia beige */
-@media (max-width: 899px) {
-  .sezione {
-    padding-top: 0;
-  }
+/* la foto tocca i bordi della sezione, sopra e sotto: niente fascia beige. Il respiro lo dà il testo */
+.sezione {
+  padding-block: 0;
+}
+
+.testo {
+  padding-bottom: 72px;
 }
 
 .misto {
   display: grid;
   grid-template-columns: 1fr;
   gap: 34px;
-  align-items: center;
 }
 
 /* a tutta larghezza, sfumata in basso nello sfondo della sezione */
@@ -59,10 +60,16 @@
     gap: 72px;
   }
 
+  /* la foto è alta quanto la sezione; il testo è centrato con il suo respiro sopra e sotto */
   .media {
     margin-right: 0;
     aspect-ratio: auto;
-    height: clamp(460px, 44vw, 640px);
+    min-height: clamp(460px, 44vw, 640px);
+  }
+
+  .testo {
+    align-self: center;
+    padding-block: 112px;
   }
 
   /* su desktop niente sfumatura */

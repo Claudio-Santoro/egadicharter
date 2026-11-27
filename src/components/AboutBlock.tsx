@@ -20,7 +20,7 @@ export default function AboutBlock() {
             height="400"
           />
         </div>
-        <div>
+        <div className={styles.testo}>
           <h2>{chiSiamo.titolo}</h2>
           <p>{chiSiamo.paragrafo1}</p>
           <p>{chiSiamo.paragrafo2}</p>
