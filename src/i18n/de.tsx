@@ -191,7 +191,7 @@ const de: Dict = {
     },
     testo: 'Schreiben Sie uns auf WhatsApp Datum und Personenzahl. Wir antworten innerhalb einer Stunde, auch sonntags.',
     alt: 'Sonnenuntergang vom Meer aus vor den Ägadischen Inseln',
-    etichetta: { perfetto: 'Idealer Tag', buono: 'Gut', sconsigliato: 'Raue See' },
+    etichetta: { perfetto: 'Ideal', buono: 'Gut', sconsigliato: 'Raue See' },
     meteoTitolo: 'Das Meer in den nächsten 7 Tagen',
     fonte: <>Vorhersage von <a href="https://open-meteo.com/" {...ext}>Open-Meteo</a>, stündlich aktualisiert. Maximale Wellenhöhe und Wind in Knoten.</>,
     waPrenota: 'Hallo! Ich möchte einen Ausflug buchen.',

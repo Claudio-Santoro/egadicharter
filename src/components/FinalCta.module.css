@@ -102,9 +102,13 @@
 
 .giorno {
   display: grid;
-  grid-template-rows: auto 64px auto auto;
+  /* minmax(0, 1fr): nessuna riga può allargare il riquadro; la riga dello stato prende lo spazio
+     in più, così i valori restano allineati in fondo anche quando un'etichetta va su due righe */
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 64px 1fr auto;
   gap: 6px;
   width: 108px;
+  height: 100%;
   padding: 12px;
   border: 1px solid rgba(255, 255, 255, .18);
   border-radius: var(--r-s);
@@ -161,15 +165,16 @@ a.giorno:active {
 
 .stato {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 5px;
   font-weight: 600;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 
 .stato svg {
   width: 15px;
   height: 15px;
+  margin-top: 1px;
   flex: 0 0 auto;
   fill: none;
   stroke: currentColor;

@@ -191,7 +191,7 @@ const pl: Dict = {
     },
     testo: 'Napisz do nas na WhatsAppie datę i liczbę osób. Odpowiadamy w ciągu godziny, także w niedzielę.',
     alt: 'Zachód słońca widziany z morza przed Wyspami Egadzkimi',
-    etichetta: { perfetto: 'Idealny dzień', buono: 'Dobry', sconsigliato: 'Wzburzone morze' },
+    etichetta: { perfetto: 'Idealny', buono: 'Dobry', sconsigliato: 'Wzburzone morze' },
     meteoTitolo: 'Morze w ciągu najbliższych 7 dni',
     fonte: <>Prognoza <a href="https://open-meteo.com/" {...ext}>Open-Meteo</a>, aktualizowana co godzinę. Maksymalna wysokość fali i wiatr w węzłach.</>,
     waPrenota: 'Dzień dobry! Chciałbym/chciałabym zarezerwować rejs.',

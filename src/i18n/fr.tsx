@@ -191,7 +191,7 @@ const fr: Dict = {
     },
     testo: 'Écrivez-nous sur WhatsApp avec la date et le nombre de personnes. Nous répondons en une heure, même le dimanche.',
     alt: 'Coucher de soleil vu de la mer face aux Égades',
-    etichetta: { perfetto: 'Journée idéale', buono: 'Bonne', sconsigliato: 'Mer agitée' },
+    etichetta: { perfetto: 'Idéale', buono: 'Bonne', sconsigliato: 'Mer agitée' },
     meteoTitolo: 'La mer ces 7 prochains jours',
     fonte: <>Prévisions <a href="https://open-meteo.com/" {...ext}>Open-Meteo</a>, mises à jour toutes les heures. Vague maximale et vent en nœuds.</>,
     waPrenota: 'Bonjour ! Je voudrais réserver une excursion.',

@@ -199,7 +199,7 @@ const it = {
     },
     testo: "Scrivici su WhatsApp con la data e quante persone siete. Rispondiamo entro un'ora, anche la domenica.",
     alt: 'Tramonto visto dal mare davanti alle Egadi',
-    etichetta: { perfetto: 'Giorno ideale', buono: 'Buono', sconsigliato: 'Mare mosso' },
+    etichetta: { perfetto: 'Ideale', buono: 'Buono', sconsigliato: 'Mare mosso' },
     meteoTitolo: 'Mare nei prossimi 7 giorni',
     fonte: <>Previsioni <a href="https://open-meteo.com/" {...ext}>Open-Meteo</a>, aggiornate ogni ora. Onda massima e vento in nodi.</> as ReactNode,
     waPrenota: "Ciao! Vorrei prenotare un'escursione.",
