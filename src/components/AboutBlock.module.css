@@ -73,6 +73,14 @@
     align-self: center;
     padding-block: 112px;
   }
+
+  /* su desktop la foto confina anche col testo: sfuma pure a destra (le due sfumature si sommano) */
+  .media img {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 24%, #000 70%, transparent), linear-gradient(to right, #000 55%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, #000 24%, #000 70%, transparent), linear-gradient(to right, #000 55%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+  }
 }
 
 /* la foto si apre mentre entra nello schermo: legata allo scroll, quindi si ferma e torna indietro con chi scorre.
